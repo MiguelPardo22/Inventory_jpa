@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="es">
+<head>
+<meta charset="utf-8">
+<title>Registro de Usuarios</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{/css/Styles.css}"/>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+				
+			
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}"> 1nv3nt0ry</a>
+			</div>
+		</div>
+	</nav>
+
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div th:if="${param.exito}">
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicacion</div>
+						</div>
+						
+					<h1>Registrate</h1>
+
+					<form th:action="@{/registro}" method="post" th:object="${usuario}">
+					
+					<div class="form-group">
+							<label class="control-label" for="iden">Identificacion: </label> <input
+								id="iden" type="number" class="form-control"
+								th:field="*{iden}" required>
+						</div>
+					
+						<div class="form-group">
+							<label class="control-label" for="nom">Nombre Completo: </label> <input
+								id="nom" type="text" class="form-control"
+								th:field="*{nom}" required>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="tel">Telefono: </label> <input
+								id="tel" type="number" class="form-control"
+								th:field="*{tel}" required>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="mail">Mail: </label> <input
+								id="mail" type="email" class="form-control" th:field="*{mail}"
+								required>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="con">Password: </label> <input
+								type="password" id="con" class="form-control" th:field="*{con}" required>
+						</div>
+						
+                        <div class="control-label">
+                          <button type="submit" class="button">Registrar</button>     
+                          <span>Si estas registrado <a th:href="@{/login}">Inicia Sesion aqui</a></span>                
+                        </div>
+					</form>
+			</div>
+			
+		</div>
+	</div>
+
+<img th:src="@{/css/logohorizontalconslogan.png}"/>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+</body>
+</html>

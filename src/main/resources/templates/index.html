@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="es">
+<head>
+<meta charset="ISO-8859-1">
+<title>Inicio</title>
+
+
+  <meta charset="utf-8" />
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!-- Estilos Menu -->
+  <link rel="stylesheet" th:href="@{/css/StyleMenu.css}"/>
+  <title>
+    Paper Dashboard 2 by Creative Tim
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+ 
+  <!-- CSS Files -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./css/demo1.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/e19784fdd4.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+       <img class="imagen"th:src="@{/css/logohorizontalconslogan.png}"/>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li li sec:authorize="isAuthenticated()" class="active ">
+            <a th:href="@{/UserWEB}">
+              <i class="fa-solid fa-user"></i>
+              <p>CRUD Usuarios</p>
+            </a>
+          </li>
+          <li sec:authorize="isAuthenticated()">
+            <a  th:href="@{/SupplierWEB}">
+          <i class="fa-sharp fa-solid fa-truck"></i>
+              <p>CRUD Proveedores</p>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/CategoryWEB}">
+       <i class="fa-sharp fa-solid fa-barcode"></i>
+              <p>CRUD Categoria</p>
+            </a>
+          </li>
+           <li sec:authorize="isAuthenticated()">>
+            <a  th:href="@{/MeasureWEB}">
+              <i class="fa-sharp fa-solid fa-gauge"></i>
+              <p>CRUD Medida</p>
+            </a>
+          </li>
+           <li sec:authorize="isAuthenticated()">>
+            <a th:href="@{/ProdWEB}">
+             <i class="fa-sharp fa-solid fa-wine-bottle"></i>
+              <p>CRUD Producto</p>
+            </a>
+          </li>
+          <li sec:authorize="isAuthenticated()">>
+            <a th:href="@{/PurchaseOrderWEB}">
+        <i class="fa-regular fa-credit-card"></i>
+              <p>CRUD Orden De Compra</p>
+            </a>
+          </li>
+          <li sec:authorize="isAuthenticated()">>
+            <a th:href="@{/OrderWEB}">
+             <i class="fa-solid fa-pen-to-square"></i>
+              <p>CRUD Pedido</p>
+            </a>
+          </li>
+           <li sec:authorize="isAuthenticated()">>
+            <a th:href="@{/PurchaseWEB}">
+             <i class="fa-solid fa-wallet"></i>
+              <p>CRUD Compra</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" style="height: 100vh;">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+             Bienvenido <span  class="span1" sec:authentication="principal.username"></span>
+         
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <form>
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="nc-icon nc-zoom-split"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item btn-rotate dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="nc-icon nc-bell-55"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item"  th:href="@{/mail}">Mail</a>
+                  <a class="dropdown-item" sec:authorize="isAuthenticated()" th:href="@{/logout}">Cerrar Sesion</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="description"></h3>
+            
+            
+            
+            <h2  data-text="1NV3NT0RY">1NV3NT0RY</h2>
+           
+            
+            <div class="container">
+
+		<div class="row">
+			<h1>Inventario</h1>
+		</div>
+		<table class="table table-striped table-bordered" id="myTable">
+			<thead class="table-dark">
+				<tr>
+					<th class="titulotb" scope="col">#</th>
+					<th class="titulotb" scope="col">Exitencias</th>
+					<th class="titulotb" scope="col">Producto</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="stock : ${stock}">
+					<th th:text="${stock.id_inventario}" scope="row"></th>
+					<td th:text="${stock.exis}"></td>
+					<td th:text="${stock.id_prod_fk.nom}">
+				</tr>
+			</tbody>
+		</table>
+		</div>
+            
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      
+     
+      
+      <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
+                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
+                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+              </ul>
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                � 2020, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="./assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+</body>
+
+</html>
+
+
+Bienvenido <span sec:authentication="principal.username"></span>
+
+<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar
+							sesi�n</a></li>
+				</ul>
+			</div>
+			
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/UserWEB}">Crud Usuarios</a></li>
+				</ul>
+			</div>
+			
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/SupplierWEB}">Crud Proveedor</a></li>
+				</ul>
+			</div>
+			
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/CategoryWEB}">Crud Categorias</a></li>
+				</ul>
+			</div>
+			
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/MeasureWEB}">Crud Medidas</a></li>
+				</ul>
+			</div>
+			
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/ProdWEB}">Crud Productos</a></li>
+				</ul>
+			</div>
+			
+			  <!--   Core JS Files   -->
+  <script src="./css/js/core/jquery.min.js"></script>
+  <script src="./css/js/core/popper.min.js"></script>
+  <script src="./css/js/core/bootstrap.min.js"></script>
+  <script src="./css/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="./css/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="./css/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./css/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+</body>
+</body>
+
+
+
+
+</html>

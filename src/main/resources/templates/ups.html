@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>No autorizado</title>
+</head>
+<body>
+
+<h3>NO tiene permiso lampara</h3>
+
+<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar
+							sesión</a></li>
+				</ul>
+
+</body>
+</html>
