@@ -2,8 +2,6 @@ package com.app.inventory.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +37,7 @@ public class Order implements Serializable{
 	private User id_usu_fk; 
 	
 	@OneToMany(mappedBy = "id_ped_fk")
-	private Set<OrderDetail> detalles;
+	private List<OrderDetail>Listorderdetail;
 	
 	@OneToMany(mappedBy = "id_ped_fk")
 	private List<Sale>Listsale;
@@ -60,12 +58,11 @@ public class Order implements Serializable{
 		Name_cli = name_cli;
 	}
 
+
+
+
+
 	public long getTotal() {
-		long Total = 0l;
-		
-		for (OrderDetail detail : detalles) {	
-			Total += detail.getSub();
-		}
 		return Total;
 	}
 
@@ -87,14 +84,6 @@ public class Order implements Serializable{
 
 	public void setId_usu_fk(User id_usu_fk) {
 		this.id_usu_fk = id_usu_fk;
-	}
-
-	public Set<OrderDetail> getDetalles() {
-		return detalles;
-	}
-
-	public void setDetalles(Set<OrderDetail> detalles) {
-		this.detalles = detalles;
 	}
 
 	public Order(int id_Ped, String name_cli, long total, Date fecha, User id_usu_fk) {
