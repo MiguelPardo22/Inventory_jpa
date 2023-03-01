@@ -1,4 +1,4 @@
-package com.app.inventory.facadeimp;
+   package com.app.inventory.facadeimp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,17 +67,6 @@ public class OrderDao implements IOrder {
 		this.orrepo.save(or);
 	}
 
-	private ArrayList<OrderDetail> obtenerDetalles(HttpServletRequest request) {
-		ArrayList<OrderDetail> detalles = (ArrayList<OrderDetail>) request.getAttribute("detalles");
-
-		if (detalles == null) {
-
-			detalles = new ArrayList<>();
-
-		}
-		return detalles;
-	}
-
 	@Override
 	public Order guardar(OrderDTO orderDTO) {
 		
@@ -93,6 +82,7 @@ public class OrderDao implements IOrder {
 		Inventory inven = new Inventory();
 		
 		inven.setId_det_ped_fk(detor);
+		inven.setExis(- detor.getCant());
 		inven.setId_prod_fk(orderDTO.getId_prod_fk());
 		
 		this.invenrepo.save(inven);
