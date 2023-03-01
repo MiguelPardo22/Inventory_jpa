@@ -1,5 +1,4 @@
 package com.app.inventory.model;
-import java.beans.Transient;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
@@ -39,7 +38,7 @@ public class OrderDetail implements Serializable{
 	public int getId_det_ped() {
 		return id_det_ped;
 	}
-    
+
 	public void setId_det_ped(int id_det_ped) {
 		this.id_det_ped = id_det_ped;
 	}
@@ -52,12 +51,8 @@ public class OrderDetail implements Serializable{
 		this.cant = cant;
 	}
 
-	
-	@Transient
 	public long getSub() {
-		
-		return this.cant * this.id_prod_fk.getPre_vent();
-		
+		return sub;
 	}
 
 	public void setSub(long sub) {
@@ -100,7 +95,5 @@ public class OrderDetail implements Serializable{
 	public OrderDetail() {
 		super();
 	}
-	
-	
 	
 }
