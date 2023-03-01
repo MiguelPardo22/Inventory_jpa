@@ -1,7 +1,8 @@
 package com.app.inventory.model;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Pedido")
@@ -29,15 +28,14 @@ public class Order implements Serializable{
 	@Column(name="Total",length=40)
 	private long Total;
 
-	@Temporal(TemporalType.DATE)
-    private Date Fecha;
+    private String Fecha = Utiles.obtenerFechaYHoraActual();
 	
-	@ManyToOne
+	 @ManyToOne
 	@JoinColumn(name="id_usu_fk", referencedColumnName = "id_usu")
 	private User id_usu_fk; 
 	
 	@OneToMany(mappedBy = "id_ped_fk")
-	private List<OrderDetail>Listorderdetail;
+	private Set<OrderDetail> detalles;
 	
 	@OneToMany(mappedBy = "id_ped_fk")
 	private List<Sale>Listsale;
@@ -58,11 +56,12 @@ public class Order implements Serializable{
 		Name_cli = name_cli;
 	}
 
-
-
-
-
 	public long getTotal() {
+		long Total = 0l;
+		
+		for (OrderDetail detail : detalles) {	
+			Total += detail.getSub();
+		}
 		return Total;
 	}
 
@@ -70,11 +69,11 @@ public class Order implements Serializable{
 		Total = total;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return Fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		Fecha = fecha;
 	}
 
@@ -86,7 +85,15 @@ public class Order implements Serializable{
 		this.id_usu_fk = id_usu_fk;
 	}
 
-	public Order(int id_Ped, String name_cli, long total, Date fecha, User id_usu_fk) {
+	public Set<OrderDetail> getDetalles() {
+		return detalles;
+	}
+
+	public void setDetalles(Set<OrderDetail> detalles) {
+		this.detalles = detalles;
+	}
+
+	public Order(int id_Ped, String name_cli, long total, String fecha, User id_usu_fk) {
 		super();
 		this.id_Ped = id_Ped;
 		Name_cli = name_cli;
@@ -95,17 +102,15 @@ public class Order implements Serializable{
 		this.id_usu_fk = id_usu_fk;
 	}
 	
-	public Order(String name_cli, long total, Date fecha, User id_usu_fk) {
+	public Order(String name_cli, long total, User id_usu_fk) {
 		super();
 		Name_cli = name_cli;
 		Total = total;
-		Fecha = fecha;
 		this.id_usu_fk = id_usu_fk;
 	}
 
 	public Order() {
 		super();
 	}
-	
 }
 
