@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.inventory.Dto.OrderDTO;
+import com.app.inventory.Repository.Detalle_OrderCompraRepository;
 import com.app.inventory.Repository.InventoryRepository;
 import com.app.inventory.Repository.OrderDetailRepository;
 import com.app.inventory.Repository.OrderRepository;
 import com.app.inventory.facade.IOrder;
+import com.app.inventory.model.Detalle_OrderCompra;
 import com.app.inventory.model.Inventory;
 import com.app.inventory.model.Order;
 import com.app.inventory.model.OrderDetail;
@@ -30,6 +32,9 @@ public class OrderDao implements IOrder {
 	@Autowired
 	InventoryRepository invenrepo;
 
+	@Autowired
+	Detalle_OrderCompraRepository detcom;
+	
 	@Override
 	public List<Order> EncontrarOrder() {
 		return orrepo.findAll();
@@ -73,36 +78,10 @@ public class OrderDao implements IOrder {
 		return detalles;
 	}
 
-	/*
-	 * @Override public Order guardar(OrderDTO orderDTO, HttpServletRequest request)
-	 * {
-	 * 
-	 * ArrayList<OrderDetail> detalles = this.obtenerDetalles(request);
-	 * 
-	 * for (OrderDetail det : detalles) {
-	 * 
-	 * Inventory inven = invenrepo.findById((long)
-	 * det.getId_det_ped()).orElse(null);
-	 * 
-	 * Order or = new Order(orderDTO.getName_cli(), orderDTO.getTot(),
-	 * orderDTO.getFecha(), orderDTO.getId_usu_fk());
-	 * 
-	 * OrderDetail detor = new OrderDetail(); detor.setId_ped_fk(or);
-	 * inven.restarInventario(detor.getCant()); invenrepo.save(inven);
-	 * detor.setCant(orderDTO.getCant());
-	 * detor.setId_prod_fk(orderDTO.getId_prod_fk());
-	 * detor.setSub(orderDTO.getSub());
-	 * 
-	 * this.ordetrepo.save(detor); orrepo.save(or); } return null;
-	 * 
-	 * }
-	 */
-
 	@Override
 	public Order guardar(OrderDTO orderDTO) {
 		
 		Order or = new Order(orderDTO.getName_cli(), orderDTO.getTot(),
-				orderDTO.getFecha(),
 				orderDTO.getId_usu_fk());
 
 		OrderDetail detor = new OrderDetail();
