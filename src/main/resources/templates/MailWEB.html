@@ -55,72 +55,82 @@
 
 						<table class="table table-striped table-bordered" id="myTable">
 							<thead class="table-dark">
-							
-							<tr>
-							  <th class="titulotb" scope="col">Nombre</th>
-							  <th class="titulotb" scope="col">Mail</th>
-							</tr>
-							
-							</thead>
-							 <tbody>
-							<tr th:each="admin : ${admin}">
 
-								<td th:text="${admin.nom}"></td>
-								
-								<td><input type="checkbox" name="emails" th:text="${admin.mail}"
-										th:value="${admin.mail}"/></td>
-								
-							</tr>
+								<tr>
+									<th class="titulotb" scope="col">Nombre</th>
+									<th class="titulotb" scope="col">Mail</th>
+								</tr>
+
+							</thead>
+							<tbody>
+								<tr th:each="admin : ${admin}">
+
+									<td th:text="${admin.nom}"></td>
+
+									<td><input type="checkbox" name="emails"
+										th:text="${admin.mail}" th:value="${admin.mail}" class="BtnAdmin" /></td>
+
+								</tr>
 							</tbody>
 						</table>
+
+                          <input type="checkbox" id="selectAdmin">Seleccionar Todos los Administradores
 
 						<h4>Bodeguero</h4>
 
 
 						<table class="table table-striped table-bordered" id="myTable">
 							<thead class="table-dark">
-							
-							<tr>
-							  <th class="titulotb" scope="col">Nombre</th>
-							  <th class="titulotb" scope="col">Mail</th>
-							</tr>
-							
-							</thead>
-							 <tbody>
-							<tr th:each="bod : ${bodeguero}">
 
-								<td th:text="${bod.nom}"></td>
-								
-								<td><input type="checkbox" name="emails" th:text="${bod.mail}"
-										th:value="${bod.mail}"/></td>
-								
-							</tr>
+								<tr>
+									<th class="titulotb" scope="col">Nombre</th>
+									<th class="titulotb" scope="col">Mail</th>
+								</tr>
+
+							</thead>
+							<tbody>
+								<tr th:each="bod : ${bodeguero}">
+
+									<td th:text="${bod.nom}"></td>
+
+									<td><input type="checkbox" name="emails"
+										th:text="${bod.mail}" th:value="${bod.mail}" class="BtnBodegueros" /></td>
+
+								</tr>
 							</tbody>
 						</table>
+
+                          <input type="checkbox" id="selectBodegueros">Seleccionar Todos los Bodegueros
 
 						<h4>Meseros</h4>
 
+                         <div class="meseros">
 
 						<table class="table table-striped table-bordered" id="myTable">
 							<thead class="table-dark">
-							
-							<tr>
-							  <th class="titulotb" scope="col">Nombre</th>
-							  <th class="titulotb" scope="col">Mail</th>
-							</tr>
-							
-							</thead>
-							 <tbody>
-							<tr th:each="me : ${mesero}">
 
-								<td th:text="${me.nom}"></td>
-								
-								<td><input type="checkbox" name="emails" th:text="${me.mail}"
-										th:value="${me.mail}"/></td>
-								
-							</tr>
+								<tr>
+									<th class="titulotb" scope="col">Nombre</th>
+									<th class="titulotb" scope="col">Mail</th>
+								</tr>
+
+							</thead>
+							<tbody>
+								<tr th:each="me : ${mesero}">
+
+									<td th:text="${me.nom}"></td>
+
+									<td><input type="checkbox" name="emails"
+										th:text="${me.mail}" th:value="${me.mail}" class="BtnMeseros" /></td>
+
+								</tr>
 							</tbody>
 						</table>
+						  <input type="checkbox" id="selectMeseros">Seleccionar Todos los meseros
+						</div>
+						
+						<input type="checkbox" id="selectAll">Seleccionar Todos
+						
 					</div>
 				</div>
 
@@ -162,4 +172,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
 		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
 		crossorigin="anonymous"></script>
+	<!-- Java Script -->
+	<script type="text/javascript" src="../static/js/Mail.js"
+		th:src="@{/js/Mail.js}"></script>
 </body>
