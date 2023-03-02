@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	
+
 <!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 <!-- -Estilos -->
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
+	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
 	<a sec:authorize="isAuthenticated()" class="cerrar"
 		th:href="@{/logout}">Cerrar sesión</a>
 	<hr>
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 				<div class="form-group1">
-					<h4  class="titulo">Su Correo:</h4>
+					<h4 class="titulo">Su Correo:</h4>
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 						<div class="input-group-addon">@</div>
 						<input type="text" class="form-control" name="mail"
@@ -47,19 +47,80 @@
 				<!-- Aqui empieza el array de correos -->
 
 				<div class="form-group1">
-					<h4  class="titulo">Correos:</h4>
+					<h4 class="titulo">Correos:</h4>
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<div class="input-group-addon">@</div>
-						<th:block th:each="mails : ${mails}">
-                            
-							<div>
-							
-								<input type="checkbox" name="emails" th:text="${mails.mail}"
-									th:value="${mails.mail}"></input>
-									
-							</div>
 
-						</th:block>
+						<h4>Administrador</h4>
+
+
+						<table class="table table-striped table-bordered" id="myTable">
+							<thead class="table-dark">
+							
+							<tr>
+							  <th class="titulotb" scope="col">Nombre</th>
+							  <th class="titulotb" scope="col">Mail</th>
+							</tr>
+							
+							</thead>
+							 <tbody>
+							<tr th:each="admin : ${admin}">
+
+								<td th:text="${admin.nom}"></td>
+								
+								<td><input type="checkbox" name="emails" th:text="${admin.mail}"
+										th:value="${admin.mail}"/></td>
+								
+							</tr>
+							</tbody>
+						</table>
+
+						<h4>Bodeguero</h4>
+
+
+						<table class="table table-striped table-bordered" id="myTable">
+							<thead class="table-dark">
+							
+							<tr>
+							  <th class="titulotb" scope="col">Nombre</th>
+							  <th class="titulotb" scope="col">Mail</th>
+							</tr>
+							
+							</thead>
+							 <tbody>
+							<tr th:each="bod : ${bodeguero}">
+
+								<td th:text="${bod.nom}"></td>
+								
+								<td><input type="checkbox" name="emails" th:text="${bod.mail}"
+										th:value="${bod.mail}"/></td>
+								
+							</tr>
+							</tbody>
+						</table>
+
+						<h4>Meseros</h4>
+
+
+						<table class="table table-striped table-bordered" id="myTable">
+							<thead class="table-dark">
+							
+							<tr>
+							  <th class="titulotb" scope="col">Nombre</th>
+							  <th class="titulotb" scope="col">Mail</th>
+							</tr>
+							
+							</thead>
+							 <tbody>
+							<tr th:each="me : ${mesero}">
+
+								<td th:text="${me.nom}"></td>
+								
+								<td><input type="checkbox" name="emails" th:text="${me.mail}"
+										th:value="${me.mail}"/></td>
+								
+							</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 
@@ -81,24 +142,24 @@
 					<button type="submit" class="third">Enviar</button>
 				</div>
 			</form>
-		
+
 		</div>
 	</div>
-		<a class="ov-btn-slide-close" th:href="@{/}">Regresar</a>
+	<a class="ov-btn-slide-close" th:href="@{/}">Regresar</a>
 	<!-- Bootsrap -->
 	<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-	crossorigin="anonymous"></script>
-<!-- Font Awesome -->
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+		crossorigin="anonymous"></script>
+	<!-- Font Awesome -->
 	<script src="https://use.fontawesome.com/5b5fa05dbf.js"></script>
 	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-	integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-	crossorigin="anonymous"></script>
-<!--ajax-->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-	integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-	crossorigin="anonymous"></script>
+		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+		crossorigin="anonymous"></script>
+	<!--ajax-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+		crossorigin="anonymous"></script>
 </body>
