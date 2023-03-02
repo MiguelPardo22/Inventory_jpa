@@ -35,7 +35,7 @@ public class Order implements Serializable{
 	private User id_usu_fk; 
 	
 	@OneToMany(mappedBy = "id_ped_fk")
-	private Set<OrderDetail> detalles;
+	private List<OrderDetail> detalles;
 	
 	@OneToMany(mappedBy = "id_ped_fk")
 	private List<Sale>Listsale;
@@ -85,11 +85,11 @@ public class Order implements Serializable{
 		this.id_usu_fk = id_usu_fk;
 	}
 
-	public Set<OrderDetail> getDetalles() {
+	public List<OrderDetail> getDetalles() {
 		return detalles;
 	}
 
-	public void setDetalles(Set<OrderDetail> detalles) {
+	public void setDetalles(List<OrderDetail> detalles) {
 		this.detalles = detalles;
 	}
 
@@ -112,5 +112,13 @@ public class Order implements Serializable{
 	public Order() {
 		super();
 	}
+
+	public Order(String name_cli, User id_usu_fk) {
+		super();
+		Name_cli = name_cli;
+		this.id_usu_fk = id_usu_fk;
+	}
+	
+	
 }
 
