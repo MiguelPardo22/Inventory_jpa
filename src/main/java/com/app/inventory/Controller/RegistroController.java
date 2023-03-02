@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.inventory.Repository.InventoryRepository;
+import com.app.inventory.Repository.UserRepository;
 import com.app.inventory.facadeimp.EmailDao;
 import com.app.inventory.facadeimp.UserDao;
 import com.app.inventory.model.Inventory;
@@ -28,6 +29,9 @@ public class RegistroController {
 	
 	@Autowired
 	InventoryRepository invenrepo;
+	
+	@Autowired
+	UserRepository userrepo;
 	
 	@GetMapping("/login")
 	public String login() {
@@ -61,10 +65,16 @@ public class RegistroController {
 	
 	// --> Envio de Correos
 	@GetMapping("/mail")
-	public String enviarmail(Model modelo){
+	public String enviarmail(Model modelo){ 
 		
-		List<User> lstmails = userdao.EncontrarUser();
-		modelo.addAttribute("mails", lstmails); 
+		List<User> lstadmin = userrepo.rolAdministrador();
+		modelo.addAttribute("admin", lstadmin); 
+		
+	    List<User> lstBodeguero = userrepo.rolBodeguero();
+		modelo.addAttribute("bodeguero", lstBodeguero); 
+		
+		List<User> lstmesero = userrepo.rolMesero();
+		modelo.addAttribute("mesero", lstmesero);
 		
 		return "MailWEB";
 	} 
