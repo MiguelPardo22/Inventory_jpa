@@ -1,6 +1,5 @@
 package com.app.inventory.Dto;
 
-import java.util.Date;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -8,6 +7,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.app.inventory.model.Order;
+import com.app.inventory.model.OrderDetail;
 import com.app.inventory.model.Product;
 import com.app.inventory.model.User;
 
@@ -21,10 +21,11 @@ public class OrderDTO {
 	private int cant;
 	private Order id_ped_fk; 
 	private Product id_prod_fk; 
+	private OrderDetail id_det_ped_fk; 
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date Fecha;
+	private String Fecha;
 
 	public int getId_Ped() {
 		return id_Ped;
@@ -43,7 +44,7 @@ public class OrderDTO {
 	}
 
 	public long getSub() {
-		return sub;
+		return this.cant * this.id_prod_fk.getPre_vent();
 	}
 
 	public void setSub(long sub) {
@@ -82,20 +83,29 @@ public class OrderDTO {
 		this.id_prod_fk = id_prod_fk;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return Fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		Fecha = fecha;
 	}
 
 	public long getTot() {
-		return tot;
+		
+		return this.tot += this.getSub();
 	}
 
 	public void setTot(long tot) {
 		this.tot = tot;
+	}
+
+	public OrderDetail getId_det_ped_fk() {
+		return id_det_ped_fk;
+	}
+
+	public void setId_det_ped_fk(OrderDetail id_det_ped_fk) {
+		this.id_det_ped_fk = id_det_ped_fk;
 	}
 	
 }
