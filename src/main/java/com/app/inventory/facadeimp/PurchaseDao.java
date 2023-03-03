@@ -66,7 +66,6 @@ public class PurchaseDao implements IPurchase{
 		
 		Purchase pur = new Purchase(purchaseDTO.getNum_fac(),
 				purchaseDTO.getTot_com(),
-				purchaseDTO.getFecha(),
 				purchaseDTO.getId_Supplier_fk());
 		
 		DetalleCompra detcom = new DetalleCompra();
