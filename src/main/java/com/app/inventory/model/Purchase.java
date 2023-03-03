@@ -12,12 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
-import javax.persistence.*;
 
 @Entity
 @Table(name = "Compra")
@@ -34,9 +28,8 @@ public class Purchase implements Serializable {
 	@Column(name="Total_Compra",length=40)
 	private long Tot_com;
 	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date Fecha;
+	
+    private String Fecha = Utiles.obtenerFechaYHoraActual();
 	
 	@ManyToOne
 	@JoinColumn(name="id_Supplier_fk", referencedColumnName = "id_Proveedor")
@@ -74,11 +67,11 @@ public class Purchase implements Serializable {
 		Tot_com = tot_com;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return Fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		Fecha = fecha;
 	}
 
@@ -100,7 +93,7 @@ public class Purchase implements Serializable {
 		this.detalles = detalles;
 	}
 
-	public Purchase(long id_com, String num_fac, long tot_com, Date fecha, Supplier id_Supplier_fk) {
+	public Purchase(long id_com, String num_fac, long tot_com, String fecha, Supplier id_Supplier_fk) {
 		super();
 		this.id_com = id_com;
 		Num_fac = num_fac;
@@ -109,11 +102,10 @@ public class Purchase implements Serializable {
 		this.id_Supplier_fk = id_Supplier_fk;
 	}
 
-	public Purchase(String num_fac, long tot_com, Date fecha, Supplier id_Supplier_fk) {
+	public Purchase(String num_fac, long tot_com, Supplier id_Supplier_fk) {
 		super();
 		Num_fac = num_fac;
 		Tot_com = tot_com;
-		Fecha = fecha;
 		this.id_Supplier_fk = id_Supplier_fk;
 	}
 
