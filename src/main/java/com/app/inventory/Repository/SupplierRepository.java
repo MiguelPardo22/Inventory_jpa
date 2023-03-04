@@ -13,6 +13,6 @@ public interface SupplierRepository extends JpaRepository<Supplier, Long>{
 
 	@Query(value = "SELECT * FROM proveedor where proveedor.estado = 'Activo'",
 			nativeQuery = true)
-	List<Supplier> ListCategoria();
+	List<Supplier> ListSupplier();
 	
 }
