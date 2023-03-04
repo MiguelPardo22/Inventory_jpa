@@ -298,7 +298,7 @@ supports (-ms-overflow-style:none) { .
 	fieldset[disabled] .navbar .navbar-nav>a.btn.active, fieldset[disabled] .navbar .navbar-nav>a.btn.focus,
 	fieldset[disabled] .navbar .navbar-nav>a.btn:active, fieldset[disabled] .navbar .navbar-nav>a.btn:focus,
 	fieldset[disabled] .navbar .navbar-nav>a.btn:hover {
-	background-color: #66615b;
+	background-color: #ecab0f;
 	border-color: #66615b
 }
 
@@ -2296,7 +2296,7 @@ body {
 .navbar.navbar-absolute {
 	position: absolute;
 	width: 100%;
-	padding-top: 10px;
+	padding-top: 24px;
 	z-index: 1029
 }
 
@@ -2439,15 +2439,15 @@ body {
 
 .navbar.navbar-transparent a:not(.dropdown-item):not(.btn).disabled {
 	opacity: .5;
-	color: #66615b
+	color:#ecab0f
 }
 
 .navbar.navbar-transparent .button-bar {
-	background: #66615b
+	background: #ecab0f
 }
 
 .navbar.navbar-transparent .nav-item .nav-link:not(.btn) {
-	color: #66615b
+	color: #ecab0f
 }
 
 .navbar.navbar-transparent .nav-item.active .nav-link:not(.btn), .navbar.navbar-transparent .nav-item .nav-link:not(.btn):active,
