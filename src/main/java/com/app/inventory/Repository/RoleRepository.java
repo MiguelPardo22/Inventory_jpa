@@ -8,4 +8,8 @@ import com.app.inventory.model.Rol;
 @Repository
 public interface RoleRepository extends JpaRepository<Rol, Long>{
 
+  @Query(value = "SELECT * FROM rol WHERE rol.id_rol = 1",
+			nativeQuery = true)
+	List<Rol> rolInicial();
+  
 }
