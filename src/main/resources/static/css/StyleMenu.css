@@ -16,7 +16,8 @@ font-family:-apple-system;
 
 
 h2{
-font-size:40px;
+
+font-size:10px;
 
 position:absolute;
 font-family:fantasy;
@@ -30,14 +31,14 @@ font-family:fantasy;
 	1px -1px 0 white,
 	1px 1px 0 white,
 	-1px 1px 0 white;
-	font-size:70px;
+	font-size:10px;
 }
 
 
 .wave{
 	color:#ecab0f;
 	animation: wave 3s  ease-in-out infinite;
-	font-size:70px;
+	font-size:10px;
 	
 }
 
@@ -46,8 +47,8 @@ font-family:fantasy;
 @keyframes wave{
 	0%, 100% {
 	clip-path:polygon(
-	0% 47%,
-	10% 48%,
+	0% 30%,
+	10% 30%,
 	33% 54%,
 	54% 60%,
 	70% 61%,
@@ -80,9 +81,9 @@ font-family:fantasy;
 
 
 
-.span{
+.span1{
 	color:#ecab0f;
-	font-size:40px;
+	font-size:20px;
 }
 
 
@@ -104,4 +105,20 @@ td{
 }
 
 
+.bienvenido{
+	color:#ecab0f;
+	font-size:60000px;
+	
+	
+}
+	
+
+
+
 h1{color:white;}
+
+
+
+.anima{
+	font-size:20px;
+}
