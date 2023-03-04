@@ -30,6 +30,9 @@ public class UserDao implements IUser{
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	@Autowired
+ 	RoleRepository rolrepo;
+	
      private UserRepository	userrepo;
      
 	public UserDao(UserRepository userrepo) {
@@ -42,7 +45,7 @@ public class UserDao implements IUser{
 	      User us = new User(registroDTO.getIden(), registroDTO.getNom(),
 	    		  registroDTO.getTel(), registroDTO.getMail(),
 	    		 passwordEncoder.encode(registroDTO.getCon()),
-	    		 Arrays.asList(new Rol("Invitado")));
+	    		 rolrepo.rolInicial());
 	             us.setEst("Activo");
 		return userrepo.save(us);
 	}
