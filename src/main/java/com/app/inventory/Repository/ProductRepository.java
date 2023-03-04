@@ -11,7 +11,7 @@ import com.app.inventory.model.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>{
 
-	@Query(value = "SELECT * FROM product where producto.estado = 'Activo'",
+	@Query(value = "SELECT * FROM producto where producto.estado = 'Activo'",
 			nativeQuery = true)
 	List<Product> ListProduct();
 	
