@@ -13,7 +13,7 @@
   <!-- Estilos Menu -->
   <link rel="stylesheet" th:href="@{/css/StyleMenu.css}"/>
   <title>
-    Paper Dashboard 2 by Creative Tim
+  1NV3NT0RY
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -37,49 +37,49 @@
           <li li sec:authorize="isAuthenticated()" class="active ">
             <a th:href="@{/UserWEB}">
               <i class="fa-solid fa-user"></i>
-              <p>CRUD Usuarios</p>
+              <p>Usuarios</p>
             </a>
           </li>
           <li sec:authorize="isAuthenticated()">
             <a  th:href="@{/SupplierWEB}">
           <i class="fa-sharp fa-solid fa-truck"></i>
-              <p>CRUD Proveedores</p>
+              <p>Proveedores</p>
             </a>
           </li>
           <li>
             <a th:href="@{/CategoryWEB}">
        <i class="fa-sharp fa-solid fa-barcode"></i>
-              <p>CRUD Categoria</p>
+              <p> Categoria</p>
             </a>
           </li>
            <li sec:authorize="isAuthenticated()">>
             <a  th:href="@{/MeasureWEB}">
               <i class="fa-sharp fa-solid fa-gauge"></i>
-              <p>CRUD Medida</p>
+              <p> Medida</p>
             </a>
           </li>
            <li sec:authorize="isAuthenticated()">>
             <a th:href="@{/ProdWEB}">
              <i class="fa-sharp fa-solid fa-wine-bottle"></i>
-              <p>CRUD Producto</p>
+              <p> Producto</p>
             </a>
           </li>
           <li sec:authorize="isAuthenticated()">>
             <a th:href="@{/PurchaseOrderWEB}">
         <i class="fa-regular fa-credit-card"></i>
-              <p>CRUD Orden De Compra</p>
+              <p> Orden De Compra</p>
             </a>
           </li>
           <li sec:authorize="isAuthenticated()">>
             <a th:href="@{/OrderWEB}">
              <i class="fa-solid fa-pen-to-square"></i>
-              <p>CRUD Pedido</p>
+              <p> Pedido</p>
             </a>
           </li>
            <li sec:authorize="isAuthenticated()">>
             <a th:href="@{/PurchaseWEB}">
              <i class="fa-solid fa-wallet"></i>
-              <p>CRUD Compra</p>
+              <p> Compra</p>
             </a>
           </li>
         </ul>
@@ -97,7 +97,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-             Bienvenido <span  class="span1" sec:authentication="principal.username"></span>
+         <p class="bienvenido">Bienvenido:  </p> <span  class="span1" sec:authentication="principal.username"></span>
          
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,14 +119,14 @@
             <ul class="navbar-nav">
               <li class="nav-item btn-rotate dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="nc-icon nc-bell-55"></i>
+                  <i class="fa-sharp fa-solid fa-bars"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Some Actions</span>
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item"  th:href="@{/mail}">Mail</a>
-                  <a class="dropdown-item" sec:authorize="isAuthenticated()" th:href="@{/logout}">Cerrar Sesion</a>
+                  <a class="dropdown-item" sec:authorize="isAuthenticated()" th:href="@{/}">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>
@@ -141,8 +141,6 @@
             
             
             
-            <h2  data-text="1NV3NT0RY">1NV3NT0RY</h2>
-           
             
             <div class="container">
 
@@ -167,13 +165,15 @@
 			</tbody>
 		</table>
 		</div>
-            
+                 <h2 data-text="1NV3NT0RY">1NV3NT0RY</h2>
             </div>
            
           </div>
         </div>
       </div>
       
+       
+           
      
       
       <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
@@ -266,8 +266,10 @@ Bienvenido <span sec:authentication="principal.username"></span>
   <script src="./css/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./css/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+    <script src="./css/js/paper-dashboard.js?v=2.0.1" type="text/javascript"></script>
+        <script src="./css/js/paper-dashboard.js,map?v=2.0.1" type="text/javascript"></script>
 </body>
-</body>
+
 
 
 
