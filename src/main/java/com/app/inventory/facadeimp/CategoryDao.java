@@ -18,7 +18,7 @@ public class CategoryDao implements ICategory{
 	
 	@Override
 	public List<Category> EncontrarCategory() {	
-		return categoryrepo.findAll();
+		return categoryrepo.ListCategoria();
 	}
 
 	@Override

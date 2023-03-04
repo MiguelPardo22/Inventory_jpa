@@ -18,7 +18,7 @@ public class MeasureDao implements IMeasure{
 	
 	@Override
 	public List<Measure> EncontrarMeasure() {
-		return measurepo.findAll();
+		return measurepo.ListMedida();
 	}
 
 	@Override

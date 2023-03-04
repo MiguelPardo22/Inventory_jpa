@@ -18,7 +18,7 @@ public class SupplierDao implements ISupplier{
 	
 	@Override
 	public List<Supplier> EncontrarSupplier() {
-		return supplierrepo.findAll();
+		return supplierrepo.ListSupplier();
 	}
 
 	@Override

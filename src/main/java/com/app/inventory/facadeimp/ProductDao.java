@@ -19,7 +19,7 @@ public class ProductDao implements IProduct{
 	
 	@Override
 	public List<Product> EncontrarProduct() {
-		return prorepo.findAll();
+		return prorepo.ListProduct();
 	}
 
 	@Override
