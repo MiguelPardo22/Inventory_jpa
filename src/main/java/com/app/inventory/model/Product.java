@@ -85,8 +85,13 @@ public class Product implements Serializable {
 		Pre_vent = pre_vent;
 	}
 
-	public int getImp() {
-		return imp;
+	public double getImp() {
+		
+		double iva = 0.19;
+		
+		iva *= this.Pre_vent;
+		
+		return iva;
 	}
 
 	public void setImp(int imp) {
