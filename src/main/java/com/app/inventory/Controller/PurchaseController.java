@@ -20,6 +20,7 @@ import com.app.inventory.model.Purchase;
 import com.app.inventory.model.Supplier;
 
 @Controller
+@RequestMapping({"/admin"})
 public class PurchaseController {
 
 	@Autowired
@@ -57,13 +58,13 @@ public class PurchaseController {
 		
 		purdao.guardar(purchasedto);
 		
-		return "redirect:/PurchaseWEB";
+		return "redirect:/admin/PurchaseWEB";
 	}
 	
 	@RequestMapping(value="/PurchaseUpdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Purchase purchase) {
 		purdao.update(purchase);
-		return "redirect:/PurchaseWEB";
+		return "redirect:/admin/PurchaseWEB";
 		
 	}
 	

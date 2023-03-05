@@ -14,12 +14,13 @@ import com.app.inventory.facadeimp.CategoryDao;
 import com.app.inventory.model.Category;
 
 @Controller
+@RequestMapping({"/admin"})
 public class CategoryController {
 
 	@Autowired
 	CategoryDao catdao;
 	
-	@RequestMapping({"/CategoryWEB", "/"})
+	@RequestMapping({"/category"})
 	public String ListCategoria(Model model) {
 		model.addAttribute("Category", catdao.EncontrarCategory());
 		return "CategoryWEB";
@@ -35,13 +36,13 @@ public class CategoryController {
 	@PostMapping({"/CategoryCrear"})
 	public String create(Category category) {
 		catdao.create(category);
-		return "redirect:/CategoryWEB";
+		return "redirect:/admin/category";
 	}
 	
 	@RequestMapping(value="/CategoryUpdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Category category) {
 		catdao.update(category);
-		return "redirect:/CategoryWEB";
+		return "redirect:/admin/category";
 	}
 	
 	@RequestMapping(value="/CategoryDelete", method = {RequestMethod.PUT, RequestMethod.GET})
@@ -51,7 +52,7 @@ public class CategoryController {
 		cat.setEst("Inactivo");
 		
 		this.catdao.delete(cat);
-		return "redirect:/CategoryWEB";
+		return "redirect:/admin/category";
 		
 	}
 	

@@ -19,6 +19,7 @@ import com.app.inventory.model.Measure;
 import com.app.inventory.model.Product;
 
 @Controller
+@RequestMapping({"/admin"})
 public class ProductController {
 
 	@Autowired
@@ -30,7 +31,7 @@ public class ProductController {
 	@Autowired
 	CategoryDao catdao;
 	
-	@RequestMapping({"/ProdWEB", "/"})
+	@RequestMapping({"/ProdWEB"})
 	public String ListUser(Model modelo){
 		
 		modelo.addAttribute("Product", prodao.EncontrarProduct());
@@ -54,13 +55,13 @@ public class ProductController {
 	public String create(Product product){
 		
 		this.prodao.create(product);
-		return "redirect:/ProdWEB";
+		return "redirect:/admin/ProdWEB";
 	}
 	
 	@RequestMapping(value="/Productupdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Product product){
 		this.prodao.update(product);
-		return "redirect:/ProdWEB";
+		return "redirect:/admin/ProdWEB";
 	}
 	
 	@RequestMapping(value="/Productdelete", method = {RequestMethod.PUT, RequestMethod.GET})
@@ -70,7 +71,7 @@ public class ProductController {
 		prod.setEst("Inactivo");
 		
 		this.prodao.delete(prod);
-		return "redirect:/ProdWEB";
+		return "redirect:/admin/ProdWEB";
 	}
 	
 }

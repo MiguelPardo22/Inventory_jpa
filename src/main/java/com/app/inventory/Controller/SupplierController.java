@@ -14,12 +14,13 @@ import com.app.inventory.facadeimp.SupplierDao;
 import com.app.inventory.model.Supplier;
 
 @Controller
+@RequestMapping({"/admin"})
 public class SupplierController {
 
 	@Autowired
 	public SupplierDao supplierdao;
 	
-	@RequestMapping({"/SupplierWEB", "/"})
+	@RequestMapping({"/SupplierWEB"})
 	public String ListProveedor(Model model) {
 		model.addAttribute("Supplier", supplierdao.EncontrarSupplier());
 		return "SupplierWEB";
@@ -34,13 +35,13 @@ public class SupplierController {
 	@PostMapping({"/SupplierCrear"})
 	public String create(Supplier supplier) {
 		supplierdao.create(supplier);
-		return "redirect:/SupplierWEB";
+		return "redirect:/admin/SupplierWEB";
 	}
 	
 	@RequestMapping(value="/SupplierUpdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Supplier supplier) {
 		supplierdao.update(supplier);
-		return "redirect:/SupplierWEB";
+		return "redirect:/admin/SupplierWEB";
 	}
 	
 	@RequestMapping(value="/SupplierDelete", method = {RequestMethod.PUT, RequestMethod.GET})
@@ -50,7 +51,7 @@ public class SupplierController {
 		sup.setEst("Inactivo");
 		
 		this.supplierdao.delete(sup);
-		return "redirect:/SupplierWEB";
+		return "redirect:/admin/SupplierWEB";
 		
 	}
 	

@@ -14,12 +14,13 @@ import com.app.inventory.facadeimp.MeasureDao;
 import com.app.inventory.model.Measure;
 
 @Controller
+@RequestMapping({"/admin"})
 public class MeasureController {
 
 	@Autowired
 	MeasureDao meadao;
 
-	@RequestMapping({ "/MeasureWEB", "/" })
+	@RequestMapping({"/MeasureWEB"})
 	public String listMeasure(Model model) {
 		model.addAttribute("Measure", meadao.EncontrarMeasure());
 		return "MeasureWEB";
@@ -34,13 +35,13 @@ public class MeasureController {
 	@PostMapping({ "/MeasureCrear" })
 	public String create(Measure measure) {
 		meadao.create(measure);
-		return "redirect:/MeasureWEB";
+		return "redirect:/admin/MeasureWEB";
 	}
 
 	@RequestMapping(value = "/MeasureUpdate", method = { RequestMethod.PUT, RequestMethod.GET })
 	public String update(Measure measure) {
 		meadao.update(measure);
-		return "redirect:/MeasureWEB";
+		return "redirect:/admin/MeasureWEB";
 	}
 
 	@RequestMapping(value="/MeasureDelete", method = {RequestMethod.PUT, RequestMethod.GET})
@@ -50,7 +51,7 @@ public class MeasureController {
 		mea.setEst("Inactivo");
 		
 		this.meadao.delete(mea);
-		return "redirect:/MeasureWEB";
+		return "redirect:/admin/MeasureWEB";
 		
 	}
 	
