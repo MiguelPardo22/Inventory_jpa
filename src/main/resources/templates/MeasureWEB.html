@@ -47,9 +47,9 @@
 					<th th:text="${med.id_med}" scope="row"></th>
 					<td th:text="${med.nom}"></td>
 					<td th:text="${med.est}">
-					<td><a th:href="@{/getOneMeasure/(id_med=${med.id_med})}"
+					<td><a th:href="@{/admin/getOneMeasure/(id_med=${med.id_med})}"
 						class="btn btn-warning" id="update">Editar</a> <a
-						th:href="@{/MeasureDelete/(id_med=${med.id_med})}"
+						th:href="@{/admin/MeasureDelete/(id_med=${med.id_med})}"
 						class="btn btn-warning" id="updateButton">Eliminar</a></td>
 				</tr>
 			</tbody>
@@ -94,7 +94,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/MeasureCrear}" method="post">
+							<form th:action="@{/admin/MeasureCrear}" method="post">
 
 								<div class="form-row row">
 
@@ -148,7 +148,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/MeasureUpdate}" method="put">
+							<form th:action="@{/admin/MeasureUpdate}" method="put">
 
 								<div class="form-row row">
 
@@ -206,7 +206,7 @@
 
 						<div class="rd-body">
 
-							<form th:action="@{/MeasureDelete}" method="put">
+							<form th:action="@{/admin/MeasureDelete}" method="put">
 
 								<div class="orm-group">
 									<label>¿Esta seguro de borrar este dato?</label><br> <br>

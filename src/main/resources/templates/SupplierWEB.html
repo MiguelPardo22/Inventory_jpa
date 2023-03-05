@@ -58,9 +58,9 @@
 					<td th:text="${Supplier.mail}"></td>
 					<td th:text="${Supplier.est}">
 					<td><a
-						th:href="@{/getOne/(id_Proveedor=${Supplier.id_Proveedor})}"
+						th:href="@{/admin/getOne/(id_Proveedor=${Supplier.id_Proveedor})}"
 						class="btn btn-warning" id="update">Editar</a> <a
-						th:href="@{/SupplierDelete/(id_Proveedor=${Supplier.id_Proveedor})}"
+						th:href="@{/admin/SupplierDelete/(id_Proveedor=${Supplier.id_Proveedor})}"
 						class="btn btn-warning" id="updateButton">Eliminar</a></td>
 				</tr>
 			</tbody>
@@ -106,7 +106,7 @@
                         <center>
 						<div class="ard-body" >
 
-							<form th:action="@{/SupplierCrear}" method="post">
+							<form th:action="@{/admin/SupplierCrear}" method="post">
 
 								<div class="form-row row">
 
@@ -192,7 +192,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/SupplierUpdate}" method="put">
+							<form th:action="@{/admin/SupplierUpdate}" method="put">
 
 								<div class="form-row row">
 
@@ -280,7 +280,7 @@
 
 						<div class="rd-body">
 
-							<form th:action="@{/SupplierDelete}" method="put">
+							<form th:action="@{/admin/SupplierDelete}" method="put">
 
 								<div class="orm-group">
 									<label>¿Esta seguro de borrar este dato?</label><br> <br>

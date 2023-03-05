@@ -71,9 +71,9 @@
 
 					<td th:text="${prod.est}"></td>
 
-					<td><a th:href="@{/getOneProduct/(id_prod=${prod.id_prod})}"
+					<td><a th:href="@{/admin/getOneProduct/(id_prod=${prod.id_prod})}"
 						class="btn btn-warning" id="update">Editar</a> <a
-						th:href="@{/Productdelete/(id_prod=${prod.id_prod})}"
+						th:href="@{/admin/Productdelete/(id_prod=${prod.id_prod})}"
 						class="btn btn-warning" id="updateButton">Borrar</a></td>
 				</tr>
 			</tbody>
@@ -97,7 +97,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/Productcrear}" method="post">
+							<form th:action="@{/admin/Productcrear}" method="post">
 
 								<div class="form-row row">
 
@@ -207,7 +207,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/Productupdate}" method="put">
+							<form th:action="@{/admin/Productupdate}" method="put">
 
 								<div class="form-row row">
 
@@ -328,7 +328,7 @@
 
 						<div class="rd-body">
 
-							<form th:action="@{/Productdelete}" method="put">
+							<form th:action="@{/admin/Productdelete}" method="put">
 
 								<div class="orm-group">
 									<label>¿Esta seguro de borrar este dato?</label><br> <br>

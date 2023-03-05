@@ -48,9 +48,9 @@
 					<th th:text="${cat.id_cat}" scope="row"></th>
 					<td th:text="${cat.nom}"></td>
 					<td th:text="${cat.est}">
-					<td><a th:href="@{/getOneCategory/(id_cat=${cat.id_cat})}"
+					<td><a th:href="@{/admin/getOneCategory/(id_cat=${cat.id_cat})}"
 						class="btn btn-warning" id="update">Editar</a> <a
-						th:href="@{/CategoryDelete/(id_cat=${cat.id_cat})}"
+						th:href="@{/admin/CategoryDelete/(id_cat=${cat.id_cat})}"
 						class="btn btn-warning" id="updateButton">Eliminar</a></td>
 				</tr>
 			</tbody>
@@ -96,7 +96,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/CategoryCrear}" method="post">
+							<form th:action="@{/admin/CategoryCrear}" method="post">
 
 								<div class="form-row row">
 
@@ -150,7 +150,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/CategoryUpdate}" method="put">
+							<form th:action="@{/admin/CategoryUpdate}" method="put">
 
 								<div class="form-row row">
 
@@ -207,7 +207,7 @@
 
 						<div class="rd-body">
 
-							<form th:action="@{/CategoryDelete}" method="put">
+							<form th:action="@{/admin/CategoryDelete}" method="put">
 
 								<div class="form-group">
 									<label>¿Esta seguro de borrar este dato?</label><br> <br>

@@ -41,25 +41,25 @@
             </a>
           </li>
           <li sec:authorize="isAuthenticated()">
-            <a  th:href="@{/SupplierWEB}">
+            <a  th:href="@{/admin/SupplierWEB}">
           <i class="fa-sharp fa-solid fa-truck"></i>
               <p>Proveedores</p>
             </a>
           </li>
           <li>
-            <a th:href="@{/CategoryWEB}">
+            <a th:href="@{/admin/category}">
        <i class="fa-sharp fa-solid fa-barcode"></i>
               <p> Categoria</p>
             </a>
           </li>
            <li sec:authorize="isAuthenticated()">>
-            <a  th:href="@{/MeasureWEB}">
+            <a  th:href="@{/admin/MeasureWEB}">
               <i class="fa-sharp fa-solid fa-gauge"></i>
               <p> Medida</p>
             </a>
           </li>
            <li sec:authorize="isAuthenticated()">>
-            <a th:href="@{/ProdWEB}">
+            <a th:href="@{/admin/ProdWEB}">
              <i class="fa-sharp fa-solid fa-wine-bottle"></i>
               <p> Producto</p>
             </a>
@@ -71,13 +71,13 @@
             </a>
           </li>
           <li sec:authorize="isAuthenticated()">>
-            <a th:href="@{/OrderWEB}">
+            <a th:href="@{/mesero/OrderWEB}">
              <i class="fa-solid fa-pen-to-square"></i>
               <p> Pedido</p>
             </a>
           </li>
            <li sec:authorize="isAuthenticated()">>
-            <a th:href="@{/PurchaseWEB}">
+            <a th:href="@{/admin/PurchaseWEB}">
              <i class="fa-solid fa-wallet"></i>
               <p> Compra</p>
             </a>
