@@ -6,6 +6,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.app.inventory.model.EstadoPedidos;
 import com.app.inventory.model.Order;
 import com.app.inventory.model.OrderDetail;
 import com.app.inventory.model.Product;
@@ -22,6 +23,7 @@ public class OrderDTO {
 	private Order id_ped_fk; 
 	private Product id_prod_fk; 
 	private OrderDetail id_det_ped_fk; 
+	private EstadoPedidos id_est_fk; 
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -93,7 +95,7 @@ public class OrderDTO {
 
 	public long getTot() {
 		
-		return this.tot += this.getSub();
+		return this.tot += this.getSub() + this.getId_prod_fk().getImp();
 	}
 
 	public void setTot(long tot) {
@@ -107,5 +109,15 @@ public class OrderDTO {
 	public void setId_det_ped_fk(OrderDetail id_det_ped_fk) {
 		this.id_det_ped_fk = id_det_ped_fk;
 	}
+
+	public EstadoPedidos getId_est_fk() {
+		return id_est_fk;
+	}
+
+	public void setId_est_fk(EstadoPedidos id_est_fk) {
+		this.id_est_fk = id_est_fk;
+	}
+	
+	
 	
 }
