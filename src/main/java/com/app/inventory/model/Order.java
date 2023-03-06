@@ -29,9 +29,13 @@ public class Order implements Serializable{
 
     private String Fecha = Utiles.obtenerFechaYHoraActual();
 	
-	 @ManyToOne
+	@ManyToOne
 	@JoinColumn(name="id_usu_fk", referencedColumnName = "id_usu")
 	private User id_usu_fk; 
+	
+	@ManyToOne
+	@JoinColumn(name="id_est_fk", referencedColumnName = "id_est")
+	private EstadoPedidos id_est_fk; 
 	
 	@OneToMany(mappedBy = "id_ped_fk")
 	private List<OrderDetail> detalles;
@@ -92,6 +96,14 @@ public class Order implements Serializable{
 	public void setDetalles(List<OrderDetail> detalles) {
 		this.detalles = detalles;
 	}
+	
+	public EstadoPedidos getId_est_fk() {
+		return id_est_fk;
+	}
+
+	public void setId_est_fk(EstadoPedidos id_est_fk) {
+		this.id_est_fk = id_est_fk;
+	}
 
 	public Order(int id_Ped, String name_cli, long total, String fecha, User id_usu_fk) {
 		super();
@@ -101,24 +113,18 @@ public class Order implements Serializable{
 		Fecha = fecha;
 		this.id_usu_fk = id_usu_fk;
 	}
-	
-	public Order(String name_cli, long total, User id_usu_fk) {
-		super();
-		Name_cli = name_cli;
-		Total = total;
-		this.id_usu_fk = id_usu_fk;
-	}
 
 	public Order() {
 		super();
 	}
 
-	public Order(String name_cli, User id_usu_fk) {
+	public Order(String name_cli, long total, User id_usu_fk, EstadoPedidos id_est_fk) {
 		super();
 		Name_cli = name_cli;
+		Total = total;
 		this.id_usu_fk = id_usu_fk;
+		this.id_est_fk = id_est_fk;
 	}
-	
 	
 }
 
