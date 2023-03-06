@@ -1,10 +1,7 @@
    package com.app.inventory.facadeimp;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +12,6 @@ import com.app.inventory.Repository.InventoryRepository;
 import com.app.inventory.Repository.OrderDetailRepository;
 import com.app.inventory.Repository.OrderRepository;
 import com.app.inventory.facade.IOrder;
-import com.app.inventory.model.Detalle_OrderCompra;
 import com.app.inventory.model.Inventory;
 import com.app.inventory.model.Order;
 import com.app.inventory.model.OrderDetail;
@@ -71,7 +67,7 @@ public class OrderDao implements IOrder {
 	public Order guardar(OrderDTO orderDTO) {
 		
 		Order or = new Order(orderDTO.getName_cli(), orderDTO.getTot(),
-				orderDTO.getId_usu_fk());
+				orderDTO.getId_usu_fk(), orderDTO.getId_est_fk());
 
 		OrderDetail detor = new OrderDetail();
 		detor.setId_ped_fk(or);
