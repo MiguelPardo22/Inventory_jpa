@@ -156,6 +156,9 @@ td{
 .imagen{
 	height:55px;
 	width:201px;
+	position:relative;
+	left:50px;
+	top:7px
 }
 
 
@@ -335,8 +338,8 @@ footer{
   color:white;
     padding: 2em 0;
     text-align: center;
-  position: fixed;
-    bottom:2px;
+  position: relative;
+    bottom:-47px;
     width: 100%;
     height: 20px;
 }
@@ -363,4 +366,13 @@ footer{
     height: 219px;
     width: 600px;
     box-shadow: 10px 5px 5px black;
+}
+
+
+
+.regresar{
+	position:absolute;
+	left: 30px;
+    bottom: 2px;
+	
 }

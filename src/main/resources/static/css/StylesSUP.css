@@ -153,9 +153,14 @@ td{
 }
 
 .imagen{
+	
 	height:55px;
 	width:201px;
-}
+	position:relative;
+	left:50px;
+	top:7px;
+
+	}
 
 
 .cerrar{
@@ -255,7 +260,8 @@ td{
   padding: 12px 55px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
-  left:800px;
+      left: -48px;
+    top: 19px;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
@@ -268,7 +274,7 @@ td{
   height: 100%;
   top: 0;
   left: -50%;
-  background-color: #9f2632; /* color de fondo hover */
+  background-color: #005200; /* color de fondo hover */
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -334,8 +340,8 @@ footer{
   color:white;
     padding: 2em 0;
     text-align: center;
-  position: fixed;
-bottom:2px;
+  position: relative;
+    top:110px;
     width: 100%;
     height: 20px;
 }
@@ -352,4 +358,11 @@ bottom:2px;
     height: 219px;
     width: 600px;
     box-shadow: 10px 5px 5px black;
+}
+
+.regresar{
+	position:absolute;
+	left: 30px;
+    bottom: 2px;
+	
 }
