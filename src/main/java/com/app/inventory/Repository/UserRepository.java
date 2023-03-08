@@ -14,6 +14,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 	public User findByMail(String mail);
 	
+	public User findByResetPasswordToken(String token);
+	
 	@Query(value = "SELECT * FROM usuario where usuario.estado = 'Activo'",
 			nativeQuery = true)
 	List<User> ListUser();
@@ -29,4 +31,5 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@Query(value = "select u.id_usu, ur.usuario_id, ur.rol_id, u.mail, u.contraseña, u.estado, u.identificacion, u.nombre_completo, u.telefono from usuario u join usuarios_roles ur on u.id_usu = ur.usuario_id where ur.rol_id = 4;",
 			nativeQuery = true)
 	List<User> rolMesero();
+
 }
