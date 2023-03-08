@@ -28,6 +28,10 @@
 </head>
 <body>
 	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
+	
+	<a th:href="@{/mesero/OrderPagado}">Pedidos Pagados</a>
+	<a th:href="@{/mesero/OrderSinPagar}">Pedidos Sin Pagar</a>
+	
 	<a sec:authorize="isAuthenticated()" class="cerrar"
 		th:href="@{/logout}">Cerrar sesión</a>
 	<hr>
