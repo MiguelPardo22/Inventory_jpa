@@ -33,12 +33,12 @@ public class OrderDao implements IOrder {
 	
 	@Override
 	public List<Order> EncontrarOrder() {
-		return orrepo.findAll();
+		return orrepo.EstadoEnProceso();
 	}
 
 	@Override
-	public Optional<Order> getOne(int id_ped) {
-		return orrepo.findById(id_ped);
+	public Optional<Order> getOne(int id_Ped) {
+		return orrepo.findById(id_Ped);
 	}
 
 	@Override
