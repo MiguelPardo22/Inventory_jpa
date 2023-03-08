@@ -43,6 +43,9 @@ public class User implements Serializable {
 	@Column(name="Estado",length=40)
 	private String est;
 	
+	@Column(name="reset_password_token")
+	private String resetPasswordToken ;
+	
 	@ManyToMany(fetch =  FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinTable(
 			name= "usuarios_roles",
@@ -106,6 +109,14 @@ public class User implements Serializable {
 
 	public void setEst(String est) {
 		this.est = est;
+	}
+
+	public String getResetPasswordToken() {
+		return resetPasswordToken;
+	}
+
+	public void setResetPasswordToken(String resetPasswordToken) {
+		this.resetPasswordToken = resetPasswordToken;
 	}
 
 	public Collection<Rol> getRoles() {
