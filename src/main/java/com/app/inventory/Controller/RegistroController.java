@@ -1,4 +1,4 @@
-package com.app.inventory.Controller;
+ package com.app.inventory.Controller;
 
 import java.util.List;
 
