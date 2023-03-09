@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="es">
+
+<head>
+<meta charset="utf-8">
+<title> Productos</title>
+
+<!--Bootstrap-->
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+
+<!-- -Estilos -->
+<link rel="stylesheet" th:href="@{/css/StylesPROD.css}" />
+
+<!-- DataTables con BootStrap -->
+<link rel="stylesheet" type="text/css"
+	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+	<link rel="stylesheet" type="text/css"
+	href="/datatables/DataTables.css" />
+
+<!-- FontAwesome -->
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/brands.css" />
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/solid.css" />
+	
+	
+
+
+
+</head>
+<body>
+	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
+	<a sec:authorize="isAuthenticated()" class="cerrar"
+		th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
+	<hr class = "linea">
+
+	<div class="container">
+
+		<div class=row>
+			<h1>Lista de Productos</h1>
+		</div>
+
+		<table class="table table-striped table-bordered" id="myTable">
+			<thead class="table-dark">
+
+				<tr>
+					<th class="titulotb" scope="col">#</th>
+					<th class="titulotb" scope="col">Referencia</th>
+					<th class="titulotb" scope="col">Nombre</th>
+					<th class="titulotb" scope="col">Precio_compra</th>
+					<th class="titulotb" scope="col">Precio_venta</th>
+					<th class="titulotb" scope="col">Impuesto</th>
+					<th class="titulotb" scope="col">Categoria</th>
+					<th class="titulotb" scope="col">Medida</th>
+					<th class="titulotb" scope="col">Estado</th>
+					<th class="titulotb" scope="col">Configuracion</th>
+				</tr>
+
+			</thead>
+			<tbody>
+
+				<tr th:each="prod : ${Product}">
+					<th th:text="${prod.id_prod}"></th>
+					<td th:text="${prod.ref}"></td>
+					<td th:text="${prod.nom}"></td>
+					<td th:text="${prod.pre_comp}"></td>
+					<td th:text="${prod.pre_vent}"></td>
+					<td th:text="${prod.imp}"></td>
+
+					<td th:text="${prod.id_cat_fk.nom}"></td>
+					<td th:text="${prod.id_med_fk.nom}"></td>
+
+					<td th:text="${prod.est}"></td>
+
+					<td><a th:href="@{/admin/getOneProduct/(id_prod=${prod.id_prod})}" onclick="Ocultar()"
+						class="btn btn-warning" id="update">Editar</a> <a
+						th:href="@{/admin/Productdelete/(id_prod=${prod.id_prod})}" onclick="Ocultar()"
+						class="btn btn-warning" id="updateButton">Borrar</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a><button  class="ov-btn-grow-box" id="crear"
+				onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>
+		
+		
+		<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'"
+				class="close" title="Close Modal">&times;</span>
+
+			<div class="container">
+				<div class="row">
+					<div						>
+						<center>
+							<h1>Registro de Productos</h1>
+						</center>
+
+						<div class="ard-body">
+
+							<form th:action="@{/admin/Productcrear}" method="post">
+
+								<div class="form-row row">
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Referencia:</label><br> <input type="number"
+												placeholder="Ingrese referencia del producto" name="ref"><br>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Nombre Producto:</label><br> <input type="text"
+												placeholder="Ingrese nombre producto" name="nom"><br>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Precio Compra:</label><br> <input type="number"
+												placeholder="Ingrese precio compra" name="Pre_comp"><br>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+
+											<label>Precio Venta:</label><br> <input type="number"
+												placeholder="Ingrese precio venta" name="Pre_vent"><br>
+
+										</div>
+									</div>
+
+								
+										
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Estado:</label><br> <select class="form-select"
+												name="Est" required>
+
+												<option value="Activo">Activo</option>
+												<option value="Inactivo">Inactivo</option>
+
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Nombre Categoria</label> <select class="form-select"
+												name="id_cat_fk" required>
+
+												<th:block th:each="cat : ${Category}">
+
+													<option th:text="${cat.nom}" th:value="${cat.id_cat}"></option>
+
+												</th:block>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Nombre Medida</label> <select class="form-select"
+												name="id_med_fk" required>
+
+												<th:block th:each="med : ${Measure}">
+
+													<option th:text="${med.nom}" th:value="${med.id_med}"></option>
+
+												</th:block>
+											</select>
+
+										</div>
+									</div>
+
+									<div class="container">
+										<button data-dismiss="modal" data-backdrop="false" type="submit" class="ov-btn-slide-left" onclick="Mostrar()" >Guardar</button>
+										<br> <br>
+
+
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('id01').style.display='none',Mostrar()"
+											class="o-btn-slide-left">Cancelar</button>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="editModal" class="modal">
+			<span
+				onclick="document.getElementById('editModal').style.display='none'"
+				class="close" title="Close Modal">&times;</span>
+
+			<div class="container">
+				<div class="row">
+					<div>
+						<center>
+							<h1>Editar Productos</h1>
+						</center>
+
+						<div class="ard-body">
+
+							<form th:action="@{/admin/Productupdate}" method="put">
+
+								<div class="form-row row">
+
+									<input type="hidden" id="idprodEdit" name="id_prod">
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Referencia:</label><br> <input type="number"
+												placeholder="Ingrese referencia del producto" id="refEdit"
+												name="ref"><br>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Nombre Producto:</label><br> <input type="text"
+												placeholder="Ingrese nombre producto" id="nomEdit"
+												name="nom"><br>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Precio Compra:</label><br> <input type="number"
+												placeholder="Ingrese precio compra" id="precompEdit"
+												name="Pre_comp"><br>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+
+											<label>Precio Venta:</label><br> <input type="number"
+												placeholder="Ingrese precio venta" id="preventEdit"
+												name="Pre_vent"><br>
+
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Impuesto:</label><br> <input type="number"
+												placeholder="Ingrese impuesto" id="impEdit" name="imp"><br>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Estado:</label><br> <select class="form-select"
+												id="estEdit" name="Est" required>
+
+												<option value="Activo">Activo</option>
+												<option value="Inactivo">Inactivo</option>
+
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Nombre Categoria</label> <select class="form-select"
+												id="idcatEdit" name="id_cat_fk" required>
+
+												<th:block th:each="cat : ${Category}">
+
+													<option th:text="${cat.nom}" th:value="${cat.id_cat}"></option>
+
+												</th:block>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Nombre Medida</label> <select class="form-select"
+												id="idmedEdit" name="id_med_fk" required>
+
+												<th:block th:each="med : ${Measure}">
+
+													<option th:text="${med.nom}" th:value="${med.id_med}"></option>
+
+												</th:block>
+											</select>
+
+										</div>
+									</div>
+
+									<div class="container">
+										<button data-dismiss="modal" data-backdrop="false" type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
+										<br> <br>
+
+
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('editModal').style.display='none',Mostrar()"
+											class="o-btn-slide-left">Cancelar</button>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="updateEstModal" class="modal">
+			<span
+				onclick="document.getElementById('updateEstModal').style.display='none'"
+				class="close" title="Close Modal">&times;</span>
+
+			<div class="container">
+				<div class="row">
+					<div>
+						<center>
+							<h1>Confirmar Accion</h1>
+						</center>
+
+						<div class="rd-body">
+
+							<form th:action="@{/admin/Productdelete}" method="put">
+
+								<div class="orm-group">
+									<label>¿Esta seguro de borrar este dato?</label><br> <br>
+
+									<div class="container">
+										<a class="p-btn-slide-left" onclick="Mostrar()" id="delRef">Si, Seguro</a> <br>
+										<br>
+
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('updateEstModal').style.display='none',Mostrar()"
+											class="btn-slide-left">Cancelar</button>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- jquery -->
+	<script th:src="@{https://code.jquery.com/jquery-3.6.1.js}"
+		integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+		crossorigin="anonymous"></script>
+	<!-- Bootstrap -->
+	<script
+		th:src="@{https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js}"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js}"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+	<!-- Java script -->
+	<script type="text/javascript"
+		th:src="@{/js/UpdateProduct.js}"></script>
+	<!-- DataTables -->
+	<script type="text/javascript"
+		th:src="@{/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/datatables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/datatables/Buttons-2.3.2/js/dataTables.buttons.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/datatables/Buttons-2.3.2/js/buttons.html5.min.js}"></script>
+
+	<!-- Exportar Archivos -->
+	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
+	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
+	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
+
+<!-- Exportar Archivos -->
+    <script src="datatables/JSZip-2.5.0/jszip.min.js"></script>    
+    <script src="datatables/pdfmake-0.1.36/pdfmake.min.js"></script>    
+    <script src="datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+
+
+
+
+
+	<footer class="footer">
+		<small>&copy; 2022 <b>1NV3NT0RY</b> - Todos los derechos
+			reservados-
+		</small>
+
+	</footer>
+</body>
+</html>
