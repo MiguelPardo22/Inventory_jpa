@@ -17,6 +17,7 @@ import com.app.inventory.model.Rol;
 import com.app.inventory.model.User;
 
 @Controller
+@RequestMapping({"/admin"})
 public class UserController {
 
 	@Autowired
@@ -46,13 +47,13 @@ public class UserController {
 	public String create(User user){
 		
 		this.userdao.create(user);
-		return "redirect:/UserWEB";
+		return "redirect:/admin/UserWEB";
 	}
 	
 	@RequestMapping(value="/Userupdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(User user){
 		this.userdao.update(user);
-		return "redirect:/UserWEB";
+		return "redirect:/admin/UserWEB";
 	}
 	
 	@RequestMapping(value="/Userdelete", method = {RequestMethod.PUT, RequestMethod.GET})
@@ -62,7 +63,7 @@ public class UserController {
 		us.setEst("Inactivo");
 		
 		this.userdao.delete(us);
-		return "redirect:/UserWEB";
+		return "redirect:/admin/UserWEB";
 	}
 	
 }
