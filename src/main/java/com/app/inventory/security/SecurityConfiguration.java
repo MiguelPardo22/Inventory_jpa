@@ -53,7 +53,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/registro",
 				"/js/**",
 				"/css/**",
-				"/img/**")
+				"/img/**",
+				"/datatables/**",
+				"/fontawesome/**",
+				"/forgot_password",
+				"/reset_password")
 		.permitAll()
 		.antMatchers("/").hasAnyAuthority("Invitado", "Mesero", "Administrador")
 		.antMatchers("/mesero/**").hasAnyAuthority("Mesero", "Administrador")
