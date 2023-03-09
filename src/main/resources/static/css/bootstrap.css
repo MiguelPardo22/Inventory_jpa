@@ -5,6 +5,11 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
+ *{
+ color:#b57c00;
+ 
+ }
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -94,7 +99,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background-color: #191919;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -352,6 +357,7 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  color:black;
 }
 
 button,
@@ -1795,7 +1801,7 @@ progress {
 
 .table-striped > tbody > tr:nth-of-type(odd) > * {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
-  color: var(--bs-table-striped-color);
+  color:white;
 }
 
 .table-striped-columns > :not(caption) > tr > :nth-child(even) {
@@ -2952,11 +2958,11 @@ textarea.form-control-lg {
   --bs-btn-bg: #ffc107;
   --bs-btn-border-color: #ffc107;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #ffca2c;
-  --bs-btn-hover-border-color: #ffc720;
+  --bs-btn-hover-bg: white;
+  --bs-btn-hover-border-color: white;
   --bs-btn-focus-shadow-rgb: 217, 164, 6;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #ffcd39;
+  --bs-btn-active-bg: white;
   --bs-btn-active-border-color: #ffc720;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #000;
@@ -4549,10 +4555,10 @@ textarea.form-control-lg {
   --bs-pagination-focus-bg: #e9ecef;
   --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
   --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #0d6efd;
-  --bs-pagination-active-border-color: #0d6efd;
-  --bs-pagination-disabled-color: #6c757d;
-  --bs-pagination-disabled-bg: #fff;
+  --bs-pagination-active-bg: #454546;
+  --bs-pagination-active-border-color: white;
+  --bs-pagination-disabled-color: #ecab0f;
+  --bs-pagination-disabled-bg: ;
   --bs-pagination-disabled-border-color: #dee2e6;
   display: flex;
   padding-left: 0;
