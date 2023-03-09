@@ -3,15 +3,28 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>No autorizado</title>
+<!--Bootstrap-->
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+<!-- -Estilos -->
+<link rel="stylesheet" th:href="@{/css/UPSStyle.css}" />
+<!-- FontAwesome -->
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/brands.css" />
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/solid.css" />
 </head>
 <body>
+<img class="imagen"th:src="@{/css/logohorizontalconslogan.png}"/>
+<a   class="cerrar" th:href="@{/}"><h4>Regresar</a></h4>
+<hr>
+<i class="fa-solid fa-circle-exclamation"></i>
+<h3 class="titulo">No tiene permiso para 
+acceder a esta pagina</h3>
 
-<h3>NO tiene permiso lampara</h3>
 
-<ul class="nav navbar-nav">
-					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar
-							sesión</a></li>
-				</ul>
 
 </body>
 </html>

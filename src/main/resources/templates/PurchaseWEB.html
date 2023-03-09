@@ -3,15 +3,18 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Crud Orden de compra</title>
+	<title>Orden de compra</title>
 	<!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 
 <!-- -Estilos -->
 <link rel="stylesheet" th:href="@{/css/StylePUR.css}" />
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+	<link rel="stylesheet" type="text/css"
+	href="/datatables/DataTables.css" />
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
@@ -26,9 +29,8 @@
 </head>
 <body>
 <img class="imagen"th:src="@{/css/logohorizontalconslogan.png}"/>
-<a  sec:authorize="isAuthenticated()" class="cerrar" th:href="@{/logout}">Cerrar
-							sesión</a>
-<hr>
+<a  sec:authorize="isAuthenticated()" class="cerrar" th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
+<hr class="linea">
 </head>
 <body>
 
@@ -82,9 +84,9 @@
 		
 		</div>
 
-		<a><button class="ov-btn-grow-box"
-  onclick="document.getElementById('id01').style.display='block'">Crear</button></a>
-<a class="ov-btn-slide-close"  th:href="@{/}">Regresar</a>
+		<a><button class="ov-btn-grow-box" id="crear"
+  onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>
+
 		
 
 		<div id="id01" class="modal">
@@ -94,7 +96,7 @@
 			<div class="container">
 				<div class="row">
 					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+						>
 						<center>
 							<h1>Registro de Compras</h1>
 						</center>
@@ -151,12 +153,12 @@
 
 						<div class="container">
 
-								<button type="submit" class="ov-btn-slide-left">Guardar</button>
+								<button data-dismiss="modal" data-backdrop="false"  type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
 										<br> <br>
 
 
-										<button type="button"
-											onclick="document.getElementById('id01').style.display='none'"
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('id01').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
 								</div>
@@ -199,7 +201,6 @@
 	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
-
 	
 	
 	

@@ -2,15 +2,21 @@
 <html xmlns:th="http://thymeleaf.org" lang="es">
 <head>
 <meta charset="utf-8">
-<title>Crud Medida</title>
+<title>Medida</title>
 <!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 
 <!-- -Estilos -->
 <link rel="stylesheet" th:href="@{/css/StylesMED.css}" />
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+	
+	<link rel="stylesheet" type="text/css"
+	href="/datatables/DataTables.css" />
+	
+	
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
@@ -21,9 +27,9 @@
 	
 <!-- 1-----------------------------1 -->
 <img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
-<a sec:authorize="isAuthenticated()" class="cerrar" th:href="@{/logout}">Cerrar
-	sesión</a>
-<hr>
+<a  class="cerrar" th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
+
+<hr class="linea">
 </head>
 <body>
 
@@ -48,16 +54,14 @@
 					<td th:text="${med.nom}"></td>
 					<td th:text="${med.est}">
 					<td><a th:href="@{/admin/getOneMeasure/(id_med=${med.id_med})}"
-						class="btn btn-warning" id="update">Editar</a> <a
+						class="btn btn-warning" id="update" onclick="Ocultar()">Editar</a> <a
 						th:href="@{/admin/MeasureDelete/(id_med=${med.id_med})}"
-						class="btn btn-warning" id="updateButton">Eliminar</a></td>
+						class="btn btn-warning" onclick="Ocultar()"id="updateButton">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>
 
-		<a><button class="ov-btn-grow-box"
-				onclick="document.getElementById('id01').style.display='block'">Crear</button></a>
-		<a class="ov-btn-slide-close" th:href="@{/}">Regresar</a>
+		
 		
 		<form th:action="@{/files/uploadMed}" method="POST"
 			enctype="multipart/form-data">
@@ -75,19 +79,22 @@
 						required="required">
 				</div>
 				<div class="col-md-4">
-					<button class="btn btn-success my-4">Subir</button>
+					<button id="subir"class="ov-btn-slide-close">Subir</button>
 				</div>
 			</div>
 		</form>
 		
+		<a><button class="ov-btn-grow-box" id="crear"
+				onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>
+		
 		<div id="id01" class="modal">
-			<span onclick="document.getElementById('id01').style.display='none'"
+			<span onclick="document.getElementById('id01').style.display='none',Mostrar()"
 				class="close" title="Close Modal">&times;</span>
 
 			<div class="container">
 				<div class="row">
 					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+						>
 						<center>
 							<h1>Registro de Medidas</h1>
 						</center>
@@ -116,12 +123,12 @@
 
 
 									<div class="container">
-										<button type="submit" class="ov-btn-slide-left">Guardar</button>
+										<button data-dismiss="modal" data-backdrop="false" type="submit" onclick="Mostrar()" class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 
 
-										<button type="button"
-											onclick="document.getElementById('id01').style.display='none'"
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('id01').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
 								</div>
@@ -135,13 +142,12 @@
 
 		<div id="editModal" class="modal">
 			<span
-				onclick="document.getElementById('editModal').style.display='none'"
+				onclick="document.getElementById('editModal').style.display='none',Ocultar()"
 				class="close" title="Close Modal">&times;</span>
 
 			<div class="container">
 				<div class="row">
-					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<div>
 						<center>
 							<h1>Actualizacion de Medidas</h1>
 						</center>
@@ -174,12 +180,12 @@
 
 
 									<div class="container">
-										<button type="submit" class="ov-btn-slide-left">Guardar</button>
+										<button data-dismiss="modal" data-backdrop="false" type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
 										<br> <br>
 
 
-										<button type="button"
-											onclick="document.getElementById('editModal').style.display='none'"
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('editModal').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
 								</div>
@@ -193,13 +199,12 @@
 
 		<div id="updateEstModal" class="modal">
 			<span
-				onclick="document.getElementById('updateEstModal').style.display='none'"
+				onclick="document.getElementById('updateEstModal').style.display='none',Ocultar()"
 				class="close" title="Close Modal">&times;</span>
 
 			<div class="container">
 				<div class="row">
-					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<div>
 						<center>
 							<h1>Confirmar Accion</h1>
 						</center>
@@ -212,11 +217,11 @@
 									<label>¿Esta seguro de borrar este dato?</label><br> <br>
 
 									<div class="container">
-										<a class="p-btn-slide-left" id="delRef">Si, Seguro</a> <br>
+										<a class="p-btn-slide-left" onclick="Mostrar()" id="delRef">Si, Seguro</a> <br>
 										<br>
 
-										<button type="button"
-											onclick="document.getElementById('updateEstModal').style.display='none'"
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('updateEstModal').style.display='none',Mostrar()"
 											class="btn-slide-left">Cancelar</button>
 									</div>
 								</div>

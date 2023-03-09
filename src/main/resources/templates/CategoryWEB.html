@@ -5,12 +5,17 @@
 <title>Crud Categoria</title>
 <!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 
 <!-- -Estilos -->
 <link rel="stylesheet" th:href="@{/css/StylesCAT.css}" />
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+	
+	<link rel="stylesheet" type="text/css"
+	href="/datatables/datatables.css"/>
+	
 
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
@@ -26,8 +31,8 @@
 <body>
 	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
 	<a sec:authorize="isAuthenticated()" class="cerrar"
-		th:href="@{/logout}">Cerrar sesión</a>
-	<hr>
+		th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
+	<hr class="linea">
 	<div class="container">
 
 		<div class="row">
@@ -49,17 +54,15 @@
 					<td th:text="${cat.nom}"></td>
 					<td th:text="${cat.est}">
 					<td><a th:href="@{/admin/getOneCategory/(id_cat=${cat.id_cat})}"
-						class="btn btn-warning" id="update">Editar</a> <a
+						class="btn btn-warning" id="update"onclick="Ocultar()">Editar</a> <a
 						th:href="@{/admin/CategoryDelete/(id_cat=${cat.id_cat})}"
-						class="btn btn-warning" id="updateButton">Eliminar</a></td>
+						class="btn btn-warning" id="updateButton"onclick="Ocultar()">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>
 
-		<a><button class="ov-btn-grow-box"
-				onclick="document.getElementById('id01').style.display='block'">Crear</button></a>
 
-		<a class="ov-btn-slide-close" th:href="@{/}">Regresar</a>
+		
 
 		<form th:action="@{/files/uploadCat}" method="POST"
 			enctype="multipart/form-data">
@@ -77,10 +80,15 @@
 						required="required">
 				</div>
 				<div class="col-md-4">
-					<button class="btn btn-success my-4">Subir</button>
+					<button id="subir" class="ov-btn-slide-close">Subir</button>
 				</div>
 			</div>
 		</form>
+		
+		
+		
+		<a><button class="ov-btn-grow-box" id="crear"
+				onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>
 
 		<div id="id01" class="modal">
 			<span onclick="document.getElementById('id01').style.display='none'"
@@ -88,8 +96,8 @@
 
 			<div class="container">
 				<div class="row">
-					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<div>
+					
 						<center>
 							<h1>Registro de Categorias</h1>
 						</center>
@@ -118,12 +126,12 @@
 
 
 									<div class="container">
-										<button type="submit" class="ov-btn-slide-left">Guardar</button>
+										<button  data-dismiss="modal" data-backdrop="false" type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
 										<br> <br>
 
 
-										<button type="button"
-											onclick="document.getElementById('id01').style.display='none'"
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('id01').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
 								</div>
@@ -142,8 +150,8 @@
 
 			<div class="container">
 				<div class="row">
-					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<div>
+						
 						<center>
 							<h1>Actualizacion de Categorias</h1>
 						</center>
@@ -176,12 +184,12 @@
 
 
 									<div class="container">
-										<button type="submit" class="ov-btn-slide-left">Guardar</button>
+										<button data-dismiss="modal" data-backdrop="false" type="submit" onclick="Mostrar()"class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 
 
-										<button type="button" class="o-btn-slide-left"
-											onclick="document.getElementById('editModal').style.display='none'">Cancelar</button>
+										<button type="button" class="o-btn-slide-left" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('editModal').style.display='none',Mostrar()">Cancelar</button>
 									</div>
 								</div>
 
@@ -199,8 +207,8 @@
 
 			<div class="container">
 				<div class="row">
-					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<div>
+					
 						<center>
 							<h1>Confirmar Accion</h1>
 						</center>
@@ -213,11 +221,12 @@
 									<label>¿Esta seguro de borrar este dato?</label><br> <br>
 
 									<div class="container">
-										<a class="p-btn-slide-left" id="delRef">Si, Seguro</a> <br>
+										<a  data-dismiss="modal" data-backdrop="false" class="p-btn-slide-left" onclick="Mostrar()"
+							                 id="delRef">Si, Seguro</a> <br>
 										<br>
 
-										<button type="button"
-											onclick="document.getElementById('updateEstModal').style.display='none'"
+										<button type="button" data-dismiss="modal" data-backdrop="false"
+											onclick="document.getElementById('updateEstModal').style.display='none',Mostrar()"
 											class="btn-slide-left">Cancelar</button>
 									</div>
 								</div>
@@ -261,7 +270,6 @@
 	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
-
 
 	<footer class="footer">
 		<small>&copy; 2022 <b>1NV3NT0RY</b> - Todos los derechos
