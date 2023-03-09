@@ -67,8 +67,8 @@
 
 					<td th:text="${User.roles}"></td>
 
-					<td><a th:href="@{/getOneUser/(id_usu=${User.id_usu})}" class="btn btn-warning"
-							id="update">Editar</a> <a th:href="@{/Userdelete/(id_usu=${User.id_usu})}"
+					<td><a th:href="@{/admin/getOneUser/(id_usu=${User.id_usu})}" class="btn btn-warning"
+							id="update">Editar</a> <a th:href="@{/admin/Userdelete/(id_usu=${User.id_usu})}"
 							class="btn btn-warning" id="updateButton">Borrar</a></td>
 				</tr>
 			</tbody>
@@ -187,7 +187,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/Userupdate}" method="put">
+							<form th:action="@{/admin/Userupdate}" method="put">
 
 								<div class="form-row row">
 
@@ -235,7 +235,7 @@
 									</div>
 
 									<div class="container">
-										<button data-dismiss="modal" data-backdrop="false" type="submit" class="ov-btn-slide-left">Guardar</button>
+										<button type="submit" class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 
 
@@ -268,7 +268,7 @@
 							<form th:action="@{/Userdelete}" method="put">
 
 								<div class="orm-group">
-									<labe class="mensaje">¿Esta seguro de borrar este dato?</label><br> <br>
+									<label class="mensaje">¿Esta seguro de borrar este dato?</label><br> <br>
 
 									<div class="container">
 										<a class="p-btn-slide-left" id="delRef">Si, Seguro</a>
@@ -313,22 +313,22 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 <!-- Java script -->
-	<script type="text/javascript" src="../static/js/UpdateUser.js"
+	<script type="text/javascript"
 		th:src="@{/js/UpdateUser.js}"></script>
 <!-- DataTables -->
 	<script type="text/javascript"
-		src="/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+		th:src="@{/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js}"></script>
 	<script type="text/javascript"
-		src="/datatables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js"></script>
+		th:src="@{/datatables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js}"></script>
 	<script type="text/javascript"
-		src="/datatables/Buttons-2.3.2/js/dataTables.buttons.min.js"></script>
+		th:src="@{/datatables/Buttons-2.3.2/js/dataTables.buttons.min.js}"></script>
 	<script type="text/javascript"
-		src="/datatables/Buttons-2.3.2/js/buttons.html5.min.js"></script>
-	
-<!-- Exportar Archivos -->
-    <script src="datatables/JSZip-2.5.0/jszip.min.js"></script>    
-    <script src="datatables/pdfmake-0.1.36/pdfmake.min.js"></script>    
-    <script src="datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+		th:src="@{/datatables/Buttons-2.3.2/js/buttons.html5.min.js}"></script>
+
+	<!-- Exportar Archivos -->
+	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
+	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
+	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
 	
 	
 	
