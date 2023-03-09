@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+
+
+
+.titulo{
+	
+position:absolute;
+top: 543px;
+    font-size: xxx-large;
+    left: 275px;
+}
+
+
+.imagen{
+	height:55px;
+	width:201px;
+}
+
+.cerrar{
+	position:relative;
+    left: 1273px;
+    top: -20px;
+	color:#b57c00;
+}

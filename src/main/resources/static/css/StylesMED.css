@@ -155,6 +155,9 @@ td{
 .imagen{
 	height:55px;
 	width:201px;
+	position:relative;
+	left:50px;
+	top:7px;
 }
 
 
@@ -252,10 +255,11 @@ td{
   background:#ecab0f; /* color de fondo */
   color: black; /* color de fuente */
   border: 2px solid #191919; /* tamaño y color de borde */
-  padding: 12px 55px;
-  border-radius: 3px; /* redondear bordes */
+  padding: 7px 55px;
+  border-radius: 8px; /* redondear bordes */
   position: relative;
-  left:800px;
+   left: -10px;
+    top: 20px;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
@@ -268,10 +272,11 @@ td{
   height: 100%;
   top: 0;
   left: -50%;
-  background-color: #9f2632; /* color de fondo hover */
+  background-color: #454546; /* color de fondo hover */
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  
 }
 .ov-btn-slide-close:after {
   left: 100%;
@@ -296,7 +301,7 @@ td{
   color: black;
   border: 2px solid #191919; /* tamaño y color de borde */
   padding: 12px 55px;
-  border-radius: 3px; /* redondear bordes */
+  border-radius: 8px; /* redondear bordes */
   position: relative;
   bottom: 14px;
   z-index: 1;
@@ -308,7 +313,7 @@ td{
 }
 .ov-btn-grow-box::after {
   content: "";
-  background: #02253d; /* color de fondo hover */
+  background: #454546; /* color de fondo hover */
   position: absolute;
   z-index: -1;
   padding: 16px 20px;
@@ -334,10 +339,11 @@ footer{
   color:white;
     padding: 2em 0;
     text-align: center;
-  position: fixed;
-    bottom:2px;
+  position: relative;
+    top:50px;
     width: 100%;
     height: 20px;
+    display:block;
 }
 
 .lable{
@@ -362,3 +368,17 @@ footer{
     height: 219px;
     width: 600px;
     box-shadow: 10px 5px 5px black;}
+    
+    
+    
+    
+ .regresar{
+	position:absolute;
+	left: 30px;
+    top: 2px;
+	
+}
+
+.linea{
+	color:#ecab0f
+}
