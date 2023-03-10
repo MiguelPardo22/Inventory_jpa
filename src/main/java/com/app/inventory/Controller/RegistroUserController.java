@@ -32,7 +32,13 @@ public class RegistroUserController {
 	}
 	@PostMapping
 	public String registrarCuentaDeUsuario(@ModelAttribute("usuario") UserRegistroDTO registroDTO) { 
+		try {
+		
 		userdao.save(registroDTO);
 		return "redirect:/registro?exito";
+		
+		} catch (Exception e) {
+			return "redirect:/registro?fallo";
+		}
 	}
 }
