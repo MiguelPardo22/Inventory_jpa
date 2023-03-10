@@ -9,6 +9,7 @@ import javax.security.auth.login.AccountNotFoundException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -44,13 +45,17 @@ public class UserDao implements IUser {
 	@Override
 	public User save(UserRegistroDTO registroDTO) {
 
+		try {
+		
 		User us = new User(registroDTO.getIden(), registroDTO.getNom(),
 				registroDTO.getTel(), registroDTO.getMail(),
 				passwordEncoder.encode(registroDTO.getCon()),
 				rolrepo.rolInicial());
 		        us.setEst("Activo");
 		return userrepo.save(us);
-     
+		} catch (DataIntegrityViolationException ex) {
+            throw new RuntimeException("El correo electrónico debe ser único", ex);
+        }
 	}
 
 	public void updateResetPasswordToken(String token, String mail) throws AccountNotFoundException {
@@ -61,7 +66,7 @@ public class UserDao implements IUser {
 			user.setResetPasswordToken(token);
 			userrepo1.save(user);
 		}else {
-			//puede generar errores por la clase
+			
 			throw new AccountNotFoundException("No se encontro ningun correo registrado: " + mail);
 		}
 				
