@@ -15,7 +15,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.validation.annotation.Validated;
 
+@Validated
 @Entity
 @Table(name = "Usuario")
 public class User implements Serializable {
@@ -34,7 +36,7 @@ public class User implements Serializable {
 	@Column(name="Telefono",length=40)
 	private long tel;
 	
-	@Column(name="Mail",length=40)
+	@Column(name="Mail",length=40, unique = true)
 	private String mail;
 	
 	@Column(name="Contraseña")
