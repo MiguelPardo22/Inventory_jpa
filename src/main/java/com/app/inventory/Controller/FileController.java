@@ -23,11 +23,11 @@ public class FileController {
 		try {
 			archivosdao.saveCat(files);
 			
-			return "redirect:/CategoryWEB?CargaExitosa";
+			return "redirect:/admin/CategoryWEB?CargaExitosa";
 			
 		} catch (Exception e) {
 			
-			return "redirect:/CategoryWEB?CargaFallida";
+			return "redirect:/admin/CategoryWEB?CargaFallida";
 			
 		}
 	}
@@ -37,11 +37,11 @@ public class FileController {
 		try {
 			archivosdao.saveMed(files);
 			
-			return "redirect:/MeasureWEB?CargaExitosa";
+			return "redirect:/admin/MeasureWEB?CargaExitosa";
 			
 		} catch (Exception e) {
 			
-			return "redirect:/MeasureWEB?CargaFallida";
+			return "redirect:/admin/MeasureWEB?CargaFallida";
 			
 		}
 	}
@@ -51,11 +51,11 @@ public class FileController {
 		try {
 			archivosdao.saveSup(files);
 			
-			return "redirect:/SupplierWEB?exito";
+			return "redirect:/admin/SupplierWEB?exito";
 			
 		} catch (Exception e) {
 			
-			return "redirect:/SupplierWEB?fallo";
+			return "redirect:/admin/SupplierWEB?fallo";
 			
 		}
 	}
