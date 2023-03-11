@@ -24,6 +24,13 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="./css/demo1.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/e19784fdd4.js" crossorigin="anonymous"></script>
+  
+  <!-- DataTables con BootStrap -->
+<link rel="stylesheet" type="text/css"
+	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+	
+	<link rel="stylesheet" type="text/css"
+	href="/datatables/datatables.css"/>
 </head>
 
 <body class="">
@@ -155,14 +162,14 @@
 					<th class="titulotb" scope="col">Producto</th>
 				</tr>
 			</thead>
-			<tbody>
-
-				<tr th:each="stock : ${stock}">
+			<!--  <tbody>
+               
+				 <tr th:each="stock : ${stock}">
 					<th th:text="${stock.id_inventario}" scope="row"></th>
-					<td th:text="${stock.exis}"></td>
-					<td th:text="${stock.id_prod_fk.nom}">
-				</tr>
-			</tbody>
+					<td th:text="${stock.exis}" id="exis"></td>
+					<td th:text="${stock.id_prod_fk.nom}" id="prod">
+				</tr> 
+			</tbody>-->
 		</table>
 		</div>
                  <h2 data-text="1NV3NT0RY">1NV3NT0RY</h2>
@@ -196,6 +203,8 @@
       </footer>
     </div>
   </div>
+  
+  
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js"></script>
   <script src="./assets/js/core/popper.min.js"></script>
@@ -268,6 +277,20 @@ Bienvenido <span sec:authentication="principal.username"></span>
   <script src="./css/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
     <script src="./css/js/paper-dashboard.js?v=2.0.1" type="text/javascript"></script>
         <script src="./css/js/paper-dashboard.js,map?v=2.0.1" type="text/javascript"></script>
+        
+        <script type="text/javascript" th:src="@{/js/existencias.js}"></script>
+        
+        
+        <!-- DataTables -->
+	<script type="text/javascript"
+		th:src="@{/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/datatables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/datatables/Buttons-2.3.2/js/dataTables.buttons.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/datatables/Buttons-2.3.2/js/buttons.html5.min.js}"></script>
+        
 </body>
 
 
