@@ -44,19 +44,20 @@
 					<th class="titulotb" scope="col">#</th>
 					<th class="titulotb" scope="col">Nombre</th>
 					<th class="titulotb" scope="col">Estado</th>
-					<th class="titulotb" scope="col">Acciones</th>
+					<th class="titulotb" style="width: 333.94399999999996px;" scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
 
-				<tr th:each="cat : ${Category}">
+				<tr th:each="cat : ${Category}" >
 					<th th:text="${cat.id_cat}" scope="row"></th>
 					<td th:text="${cat.nom}"></td>
 					<td th:text="${cat.est}">
-					<td><a th:href="@{/admin/getOneCategory/(id_cat=${cat.id_cat})}"
+					<td><a th:href="@{/admin/getOneCategory/(id_cat=${cat.id_cat})}" 
 						class="btn btn-warning" id="update"onclick="Ocultar()">Editar</a> <a
 						th:href="@{/admin/CategoryDelete/(id_cat=${cat.id_cat})}"
 						class="btn btn-warning" id="updateButton"onclick="Ocultar()">Eliminar</a></td>
+						
 				</tr>
 			</tbody>
 		</table>
@@ -99,22 +100,22 @@
 					<div>
 					
 						<center>
-							<h1>Registro de Categorias</h1>
+							<h1 class="tituloh1">Registro de Categorias</h1>
 						</center>
 
 						<div class="ard-body">
 
 							<form th:action="@{/admin/CategoryCrear}" method="post">
 
-								<div class="form-row row">
+								<div class="textoformulario row">
 
 
 									<div class="form-group">
-										<label>Nombre</label><br> <input type="text"
-											placeholder="Ingrese nombre de la categoria" name="nom"><br>
+										<label>Nombre</label><br> <input type="text" class="nomcat"
+											placeholder="Ingrese una categoria" name="nom"><br>
 									</div>
 
-									<div class="form-group">
+									<div class="form-group6">
 										<label>Estado:</label><br> <select class="form-select"
 											name="est" required>
 
@@ -125,12 +126,12 @@
 									</div>
 
 
-									<div class="container">
+									<div class="container1">
 										<button   type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
 										<br> <br>
 
 
-										<button 
+										<button type="button" 
 											onclick="document.getElementById('id01').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
@@ -153,7 +154,7 @@
 					<div>
 						
 						<center>
-							<h1>Actualizacion de Categorias</h1>
+							<h1 class="tituloh1">Actualizacion de Categorias</h1>
 						</center>
 
 						<div class="ard-body">
@@ -166,13 +167,13 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Nombre:</label><br> <input type="text"
+											<label>Nombre:</label><br> <input type="text" class="nomcat"
 												placeholder="Ingrese nombre" id="nomEdit" name="nom"><br>
 										</div>
 									</div>
 
 
-									<div class="form-group">
+									<div class="form-group6">
 										<label>Estado:</label><br> <select class="form-select"
 											id="estEdit" name="est" required>
 
@@ -183,12 +184,12 @@
 									</div>
 
 
-									<div class="container">
-										<button data-dismiss="modal" data-backdrop="false" type="submit" onclick="Mostrar()"class="ov-btn-slide-left">Guardar</button>
+									<div class="container1">
+										<button type="submit" onclick="Mostrar()"class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 
 
-										<button type="button" class="o-btn-slide-left" 
+										<button type="button" class="o-btn-slide-left" data-dismiss="modal" data-backdrop="false" 
 											onclick="document.getElementById('editModal').style.display='none',Mostrar()">Cancelar</button>
 									</div>
 								</div>
@@ -210,7 +211,7 @@
 					<div>
 					
 						<center>
-							<h1>Confirmar Accion</h1>
+							
 						</center>
 
 						<div class="rd-body">
@@ -218,14 +219,14 @@
 							<form th:action="@{/admin/CategoryDelete}" method="put">
 
 								<div class="form-group">
-									<label>¿Esta seguro de borrar este dato?</label><br> <br>
+									<h3 class="tituloh3">¿Esta seguro de borrar este dato?</h3>
 
-									<div class="container">
+									<div class="container2">
 										<a  class="p-btn-slide-left" onclick="Mostrar()"
 							                 id="delRef">Si, Seguro</a> <br>
 										<br>
 
-										<button type="button" 
+										<button type="button" data-dismiss="modal" data-backdrop="false" 
 											onclick="document.getElementById('updateEstModal').style.display='none',Mostrar()"
 											class="btn-slide-left">Cancelar</button>
 									</div>

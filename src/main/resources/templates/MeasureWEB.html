@@ -96,7 +96,7 @@
 					<div
 						>
 						<center>
-							<h1>Registro de Medidas</h1>
+							<h1 class="tituloh1">Registro de Medidas</h1>
 						</center>
 
 						<div class="ard-body">
@@ -107,11 +107,11 @@
 
 
 									<div class="form-group">
-										<label>Nombre</label><br> <input type="text"
-											placeholder="Ingrese nombre de la medida" name="nom"><br>
+										<label>Nombre</label><br> <input type="text" class="nomcat"
+											placeholder="Ingrese la medida" name="nom"><br>
 									</div>
 
-									<div class="form-group">
+									<div class="form-group6">
 										<label>Estado:</label><br> <select class="form-select"
 											name="est" required>
 
@@ -122,7 +122,7 @@
 									</div>
 
 
-									<div class="container">
+									<div class="container1">
 										<button  type="submit" onclick="Mostrar()" class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 
@@ -149,7 +149,7 @@
 				<div class="row">
 					<div>
 						<center>
-							<h1>Actualizacion de Medidas</h1>
+							<h1 class="tituloh1">Actualizacion de Medidas</h1>
 						</center>
 
 						<div class="ard-body">
@@ -162,13 +162,13 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Nombre:</label><br> <input type="text"
+											<label>Nombre:</label><br> <input type="text" class="nomcat"
 												placeholder="Ingrese nombre" id="NomEdit" name="Nom"><br>
 										</div>
 									</div>
 
 
-									<div class="form-group">
+									<div class="form-group6">
 										<label>Estado:</label><br> <select class="form-select"
 											id="EstEdit" name="Est" required>
 
@@ -179,12 +179,12 @@
 									</div>
 
 
-									<div class="container">
+									<div class="container1">
 										<button  type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
 										<br> <br>
 
 
-										<button type="button" 
+										<button type="button" data-dismiss="modal" data-backdrop="false"
 											onclick="document.getElementById('editModal').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
@@ -206,7 +206,7 @@
 				<div class="row">
 					<div>
 						<center>
-							<h1>Confirmar Accion</h1>
+							
 						</center>
 
 						<div class="rd-body">
@@ -214,9 +214,9 @@
 							<form th:action="@{/admin/MeasureDelete}" method="put">
 
 								<div class="orm-group">
-									<label>¿Esta seguro de borrar este dato?</label><br> <br>
+									<h3 class=tituloh3>¿Esta seguro de borrar este dato?</h3><br> <br>
 
-									<div class="container">
+									<div class="container2">
 										<a class="p-btn-slide-left" onclick="Mostrar()" id="delRef">Si, Seguro</a> <br>
 										<br>
 

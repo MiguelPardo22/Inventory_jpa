@@ -161,7 +161,7 @@
 										<br> <br>
 
 
-										<button type="button"
+										<button type="button"  data-dismiss="modal" data-backdrop="false"
 											onclick="document.getElementById('id01').style.display='none'"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
@@ -182,7 +182,7 @@
 				<div class="row">
 					<div>
 						<center>
-							<h1>Editar Usuarios</h1>
+							<h1 class="tituloh1">Editar Usuarios</h1>
 						</center>
 
 						<div class="ard-body">
@@ -234,12 +234,12 @@
 										</div>
 									</div>
 
-									<div class="container">
+									<div class="container1">
 										<button type="submit" class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 
 
-										<button type="button" 
+										<button type="button"  data-dismiss="modal" data-backdrop="false"
 											onclick="document.getElementById('editModal').style.display='none'"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
@@ -260,21 +260,21 @@
 				<div class="row">
 					<div>
 						<center>
-							<h1>Confirmar Accion</h1>
+							
 						</center>
 
 						<div class="rd-body">
 
 							<form th:action="@{/Userdelete}" method="put">
 
-								<div class="orm-group">
-									<label class="mensaje">¿Esta seguro de borrar este dato?</label><br> <br>
+								<div class="rm-group">
+									<h3 class="tituloh3">¿Esta seguro de borrar este dato?</h3><br> <br>
 
-									<div class="container">
+									<div class="container1">
 										<a class="p-btn-slide-left" id="delRef">Si, Seguro</a>
 										<br> <br>
 
-										<button type="button"
+										<button type="button"   data-dismiss="modal" data-backdrop="false"
 											onclick="document.getElementById('updateEstModal').style.display='none'"
 											class="btn-slide-left">Cancelar</button>
 									</div>

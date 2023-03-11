@@ -2,9 +2,9 @@
 <html xmlns:th="http://thymeleaf.org" lang="es">
 
 <head>
-	<meta charset="utf-8">
-	<title>Orden de compra</title>
-	<!--Bootstrap-->
+<meta charset="utf-8">
+<title>Orden de compra</title>
+<!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 
@@ -13,8 +13,7 @@
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
-	<link rel="stylesheet" type="text/css"
-	href="/datatables/DataTables.css" />
+<link rel="stylesheet" type="text/css" href="/datatables/DataTables.css" />
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
@@ -22,34 +21,39 @@
 	href="/fontawesome-free-6.3.0-web/css/brands.css" />
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/solid.css" />
-		
-	
-	
-	<script type="text/javascript" src="../static/js/UpdateProduct.js" th:src="@{/js/UpdateProduct.js}"></script>
+
+
+
+<script type="text/javascript" src="../static/js/UpdateProduct.js"
+	th:src="@{/js/UpdateProduct.js}"></script>
 </head>
 <body>
-<img class="imagen"th:src="@{/css/logohorizontalconslogan.png}"/>
-<a  sec:authorize="isAuthenticated()" class="cerrar" th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
-<hr class="linea">
+	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
+	<a sec:authorize="isAuthenticated()" class="cerrar" th:href="@{/}"><h3
+			class="regresar">Regresar</h3></a>
+	<hr class="linea">
 </head>
 <body>
 
 
 
-         <div class="container">
-      
-      <div class="row">
+	<div class="container">
+
+		<div class="row">
 			<h1>Lista de Compra</h1>
 		</div>
 		<table class="table table-striped table-bordered" id="myTable">
 			<thead class="table-dark">
 				<tr>
-					<th  class="titulotb" scope="col">#</th>
-					<th   class="titulotb"scope="col">Numero de Facura</th>
-					<th   class="titulotb"scope="col">Total</th>
-					<th  class="titulotb" scope="col">Fecha</th>
-					<th  class="titulotb" scope="col">Proveedor</th>
-					<th  class="titulotb" scope="col">Detalles</th>
+					<th class="titulotb" scope="col">#</th>
+					<th class="titulotb" scope="col">Numero de Factura</th>
+					<th class="titulotb" scope="col">Fecha</th>
+					<th class="titulotb" scope="col">Proveedor</th>
+					<th class="titulotb" scope="col">Detalles</th>
+					<th class="titulotb" scope="col">Total</th>
+
+
+
 				</tr>
 			</thead>
 			<tbody>
@@ -57,118 +61,119 @@
 				<tr th:each="pur : ${Purchase}">
 					<th th:text="${pur.id_com}" scope="row"></th>
 					<td th:text="${pur.Num_fac}"></td>
-					<td th:text="${pur.Tot_com}">
 					<td th:text="${pur.Fecha}">
 					<td th:text="${pur.id_Supplier_fk.nom}"></td>
 					<td>
-					  <table class="table table-bordered">
-					     <thead>
-					       <tr>
-					        <th>Cantidad</th>
-					        <th>Subtotal</th>
-					        <th>Producto</th>
-					       </tr>
-					     </thead>
-					     <tbody>
-					       <tr th:each="det : ${pur.detalles}">
-					        <td th:text="${det.Can}"></td>
-					        <td th:text="${det.SubTotal}"></td>
-					        <td th:text="${det.id_prod_fk.nom}"></td>
-					       </tr>
-					     </tbody>
-					  </table>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Cantidad</th>
+									<th>Producto</th>
+									<th>Subtotal</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="det : ${pur.detalles}">
+									<td th:text="${det.Can}"></td>
+									<td th:text="${det.id_prod_fk.nom}"></td>
+									<td th:text="${det.SubTotal}"></td>
+								</tr>
+							</tbody>
+						</table>
 					</td>
+					<td th:text="${pur.Tot_com}">
 				</tr>
 			</tbody>
 		</table>
-		
-		</div>
 
-		<a><button class="ov-btn-grow-box" id="crear"
-  onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>
+	</div>
 
-		
-
-		<div id="id01" class="modal">
-			<span onclick="document.getElementById('id01').style.display='none'"
-				class="close" title="Close Modal">&times;</span>
-
-			<div class="container">
-				<div class="row">
-					<div
-						>
-						<center>
-							<h1>Registro de Compras</h1>
-						</center>
-
-						<div class="ard-body">
-
-							<form th:action="@{/admin/PurchaseCrear/save}" method="post" id="id_form">
-								<!-- th:action="@{/PurchaseOrderCrear}" -->
-								<div class="form-row row">
-
-									<!--<input type="number" id="numeroFor" />-->
-
-                                     <div class="col-md-6">
-										<div class="form-group">
-											<label>Numero de la Factura:</label><br> <input type="text"
-												placeholder="Ingrese el subtotal de la orden" name="Num_fac"
-												id="Num_fac"><br>
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Proveedores:</label> <select class="form-select"
-												name="id_Supplier_fk" id="id_Supplier_fk">
-												<th:block th:each="sup : ${Supplier}">
-													<option th:text="${sup.nom}" th:value="${sup.id_Proveedor}"></option>
-												</th:block>
-											</select>
-
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Cantidad:</label><br> <input type="number"
-												name="Can"><br>
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Producto:</label> <select class="form-select input"
-												name="id_prod_fk" th:id="id_prod_fk1">
-												<th:block th:each="prod : ${Product}">
-													<option th:text="${prod.nom}" th:value="${prod.id_prod}"></option>
-												</th:block>
-											</select>
-										</div>
-										
-										
-										
-									</div>
-									
-
-						<div class="container">
-
-								<button  type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
-										<br> <br>
+	<a><button class="ov-btn-grow-box" id="crear"
+			onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>
 
 
-										<button type="button" 
-											onclick="document.getElementById('id01').style.display='none',Mostrar()"
-											class="o-btn-slide-left">Cancelar</button>
+
+	<div id="id01" class="modal">
+		<span onclick="document.getElementById('id01').style.display='none'"
+			class="close" title="Close Modal">&times;</span>
+
+		<div class="container">
+			<div class="row">
+				<div>
+					<center>
+						<h1 class="tituloh1">Registro de Compras</h1>
+					</center>
+
+					<div class="ard-body">
+
+						<form th:action="@{/admin/PurchaseCrear/save}" method="post"
+							id="id_form">
+							<!-- th:action="@{/PurchaseOrderCrear}" -->
+							<div class="form-row row">
+
+								<!--<input type="number" id="numeroFor" />-->
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Numero de la Factura:</label><br> <input class="nomcat"
+											type="text" placeholder="Ingrese Num de Factura"
+											name="Num_fac" id="Num_fac"><br>
 									</div>
 								</div>
 
-							</form>
-						</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Proveedores:</label> <select class="form-select"
+											name="id_Supplier_fk" id="id_Supplier_fk">
+											<th:block th:each="sup : ${Supplier}">
+												<option th:text="${sup.nom}" th:value="${sup.id_Proveedor}"></option>
+											</th:block>
+										</select>
+
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Cantidad:</label><br> <input  class="nomcat" type="number"
+											name="Can"><br>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Producto:</label> <select class="form-select input"
+											name="id_prod_fk" th:id="id_prod_fk1">
+											<th:block th:each="prod : ${Product}">
+												<option th:text="${prod.nom}" th:value="${prod.id_prod}"></option>
+											</th:block>
+										</select>
+									</div>
+
+
+
+								</div>
+
+
+								<div class="container1">
+
+									<button type="submit" class="ov-btn-slide-left"
+										onclick="Mostrar()">Guardar</button>
+									<br> <br>
+
+
+									<button type="button"
+										onclick="document.getElementById('id01').style.display='none',Mostrar()"
+										class="o-btn-slide-left">Cancelar</button>
+								</div>
+							</div>
+
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
 	<!-- jquery -->
@@ -185,8 +190,7 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 	<!-- Java script -->
-	<script type="text/javascript"
-		th:src="@{/js/Purchase.js}"></script>
+	<script type="text/javascript" th:src="@{/js/Purchase.js}"></script>
 	<!-- DataTables -->
 	<script type="text/javascript"
 		th:src="@{/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js}"></script>
@@ -201,12 +205,14 @@
 	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
-	
-	
-	
-<footer class="footer">
-        <small>&copy; 2022 <b>1NV3NT0RY</b>  - Todos los derechos reservados-</small>
-        
-      </footer>
+
+
+
+	<footer class="footer">
+		<small>&copy; 2022 <b>1NV3NT0RY</b> - Todos los derechos
+			reservados-
+		</small>
+
+	</footer>
 </body>
 </html>

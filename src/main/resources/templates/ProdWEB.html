@@ -50,11 +50,11 @@
 					<th class="titulotb" scope="col">#</th>
 					<th class="titulotb" scope="col">Referencia</th>
 					<th class="titulotb" scope="col">Nombre</th>
+				    <th class="titulotb" scope="col">Medida</th>
+				    <th class="titulotb" scope="col">Categoria</th>
 					<th class="titulotb" scope="col">Precio_compra</th>
 					<th class="titulotb" scope="col">Precio_venta</th>
 					<th class="titulotb" scope="col">Impuesto</th>
-					<th class="titulotb" scope="col">Categoria</th>
-					<th class="titulotb" scope="col">Medida</th>
 					<th class="titulotb" scope="col">Estado</th>
 					<th class="titulotb" scope="col">Configuracion</th>
 				</tr>
@@ -66,19 +66,21 @@
 					<th th:text="${prod.id_prod}"></th>
 					<td th:text="${prod.ref}"></td>
 					<td th:text="${prod.nom}"></td>
+					<td th:text="${prod.id_med_fk.nom}"></td>
+				    <td th:text="${prod.id_cat_fk.nom}"></td>
 					<td th:text="${prod.pre_comp}"></td>
 					<td th:text="${prod.pre_vent}"></td>
 					<td th:text="${prod.imp}"></td>
 
-					<td th:text="${prod.id_cat_fk.nom}"></td>
-					<td th:text="${prod.id_med_fk.nom}"></td>
+			
+					
 
 					<td th:text="${prod.est}"></td>
 
 					<td><a th:href="@{/admin/getOneProduct/(id_prod=${prod.id_prod})}" onclick="Ocultar()"
 						class="btn btn-warning" id="update">Editar</a> <a
 						th:href="@{/admin/Productdelete/(id_prod=${prod.id_prod})}" onclick="Ocultar()"
-						class="btn btn-warning" id="updateButton">Borrar</a></td>
+						class="btn btn-warning" id="updateButton">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -95,7 +97,7 @@
 				<div class="row">
 					<div						>
 						<center>
-							<h1>Registro de Productos</h1>
+							<h1   class="tituloh1">Registro de Productos</h1>
 						</center>
 
 						<div class="ard-body">
@@ -107,14 +109,14 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Referencia:</label><br> <input type="number"
-												placeholder="Ingrese referencia del producto" name="ref"><br>
+												placeholder="Ingrese referencia" name="ref"><br>
 										</div>
 									</div>
 
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Nombre Producto:</label><br> <input type="text"
-												placeholder="Ingrese nombre producto" name="nom"><br>
+												placeholder="Ingrese nombre " name="nom"><br>
 										</div>
 									</div>
 
@@ -177,7 +179,7 @@
 										</div>
 									</div>
 
-									<div class="container">
+									<div class="container1">
 										<button  type="submit" class="ov-btn-slide-left" onclick="Mostrar()" >Guardar</button>
 										<br> <br>
 
@@ -204,7 +206,7 @@
 				<div class="row">
 					<div>
 						<center>
-							<h1>Editar Productos</h1>
+							<h1 class="tituloh1">Editar Productos</h1>
 						</center>
 
 						<div class="ard-body">
@@ -297,12 +299,12 @@
 										</div>
 									</div>
 
-									<div class="container">
+									<div class="container1">
 										<button type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
 										<br> <br>
 
 
-										<button type="button" 
+										<button type="button" data-dismiss="modal" data-backdrop="false"
 											onclick="document.getElementById('editModal').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
@@ -324,7 +326,7 @@
 				<div class="row">
 					<div>
 						<center>
-							<h1>Confirmar Accion</h1>
+							
 						</center>
 
 						<div class="rd-body">
@@ -332,13 +334,13 @@
 							<form th:action="@{/admin/Productdelete}" method="put">
 
 								<div class="orm-group">
-									<label>¿Esta seguro de borrar este dato?</label><br> <br>
+									<h3 class="tituloh3">¿Esta seguro de borrar este dato?</h3><br> <br>
 
-									<div class="container">
+									<div class="container2">
 										<a class="p-btn-slide-left" onclick="Mostrar()" id="delRef">Si, Seguro</a> <br>
 										<br>
 
-										<button type="button" 
+										<button type="button"  data-dismiss="modal" data-backdrop="false"
 											onclick="document.getElementById('updateEstModal').style.display='none',Mostrar()"
 											class="btn-slide-left">Cancelar</button>
 									</div>

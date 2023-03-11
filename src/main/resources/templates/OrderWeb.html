@@ -3,16 +3,20 @@
 
 <head>
 <meta charset="utf-8">
-<title>Crud Pedido</title>
+<title> Pedido</title>
 
 <!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 
 <!-- -Estilos -->
 <link rel="stylesheet" th:href="@{/css/StylesPED.css}" />
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
+	href="/datatables/DataTables.css" />
+<link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+	
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
@@ -28,12 +32,8 @@
 </head>
 <body>
 	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
-	
-	<a th:href="@{/mesero/OrderPagado}">Pedidos Pagados</a>
-	<a th:href="@{/mesero/OrderSinPagar}">Pedidos Sin Pagar</a>
-	
 	<a sec:authorize="isAuthenticated()" class="cerrar"
-		th:href="@{/logout}">Cerrar sesión</a>
+		th:href="@{/}"><h2 class="regresar">Regresar</h2></a>
 	<hr>
 <body>
 	<div class="container">
@@ -41,6 +41,10 @@
 		<div class="row">
 			<h1>Lista de Pedidos</h1>
 		</div>
+		<div class="links">
+	<a th:href="@{/mesero/OrderPagado}">Pedidos Pagados</a>
+	<a th:href="@{/mesero/OrderSinPagar}">Pedidos Sin Pagar</a>
+	</div>
 		<table class="table table-striped table-bordered" id="myTable">
 			<thead class="table-dark">
 				<tr>
@@ -90,7 +94,7 @@
 
 	<a><button button class="ov-btn-grow-box"
 			onclick="document.getElementById('id01').style.display='block'">Crear</button></a>
-	<a class="ov-btn-slide-close" th:href="@{/}">Regresar</a>
+	
 
 
 	<div id="id01" class="modal">
@@ -99,10 +103,10 @@
 
 		<div class="container">
 			<div class="row">
-				<div
-					class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<div>
+				
 					<center>
-						<h1>Registro de Pedido</h1>
+						<h1 class="tituloh1">Registro de Pedido</h1>
 					</center>
 
 					<div class="ard-body">
@@ -116,7 +120,7 @@
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Nombre del Cliente:</label><br> <input type="text"
+										<label>Nombre del Cliente:</label><br> <input type="text" class="nomcat"
 											placeholder="Ingrese el subtotal de la orden" name="Name_cli"
 											id="Name_cli"><br>
 									</div>
@@ -135,7 +139,7 @@
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Cantidad:</label><br> <input type="number" max="9"
+										<label>Cantidad:</label><br> <input class="cantidad" type="number" max="9"
 											min="1" name="cant"><br>
 
 									</div>
@@ -164,7 +168,7 @@
 									</div>
 								</div>
 
-								<div class="container">
+								<div class="container1">
 
 									<button type="submit" class="ov-btn-slide-left">Guardar</button>
 									<br> <br>

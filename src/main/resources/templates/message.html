@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>No autorizado</title>
+<!--Bootstrap-->
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+<!-- -Estilos -->
+<link rel="stylesheet" th:href="@{/css/MessageStyle.css}" />
+<!-- FontAwesome -->
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/brands.css" />
+<link rel="stylesheet" type="text/css"
+	href="/fontawesome-free-6.3.0-web/css/solid.css" />
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
+<img class="imagen"th:src="@{/css/logohorizontalconslogan.png}"/>
+<a   class="cerrar" th:href="@{/}"><h4>Regresar</a></h4>
+<hr>
+<i class="fa-solid fa-circle-exclamation"></i>
 
    <div class="text-center">
    
-    <h2>[[${title}]]</h2>
-    <h2>[[${message}]]</h2>
+    <h3 class="titulo">[[${title}]]</h3>
+    <h3 class="titulo">[[${message}]]</h3>
    
    </div>
 

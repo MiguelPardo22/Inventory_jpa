@@ -7,12 +7,14 @@
 
 <!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <!-- -Estilos -->
 <link rel="stylesheet" th:href="@{/css/StylesPED.css}" />
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+	<link rel="stylesheet" type="text/css"
+	href="/datatables/DataTables.css" />
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
@@ -30,7 +32,7 @@
 	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
 	
 	<a sec:authorize="isAuthenticated()" class="cerrar"
-		th:href="@{/logout}">Cerrar sesión</a>
+		th:href="@{/mesero/OrderWEB}"><h2 class="regresar">Regresar</h2></a>
 	<hr>
 <body>
 	<div class="container">
@@ -83,7 +85,7 @@
 
 	</div>
 	
-	<a class="ov-btn-slide-close" th:href="@{/mesero/OrderWEB}">Regresar</a>
+	
 
 
 	<!-- jquery -->
