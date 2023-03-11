@@ -14,7 +14,7 @@
 .form-group{
    margin-top: 29px;
     position: relative;
-    bottom: -11px;
+    bottom: -63px;
     left:50px;
 }
 
@@ -28,7 +28,7 @@
   border-radius: 3px; /* redondear bordes */
   position: relative;
   left: 55px;
-  top:30px;
+  top:36px;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
@@ -141,7 +141,12 @@ td{
     background: #191919;
     height: 305px;
     width: 600px;
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #101010, #434343),;  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin:0 auto;
     box-shadow: 10px 5px 5px black;
+    border-radius:8px;
     
 }
     
@@ -178,8 +183,8 @@ td{
   padding: 10px 53px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
-  left: 353px;
-  top:-29px;
+    left: 335px;
+    top: -33px;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
@@ -218,8 +223,8 @@ td{
   padding: 10px 53px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
-  left: -12px;
-  top:39px;
+left: 9px;
+    top: 41px;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
@@ -359,14 +364,25 @@ footer{
 
 .rd-body{
 	
-	
+
 	 flex: 1 1 auto;
     padding: var(- -bs-card-spacer-y) var(- -bs-card-spacer-x);
     color: #b57c00;
     background: #191919;
     height: 219px;
     width: 600px;
-    box-shadow: 10px 5px 5px black;}
+    box-shadow: 10px 5px 5px black;
+     background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #101010, #434343),;  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin:0 auto;
+    box-shadow: 10px 5px 5px black;
+    border-radius:8px;    
+
+    
+    
+    
+    }
 
  .regresar{
 	position:absolute;
@@ -380,5 +396,38 @@ footer{
 	color:#ecab0f
 }  
    
-    
+.form-group6{
+	position:relative;
+	left:335px;
+}
+
+.nomcat{
+	height:40px
+}
+.container1{
+	position:Relative;
+	top:20px;
+}
+
+.container2{
+	position:Relative;
+	right:5px;
+}
+
+
+
+
+.tituloh1{
+	position:relative;
+	    top: 73px;
+    left: 5px;
+}
+
+
+
+.tituloh3{
+	position:relative;
+	    top: 10px;
+    left: 30px;
+}
     

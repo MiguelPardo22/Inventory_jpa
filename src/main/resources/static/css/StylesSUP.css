@@ -187,7 +187,7 @@ background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Fi
   border-radius: 3px; /* redondear bordes */
   position: relative;
   left: 160px;
-  top:3px;
+  top:-5px;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
@@ -367,6 +367,9 @@ footer{
     width: 600px;
     box-shadow: 10px 5px 5px black;
       border-radius: 15px;
+        background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #101010, #434343),;  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .regresar{
@@ -375,6 +378,7 @@ footer{
     top:10px;
 	
 }
+
 
 
 

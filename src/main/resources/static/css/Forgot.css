@@ -1,0 +1,297 @@
+@charset "ISO-8859-1";
+
+
+
+@charset "ISO-8859-1";
+
+*{
+
+}
+
+
+
+
+.multi_bg_example {
+  width: 100%;
+  height:742px;
+ background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #101010, #434343),;  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ 
+}
+
+
+
+.frase{
+	
+	position:initial;
+	left:70px;
+	
+	bottom:60px;
+	}
+	
+	.button{
+	background:#ecab0f;
+	 bottom: 70px;
+    width: 25%;
+    position: absolute;
+	-bs-btn-color: #fff; -
+	-bs-btn-bg: #0d6efd; -
+	-bs-btn-border-color: #0d6efd; -
+	-bs-btn-hover-color: #fff; -
+	-bs-btn-hover-bg: #0b5ed7; -
+	-bs-btn-hover-border-color: #0a58ca; -
+	-bs-btn-focus-shadow-rgb: 49, 132, 253; -
+	-bs-btn-active-color: #fff; -
+	-bs-btn-active-bg: #0a58ca; -
+	-bs-btn-active-border-color: #0a53be; -
+	-bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); -
+	-bs-btn-disabled-color: #fff; -
+	-bs-btn-disabled-bg: #0d6efd; -
+	-bs-btn-disabled-border-color: #0d6efd;
+	-: ;
+    -bs-btn-padding-x: 0.75rem;
+    -: ;
+    -bs-btn-padding-y: 0.375rem;
+    -: ;
+    -bs-btn-font-family: ;
+    -: ;
+    -bs-btn-font-size: 1rem;
+    -: ;
+    -bs-btn-font-weight: 400;
+    -: ;
+    -bs-btn-line-height: 1.5;
+    -: ;
+    -bs-btn-color: #212529;
+    -: ;
+    -bs-btn-bg: transparent;
+    -: ;
+    -bs-btn-border-width: 1px;
+    -: ;
+    -bs-btn-border-color: transparent;
+    -: ;
+    -bs-btn-border-radius: 0.375rem;
+    -: ;
+    -bs-btn-hover-border-color: transparent;
+    -: ;
+    -bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px;
+    rgba(0, 0, 0, 0.075): ;
+    -: ;
+    -bs-btn-disabled-opacity: 0.65;
+    -: ;
+    -bs-btn-focus-box-shadow: 0 0 0 0.25rem;
+    rgba(var(- -bs-btn-focus-shadow-rgb), .5): ;
+    display: inline-block;
+    padding: var(- -bs-btn-padding-y) var(- -bs-btn-padding-x);
+    font-family: var(- -bs-btn-font-family);
+    font-size: var(- -bs-btn-font-size);
+    font-weight: var(- -bs-btn-font-weight);
+    line-height: var(- -bs-btn-line-height);
+    color: var(- -bs-btn-color);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: var(- -bs-btn-border-width) solid var(- -bs-btn-border-color);
+    border-radius: var(- -bs-btn-border-radius);
+    background-color: var(- -bs-btn-bg);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	border-radius: 0.375rem;
+	height: 44px;
+	bottom: -100px;
+}
+
+
+
+
+img{
+	position:absolute;
+	height:30%;
+	width:auto;
+	z-index:1;
+	left:650px;
+	top:200px;
+	transform:translatey(0px);
+	animation:float 6s ease-in-out infinite;
+	box-shadow:0px 5px 15px 0px rgba(0,0,0,6);
+	
+}
+
+@keyframes float{
+	
+	0%{
+		box-shadow:0px 5px 15px 0px rgba(0,0,0,6);
+		transform:translatey(0px);
+	
+	}
+	
+	50%{
+		box-shadow:0px 25px 15px 0px rgba(0,0,0,2);
+		transform:translatey(-20px);
+	
+	}
+	
+	100%{
+		box-shadow:0px 5px 15px 0px rgba(0,0,0,6);
+		transform:translatey(0px);
+	
+	}
+
+
+}
+
+.container1{
+
+		width: 392px;
+		    height: 621px;
+		    	box-shadow:0px 5px 15px 0px rgba(0,0,0,6);
+		    	position: absolute;
+                left: 85px;
+                 border-radius: 15px;
+}  
+
+
+.row-registro{
+	grid-template-rows: none;
+	width:930px;
+  position: inherit;
+    left: 56px;
+	
+	
+}
+
+h1{
+	
+    position: relative;
+    left: 55px;
+}
+
+h4{
+position: relative;
+    right: 20px;	
+}
+
+
+/*** ESTILOS BOTÓN GROW BOX ***/
+.ov-btn-grow-box {
+  background:#ecab0f; /* color de fondo */
+  color: black;
+  border: 2px solid #191919; /* tamaño y color de borde */
+  padding: 12px 55px;
+  border-radius: 3px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  bottom: -168px;
+    width:90px;
+    right: 3px;
+    /* left: 24px; */
+    width: 282px;
+}
+.ov-btn-grow-box:hover {
+  color: #fff;/* color de fuente hover */
+}
+.ov-btn-grow-box::after {
+  content: "";
+  background: #1a1a1a; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0);
+  transition: all 0.3s ease;
+}
+.ov-btn-grow-box:hover::after {
+  transition: all 0.3s ease-out;
+  transform: scale(1, 1);
+}
+
+
+
+.container{
+
+		width: 392px;
+		    height: 454px;
+		    	box-shadow:0px 5px 15px 0px rgba(0,0,0,6);
+		    	position: absolute;
+                left: 85px;
+                top:108px;
+                 border-radius: 15px;
+}  
+
+
+
+.row-login{
+	grid-template-rows: none;
+	width: 459px;
+  position: inherit;
+    left: 56px;
+    top:39px;
+	
+	
+}
+
+.titulo{
+	    font-size: 30px;
+    position: relative;
+    left: -21px;
+	
+}
+
+.form-control{
+	
+position:relative;
+top:25px;	
+	
+}
+
+
+
+/*** ESTILOS BOTÓN GROW BOX ***/
+.v-btn-grow-box {
+  background:#ecab0f; /* color de fondo */
+  color: black;
+  border: 2px solid #191919; /* tamaño y color de borde */
+  padding: 12px 55px;
+  border-radius: 3px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  bottom: -138px;
+    width:90px;
+    right: 3px;
+    /* left: 24px; */
+    width: 282px;
+}
+.v-btn-grow-box:hover {
+  color: #fff;/* color de fuente hover */
+}
+.v-btn-grow-box::after {
+  content: "";
+  background: #1a1a1a; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0);
+  transition: all 0.3s ease;
+}
+.v-btn-grow-box:hover::after {
+  transition: all 0.3s ease-out;
+  transform: scale(1, 1);
+}
+
+

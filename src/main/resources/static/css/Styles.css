@@ -20,10 +20,16 @@ background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Fi
 
 .frase{
 	
-	position:initial;
-	left:70px;
+	position: relative;
+    left: 3px;
+    bottom: 60px;;
+	}
 	
-	bottom:60px;
+	.frase1{
+	
+	position: relative;
+    left: 37px;
+    bottom: 60px;;
 	}
 	
 	.button{
