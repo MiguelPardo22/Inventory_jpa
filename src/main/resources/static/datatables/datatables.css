@@ -387,6 +387,8 @@ table.table-bordered.dataTable {
 table.table-bordered.dataTable thead tr:first-child th,
 table.table-bordered.dataTable thead tr:first-child td {
   border-top-width: 1px;
+  background:#ecab0f;
+  color:black;
 }
 table.table-bordered.dataTable th,
 table.table-bordered.dataTable td {
