@@ -1,6 +1,7 @@
 package com.app.inventory.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "Inventario")
@@ -25,10 +29,14 @@ public class Inventory implements Serializable {
 	@Column(name= "Existencias")
 	private long exis;
 	
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="id_prod_fk", referencedColumnName = "id_prod")
-	private Product id_prod_fk; 
+	private Product id_prod_fk;
 	
+	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="id_det_com_fk", referencedColumnName = "id_det_com")
 	private DetalleCompra id_det_com_fk; 
@@ -37,6 +45,7 @@ public class Inventory implements Serializable {
 	@JoinColumn(name="id_ven_fk", referencedColumnName = "id_ven")
 	private Sale id_ven_fk;*/
 
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="id_det_ped_fk", referencedColumnName = "id_det_ped")
 	private OrderDetail id_det_ped_fk;	
