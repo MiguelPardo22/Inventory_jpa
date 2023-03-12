@@ -57,8 +57,8 @@ public class OrderController {
 	
 	@RequestMapping({"/getOneOrder"})
 	@ResponseBody
-	public Optional<Order> getOne(int id_ped) {
-		return ordao.getOne(id_ped);
+	public Optional<Order> getOne(int id_Ped) {
+		return ordao.getOne(id_Ped);
 	}
 	
 	@PostMapping({"/OrderCrear/save"})
