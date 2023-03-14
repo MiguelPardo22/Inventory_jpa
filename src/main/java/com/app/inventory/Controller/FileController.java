@@ -23,11 +23,11 @@ public class FileController {
 		try {
 			archivosdao.saveCat(files);
 			
-			return "redirect:/admin/CategoryWEB?CargaExitosa";
+			return "redirect:/admin/category?CargaExitosa";
 			
 		} catch (Exception e) {
 			
-			return "redirect:/admin/CategoryWEB?CargaFallida";
+			return "redirect:/admin/category?CargaFallida";
 			
 		}
 	}
