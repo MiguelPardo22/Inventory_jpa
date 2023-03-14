@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.app.inventory.Dto.OrderDTO;
@@ -59,7 +61,7 @@ public class OrderDao implements IOrder {
 
 	@Override
 	public void delete(Order order) {
-		Order or = orrepo.getById(order.getId_Ped());
+		Order or = orrepo.getById((int) order.getId_Ped());
 		this.orrepo.save(or);
 	}
 
@@ -87,4 +89,29 @@ public class OrderDao implements IOrder {
 
 	}
 
+	public ResponseEntity<String> detalles(Order order) {
+		
+		try {
+			
+			orrepo.save(order);
+			
+			for (OrderDetail detor : order.getDetalles()) {
+				detor.setId_ped_fk(order);
+				ordetrepo.save(detor);
+				
+				Inventory inven = new Inventory();
+				
+				inven.setId_det_ped_fk(detor);
+				inven.setExis(- detor.getCant());
+				inven.setId_prod_fk(detor.getId_prod_fk());
+				this.invenrepo.save(inven);
+				
+		    }			
+				return ResponseEntity.ok("Pedido creado correctamente");
+			} catch (Exception e) {
+				 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear el pedido: " + e.getMessage());
+			}
+		
+	}
+	
 }
