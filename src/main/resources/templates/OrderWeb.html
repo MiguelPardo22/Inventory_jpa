@@ -140,16 +140,56 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Cantidad:</label><br> <input class="cantidad" type="number" max="9"
-											min="1" name="cant"><br>
+											min="1" name="detalles[0].cant"><br>
+
+									</div>
+								</div>
+								
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Cantidad 2:</label><br> <input class="cantidad" type="number" max="9"
+											min="1" name="detalles[1].cant"><br>
 
 									</div>
 								</div>
 
+                                 <div class="col-md-6">
+									<div class="form-group">
+										<label>Cantidad 2:</label><br> <input class="cantidad" type="number" max="9"
+											min="1" name="detalles[2].cant"><br>
+
+									</div>
+								</div>
+                                 
+
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Producto:</label> <select class="form-select input"
-											name="id_prod_fk" th:id="id_prod_fk1">
+										<label>Producto 2:</label> <select class="form-select input"
+											name="detalles[0].id_prod_fk" th:id="id_prod_fk1">
+											<th:block th:each="prod : ${Product}">
+												<option th:text="${prod.nom}" th:value="${prod.id_prod}"></option>
+											</th:block>
+										</select>
+									</div>
+								</div>
+								
+								
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Producto 2:</label> <select class="form-select input"
+											name="detalles[1].id_prod_fk" th:id="id_prod_fk1">
+											<th:block th:each="prod : ${Product}">
+												<option th:text="${prod.nom}" th:value="${prod.id_prod}"></option>
+											</th:block>
+										</select>
+									</div>
+								</div>
+								
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Producto 2:</label> <select class="form-select input"
+											name="detalles[2].id_prod_fk" th:id="id_prod_fk1">
 											<th:block th:each="prod : ${Product}">
 												<option th:text="${prod.nom}" th:value="${prod.id_prod}"></option>
 											</th:block>
