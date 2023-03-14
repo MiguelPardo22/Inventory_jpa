@@ -62,8 +62,7 @@ public class PurchaseOrderDao implements IPurchaseOrder {
   
 		//Map<String, String> salida = new HashMap<>();
 		
-		Purchaseorder purorder = new Purchaseorder(purchaseOrderDTO.getFecha(),
-				purchaseOrderDTO.getTotal(),
+		Purchaseorder purorder = new Purchaseorder(purchaseOrderDTO.getTotal(),
 				purchaseOrderDTO.getId_Supplier_fk());
 
 		Detalle_OrderCompra detordercom = new Detalle_OrderCompra();
