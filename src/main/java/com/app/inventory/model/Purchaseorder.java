@@ -29,9 +29,7 @@ public class Purchaseorder implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_orden_compra;
 	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date Fecha;
+	private String Fecha = Utiles.obtenerFechaYHoraActual();
 	
 	@Column(name="Total",length=40)
 	private int Total;
@@ -51,11 +49,11 @@ public class Purchaseorder implements Serializable{
 		this.id_orden_compra = id_orden_compra;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return Fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		Fecha = fecha;
 	}
 
@@ -75,7 +73,15 @@ public class Purchaseorder implements Serializable{
 		this.id_Supplier_fk = id_Supplier_fk;
 	}
 	
-	public Purchaseorder(Long id_orden_compra, Date fecha, int total, Supplier id_Supplier_fk) {
+	public List<Detalle_OrderCompra> getDetalles() {
+		return detalles;
+	}
+
+	public void setDetalles(List<Detalle_OrderCompra> detalles) {
+		this.detalles = detalles;
+	}
+
+	public Purchaseorder(Long id_orden_compra, String fecha, int total, Supplier id_Supplier_fk) {
 		super();
 		this.id_orden_compra = id_orden_compra;
 		Fecha = fecha;
@@ -83,16 +89,15 @@ public class Purchaseorder implements Serializable{
 		this.id_Supplier_fk = id_Supplier_fk;
 	}
 
-	public Purchaseorder(Date fecha, int total, Supplier id_Supplier_fk) {
+	public Purchaseorder(int total, Supplier id_Supplier_fk) {
 		super();
-		Fecha = fecha;
 		Total = total;
 		this.id_Supplier_fk = id_Supplier_fk;
 	}
 	
-	public Purchaseorder(Date fecha) {
+	public Purchaseorder(Supplier id_Supplier_fk) {
 		super();
-		Fecha = fecha;
+		this.id_Supplier_fk = id_Supplier_fk;
 	}
 
 	public Purchaseorder() {
