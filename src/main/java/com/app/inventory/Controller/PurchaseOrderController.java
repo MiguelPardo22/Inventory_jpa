@@ -60,7 +60,7 @@ public class PurchaseOrderController {
 		purchaseorderdao.guardar(purchaseOrderDTO);
 		User us = (User) session.getAttribute("usuario");
 		modelo.addAttribute("usuario",us);
-		return "redirect:/PurchaseOrderWEB";
+		return "redirect:/admin/PurchaseOrderWEB";
 	}
     
 	
