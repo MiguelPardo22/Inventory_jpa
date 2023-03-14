@@ -72,7 +72,7 @@
             </a>
           </li>
           <li sec:authorize="isAuthenticated()">>
-            <a th:href="@{/PurchaseOrderWEB}">
+            <a th:href="@{/admin/PurchaseOrderWEB}">
         <i class="fa-regular fa-credit-card"></i>
               <p> Orden De Compra</p>
             </a>
@@ -157,19 +157,11 @@
 		<table class="table table-striped table-bordered" id="myTable">
 			<thead class="table-dark">
 				<tr>
-					<th class="titulotb" scope="col">#</th>
+					
 					<th class="titulotb" scope="col">Exitencias</th>
 					<th class="titulotb" scope="col">Producto</th>
 				</tr>
 			</thead>
-			<!--  <tbody>
-               
-				 <tr th:each="stock : ${stock}">
-					<th th:text="${stock.id_inventario}" scope="row"></th>
-					<td th:text="${stock.exis}" id="exis"></td>
-					<td th:text="${stock.id_prod_fk.nom}" id="prod">
-				</tr> 
-			</tbody>-->
 		</table>
 		</div>
                  <h2 data-text="1NV3NT0RY">1NV3NT0RY</h2>
@@ -178,9 +170,7 @@
           </div>
         </div>
       </div>
-      
-       
-           
+              
      
       
       <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
@@ -290,6 +280,11 @@ Bienvenido <span sec:authentication="principal.username"></span>
 		th:src="@{/datatables/Buttons-2.3.2/js/dataTables.buttons.min.js}"></script>
 	<script type="text/javascript"
 		th:src="@{/datatables/Buttons-2.3.2/js/buttons.html5.min.js}"></script>
+
+	<!-- Exportar Archivos -->
+	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
+	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
+	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
         
 </body>
 
