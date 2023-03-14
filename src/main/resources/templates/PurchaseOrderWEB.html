@@ -99,14 +99,6 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Fecha:</label><br> <input type="date"
-												placeholder="Ingrese la Fecha de la orden" name="Fecha"
-												id="fecha"><br>
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<div class="form-group">
 											<label>Proveedores:</label> <select class="form-select"
 												name="id_Supplier_fk" id="id_Supplier_fk">
 												<th:block th:each="sup : ${Supplier}">
@@ -120,8 +112,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Cantidad:</label><br> <input type="number"
-												placeholder="Ingrese la cantidad" maxlength="1" max="9"
-											    min="1"
+												placeholder="Ingrese la cantidad"
 												name="Can"><br>
 										</div>
 									</div>
@@ -134,14 +125,6 @@
 													<option th:text="${prod.nom}" th:value="${prod.id_prod}"></option>
 												</th:block>
 											</select>						
-									</div>
-
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Total:</label><br> <input type="number"
-												placeholder="Ingrese el total de la orden" name="Total"
-												id="Total"><br>
-										</div>
 									</div>
 
 									<div class="container">
