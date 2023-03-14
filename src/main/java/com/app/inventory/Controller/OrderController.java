@@ -62,8 +62,8 @@ public class OrderController {
 	}
 	
 	@PostMapping({"/OrderCrear/save"})
-	public String create(OrderDTO orderDTO) {	
-		ordao.guardar(orderDTO);
+	public String create(Order order) {	
+		ordao.detalles(order);
 		return "redirect:/mesero/OrderWEB";
 	}
 	
