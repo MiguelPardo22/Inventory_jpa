@@ -23,6 +23,7 @@ import com.app.inventory.model.Supplier;
 import com.app.inventory.model.User;
 
 @Controller
+@RequestMapping("/admin")
 public class PurchaseOrderController {
 
 	@Autowired
@@ -35,7 +36,7 @@ public class PurchaseOrderController {
 	ProductDao prodao;
 
 	
-	@RequestMapping({"/PurchaseOrderWEB", "/"})
+	@RequestMapping({"/PurchaseOrderWEB"})
 	public String ListOrderCompra(Model model) {
 		model.addAttribute("PurchaseOrder", purchaseorderdao.EncontrarPurchaseOrder());
 		
@@ -62,23 +63,6 @@ public class PurchaseOrderController {
 		return "redirect:/PurchaseOrderWEB";
 	}
     
-    @PostMapping({"/PurchaseOrderGuardar/guardar"})
-	public String guardar(Purchaseorder purchaseorder, Model modelo, HttpSession session) {
-    	
-    	Purchaseorder pur = new Purchaseorder();
-		
-		 pur.setFecha(null);
-		 pur.setId_Supplier_fk(null);
-		 pur.setTotal(200);
-   	
-		 purchaseorderdao.create(purchaseorder);
-    	
-		User us = (User) session.getAttribute("usuario");
-		modelo.addAttribute("usuario",us);
-    	
-    	
-	  return "redirect:/PurchaseOrderWEB"; 
-	}
 	
 	@RequestMapping(value="/PurchaseOrderUpdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Purchaseorder purchaseorder) {
