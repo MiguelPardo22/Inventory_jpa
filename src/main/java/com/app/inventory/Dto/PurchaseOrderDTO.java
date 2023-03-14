@@ -47,7 +47,7 @@ public class PurchaseOrderDTO {
 
 
 	public int getSubTot() {
-		return SubTot;
+		return this.Can * this.id_prod_fk.getPre_comp();
 	}
 
 
@@ -59,7 +59,7 @@ public class PurchaseOrderDTO {
 
 
 	public int getTotal() {
-		return Total;
+		return this.Total += this.getSubTot();
 	}
 
 
