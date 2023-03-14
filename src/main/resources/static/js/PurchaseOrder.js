@@ -1,4 +1,4 @@
-
+/*
 const url = "/PurchaseOrderCrear/save";
 const url2 = "/PurchaseOrderGuardar/guardar";
 var resultado = 0;
@@ -33,7 +33,7 @@ $(document).ready(function() {
 	
 	});
 
-}*/
+}
 
 
 function bucle() {
@@ -68,7 +68,7 @@ function bucle() {
 		//}	
 	}
 }
-
+*/
 
 
 /*Funcion de datatable*/	  
