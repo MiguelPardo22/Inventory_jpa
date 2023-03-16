@@ -1,4 +1,4 @@
- package com.app.inventory.Controller;
+package com.app.inventory.Controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.inventory.Repository.InventoryRepository;
@@ -24,90 +25,86 @@ import com.app.inventory.model.User;
 
 @Controller
 public class RegistroController {
-	
+
 	@Autowired
 	EmailDao emaildao;
-	
+
 	@Autowired
 	UserDao userdao;
-	
+
 	@Autowired
 	InventoryRepository invenrepo;
-	
+
 	@Autowired
 	UserRepository userrepo;
-	
+
 	@GetMapping("/login")
 	public String login() {
-	 return "login";
+		return "login";
 	}
-	
-	/*@GetMapping("/registro")
-	public String registro() {
-	 return "registro";
-	}*/
-	
+
+	/*
+	 * @GetMapping("/registro") public String registro() { return "registro"; }
+	 */
+
 	@GetMapping("/")
 	public String VerPagina(Model modelo) {
-		
+
 		List<Inventory> lstinven = invenrepo.stock();
 		modelo.addAttribute("stock", lstinven);
-		
-	 return "index";
+
+		return "index";
 	}
-	
+
 	@GetMapping("/inventario")
-    public ResponseEntity<Map<String,Object>> allState(){
+	public ResponseEntity<Map<String, Object>> allState() {
 		List<Inventory> lstinven = invenrepo.stock();
-   	 Map<String,Object> respon=new HashMap<String,Object>();
-   	 respon.put("data", lstinven);
-   	  return new ResponseEntity<>(respon,HttpStatus.OK);
-    }	
-	
+		Map<String, Object> respon = new HashMap<String, Object>();
+		respon.put("data", lstinven);
+		return new ResponseEntity<>(respon, HttpStatus.OK);
+	}
+
 	@GetMapping("/index-particles")
 	public String VerPagina2() {
-	 return "index-particles";
+		return "index-particles";
 	}
-	
+
 	@GetMapping("/ups")
 	public String VerError() {
-	 return "ups";
+		return "ups";
 	}
-	
-	
+
 	// --> Envio de Correos
-	@GetMapping("/mail")
-	public String enviarmail(Model modelo){ 
-		
+	@RequestMapping("/admin/mail")
+	public String enviarmail(Model modelo) {
+
 		List<User> lstadmin = userrepo.rolAdministrador();
-		modelo.addAttribute("admin", lstadmin); 
-		
-	    List<User> lstBodeguero = userrepo.rolBodeguero();
-		modelo.addAttribute("bodeguero", lstBodeguero); 
-		
+		modelo.addAttribute("admin", lstadmin);
+
+		List<User> lstBodeguero = userrepo.rolBodeguero();
+		modelo.addAttribute("bodeguero", lstBodeguero);
+
 		List<User> lstmesero = userrepo.rolMesero();
 		modelo.addAttribute("mesero", lstmesero);
-		
+
 		return "MailWEB";
-	} 
-	
-	
-	
-	@PostMapping("/sendMail")
+	}
+
+	@PostMapping("/admin/sendMail")
 	public String sendMail(@RequestParam("name") String name, @RequestParam("mail") String mail,
 			@RequestParam("subject") String subject, @RequestParam("body") String body, HttpServletRequest request) {
-		
+
 		String[] email = request.getParameterValues("emails");
-		
+
 		for (int i = 0; i < email.length; i++) {
-		
-		String message = body + "\n\n Datos del Contacto: " + "\nNombre: " + name + "\nE-Mail: " + mail;
-		
-		emaildao.sendListEmail("miangelpardo123@gmail.com", email[i], subject, message);
-		
+
+			String message = body + "\n\n Datos del Contacto: " + "\nNombre: " + name + "\nE-Mail: " + mail;
+
+			emaildao.sendListEmail("1nv3torym@gmail.com", email[i], subject, message);
+
 		}
-		
-		return "redirect:/mail";		
+
+		return "redirect:/mail";
 	}
-	
+
 }
