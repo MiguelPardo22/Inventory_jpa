@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Pedido")
 public class Order implements Serializable{
@@ -37,6 +39,7 @@ public class Order implements Serializable{
 	@JoinColumn(name="id_est_fk", referencedColumnName = "id_est")
 	private EstadoPedidos id_est_fk; 
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "id_ped_fk")
 	private List<OrderDetail> detalles;
 	
@@ -70,7 +73,7 @@ public class Order implements Serializable{
 	}
 
 	public void setTotal(long total) {
-		Total = total;
+		this.Total = total;
 	}
 
 	public String getFecha() {
@@ -125,6 +128,19 @@ public class Order implements Serializable{
 		this.id_usu_fk = id_usu_fk;
 		this.id_est_fk = id_est_fk;
 	}
+
+	public Order(String name_cli, long total, String fecha, User id_usu_fk, EstadoPedidos id_est_fk,
+			List<OrderDetail> detalles) {
+		super();
+		Name_cli = name_cli;
+		Total = total;
+		Fecha = fecha;
+		this.id_usu_fk = id_usu_fk;
+		this.id_est_fk = id_est_fk;
+		this.detalles = detalles;
+	}
+	
+	
 	
 }
 

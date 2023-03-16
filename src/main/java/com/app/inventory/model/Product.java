@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "Producto")
 public class Product implements Serializable {
@@ -32,7 +33,7 @@ public class Product implements Serializable {
 	private int Pre_vent;
 	
 	@Column(name="Impuesto",length=40)
-	private int imp;
+	private double imp;
 	
 	@Column(name = "estado")
 	private String est;
@@ -94,7 +95,7 @@ public class Product implements Serializable {
 		return iva;
 	}
 
-	public void setImp(int imp) {
+	public void setImp(double imp) {
 		this.imp = imp;
 	}
 

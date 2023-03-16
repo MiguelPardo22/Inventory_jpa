@@ -1,8 +1,6 @@
 package com.app.inventory.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
