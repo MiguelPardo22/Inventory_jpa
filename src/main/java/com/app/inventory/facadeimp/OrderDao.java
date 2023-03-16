@@ -92,11 +92,13 @@ public class OrderDao implements IOrder {
 	public ResponseEntity<String> detalles(Order order) {
 		
 		try {
-			
+			order.setTotal(order.getTotal());
 			orrepo.save(order);
 			
 			for (OrderDetail detor : order.getDetalles()) {
+				
 				detor.setId_ped_fk(order);
+				detor.setSub(detor.getSub());
 				ordetrepo.save(detor);
 				
 				Inventory inven = new Inventory();
