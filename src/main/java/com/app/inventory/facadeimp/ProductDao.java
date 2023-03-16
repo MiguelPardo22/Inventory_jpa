@@ -34,6 +34,7 @@ public class ProductDao implements IProduct{
 
 	@Override
 	public void create(Product product) {
+		product.setImp(product.getImp());
 		this.prorepo.save(product);
 	}
 
