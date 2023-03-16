@@ -6,12 +6,16 @@
 <title>Crud Orden de compra</title>
 <!--Bootstrap-->
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <!-- -Estilos -->
 <link rel="stylesheet" th:href="@{/css/StyleOrdpurchase.css}" />
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
+		<link rel="stylesheet" type="text/css"
+	th:href="@{/datatables/datatables.css}" />
+	
+	
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
@@ -25,8 +29,8 @@
 <body>
 	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
 	<a sec:authorize="isAuthenticated()" class="cerrar"
-		th:href="@{/logout}">Cerrar sesión</a>
-	<hr>
+		th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
+	<hr class="linea">
 <body>
 
 	<div class="container">
@@ -78,17 +82,17 @@
 		</div>
 		<a><button button class="ov-btn-grow-box"
 				onclick="document.getElementById('id01').style.display='block'">Crear</button></a>
-		<a class="ov-btn-slide-close" th:href="@{/}">Regresar</a>
+		
 		<div id="id01" class="modal">
 			<span onclick="document.getElementById('id01').style.display='none'"
 				class="close" title="Close Modal">&times;</span>
 
 			<div class="container">
 				<div class="row">
-					<div
-						class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<div>
+					
 						<center>
-							<h1>Registro de Ordenes de Compra</h1>
+							<h1 class="tituloh1">Registro de Ordenes de Compra</h1>
 						</center>
 
 						<div class="ard-body">
@@ -127,7 +131,7 @@
 											</select>						
 									</div>
 
-									<div class="container">
+									<div class="container1">
 										<button type="submit" class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 

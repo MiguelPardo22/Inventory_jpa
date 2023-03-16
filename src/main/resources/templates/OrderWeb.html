@@ -39,7 +39,7 @@
 	<div class="container">
 
 		<div class="row">
-			<h1>Lista de Pedidos En proceso</h1>
+			<h1>Lista de Pedidos</h1>
 		</div>
 		<div class="links">
 	<a th:href="@{/mesero/OrderPagado}">Pedidos Pagados</a>
@@ -233,13 +233,13 @@
 
 		<div class="container">
 			<div class="row">
-				<div
-					class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<div>
+					
 					<center>
-						<h1>Actualizacion de Medidas</h1>
+						<h1 class="titulo">Actualizacion de Medidas</h1>
 					</center>
 
-					<div class="ard-body">
+					<div class="rd-body">
 
 						<form th:action="@{/mesero/OrderUpdate}" method="PUT">
 
@@ -269,7 +269,7 @@
 									<br> <br>
 
 
-									<button type="button"
+									<button type="button" data-dismiss="modal" data-backdrop="false"
 										onclick="document.getElementById('editModal').style.display='none'"
 										class="o-btn-slide-left">Cancelar</button>
 								</div>
