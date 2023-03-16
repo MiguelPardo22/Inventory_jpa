@@ -132,7 +132,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item"  th:href="@{/mail}">Mail</a>
+                  <a class="dropdown-item"  th:href="@{/admin/mail}">Mail</a>
                   <a class="dropdown-item" sec:authorize="isAuthenticated()" th:href="@{/logout}">Cerrar Sesion</a>
                 </div>
               </li>
@@ -140,6 +140,8 @@
           </div>
         </div>
       </nav>
+      
+     
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
@@ -147,7 +149,7 @@
             <h3 class="description"></h3>
             
             
-            
+             <canvas id="grafica"></canvas>
             
             <div class="container">
 
@@ -260,7 +262,7 @@ Bienvenido <span sec:authentication="principal.username"></span>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
-  <script src="./css/js/plugins/chartjs.min.js"></script>
+  <script th:src="@{/css/js/plugins/chartjs.min.js}"></script>
   <!--  Notifications Plugin    -->
   <script src="./css/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
@@ -285,6 +287,9 @@ Bienvenido <span sec:authentication="principal.username"></span>
 	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
 </body>
 
