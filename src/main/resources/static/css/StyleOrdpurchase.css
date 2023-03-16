@@ -6,6 +6,27 @@
 
 
 
+.form-group{
+ 
+   margin-top: 29px;
+    position: relative;
+    bottom: -63px;
+    left:50px;
+
+}
+
+.container1{
+	position:Relative;
+	top:40px;
+}
+
+
+.regresar{
+	position:absolute;
+	left: 30px;
+    top: 2px;
+	
+}
 
 .titulo{
 	position:fixed;
@@ -14,7 +35,7 @@
 	display:block;
 }
 
-.form-group{
+form-group{
    margin-top: 29px;
     position: relative;
     bottom: -11px;
@@ -138,15 +159,22 @@ td{
 }
 
 .ard-body {
-    flex: 1 1 auto;
+
+     flex: 1 1 auto;
     padding: var(- -bs-card-spacer-y) var(- -bs-card-spacer-x);
     color: #b57c00;
-    background: #191919;
-    height: 641px;
+   background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #101010, #434343),;  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 451px;
     width: 600px;
+    position: relative;
+    left: 250px;
     box-shadow: 10px 5px 5px black;
-    
+    border-radius: 15px; 
 }
+    
+
     
    .orm-group{
    margin-top: 29px;
@@ -369,4 +397,19 @@ footer{
 
 .numerorden{
 	width:10px;
+}
+
+
+
+
+
+.tituloh1{
+	position:relative;
+	    top: 73px;
+    left: 5px;
+}
+
+
+.linea{
+	color:#ecab0f;
 }
