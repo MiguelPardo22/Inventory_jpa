@@ -104,7 +104,7 @@ public class RegistroController {
 
 		}
 
-		return "redirect:/mail";
+		return "redirect:/admin/mail";
 	}
 
 }

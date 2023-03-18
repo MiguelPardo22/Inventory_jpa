@@ -54,10 +54,16 @@ public class PurchaseOrderController {
 	
     @PostMapping({"/PurchaseOrderCrear/save"})
 	public String create(PurchaseOrderDTO purchaseOrderDTO,/* Model modelo, HttpSession session*/ String from, String to, String subject, String body) {
-		purchaseorderdao.guardar(purchaseOrderDTO, "s", "s", "s", "s");
+		try {
+		
+    	purchaseorderdao.guardar(purchaseOrderDTO, "s", "s", "s", "s");
 		//User us = (User) session.getAttribute("usuario");
 		//modelo.addAttribute("usuario",us);
-		return "redirect:/admin/PurchaseOrderWEB";
+		return "redirect:/admin/PurchaseOrderWEB?exito";
+		
+		} catch (Exception e) {
+			return "redirect:/admin/PurchaseOrderWEB?fallo";
+		}
 	}
     
 	

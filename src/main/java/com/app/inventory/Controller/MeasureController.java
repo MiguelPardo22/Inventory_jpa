@@ -14,13 +14,13 @@ import com.app.inventory.facadeimp.MeasureDao;
 import com.app.inventory.model.Measure;
 
 @Controller
-@RequestMapping({"/admin"})
+@RequestMapping({ "/admin" })
 public class MeasureController {
 
 	@Autowired
 	MeasureDao meadao;
 
-	@RequestMapping({"/MeasureWEB"})
+	@RequestMapping({ "/MeasureWEB" })
 	public String listMeasure(Model model) {
 		model.addAttribute("Measure", meadao.EncontrarMeasure());
 		return "MeasureWEB";
@@ -34,25 +34,40 @@ public class MeasureController {
 
 	@PostMapping({ "/MeasureCrear" })
 	public String create(Measure measure) {
-		meadao.create(measure);
-		return "redirect:/admin/MeasureWEB";
+
+		try {
+			meadao.create(measure);
+			return "redirect:/admin/MeasureWEB?exito";
+		} catch (Exception e) {
+			return "redirect:/admin/MeasureWEB?fallo";
+		}
 	}
 
 	@RequestMapping(value = "/MeasureUpdate", method = { RequestMethod.PUT, RequestMethod.GET })
 	public String update(Measure measure) {
-		meadao.update(measure);
-		return "redirect:/admin/MeasureWEB";
+		try {
+			meadao.update(measure);
+			return "redirect:/admin/MeasureWEB?exitoUp";
+		} catch (Exception e) {
+			return "redirect:/admin/MeasureWEB?falloUp";
+		}
 	}
 
-	@RequestMapping(value="/MeasureDelete", method = {RequestMethod.PUT, RequestMethod.GET})
+	@RequestMapping(value = "/MeasureDelete", method = { RequestMethod.PUT, RequestMethod.GET })
 	public String delete(Long id_med) {
-		
-		Measure mea = meadao.finById(id_med);
-		mea.setEst("Inactivo");
-		
-		this.meadao.delete(mea);
-		return "redirect:/admin/MeasureWEB";
-		
+
+		try {
+
+			Measure mea = meadao.finById(id_med);
+			mea.setEst("Inactivo");
+
+			this.meadao.delete(mea);
+			return "redirect:/admin/MeasureWEB?exitoDe";
+
+		} catch (Exception e) {
+			return "redirect:/admin/MeasureWEB?falloDe";
+		}
+
 	}
-	
+
 }

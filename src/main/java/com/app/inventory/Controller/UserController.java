@@ -52,18 +52,28 @@ public class UserController {
 	
 	@RequestMapping(value="/Userupdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(User user){
+		
+		try {
 		this.userdao.update(user);
-		return "redirect:/admin/UserWEB";
+		return "redirect:/admin/UserWEB?exitoUp";
+		} catch (Exception e) {
+		return "redirect:/admin/UserWEB?falloUp";
+		}
 	}
 	
 	@RequestMapping(value="/Userdelete", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String delete(Long id_usu) {
 		
+		try {
 		User us = userdao.findById(id_usu);
 		us.setEst("Inactivo");
 		
 		this.userdao.delete(us);
-		return "redirect:/admin/UserWEB";
+		return "redirect:/admin/UserWEB?exitoDe";
+		
+		} catch (Exception e) {
+			return "redirect:/admin/UserWEB?falloDe";
+		}
 	}
 	
 }

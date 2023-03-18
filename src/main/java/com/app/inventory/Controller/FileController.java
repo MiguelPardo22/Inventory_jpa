@@ -51,11 +51,11 @@ public class FileController {
 		try {
 			archivosdao.saveSup(files);
 			
-			return "redirect:/admin/SupplierWEB?exito";
+			return "redirect:/admin/SupplierWEB?CargaExitosa";
 			
 		} catch (Exception e) {
 			
-			return "redirect:/admin/SupplierWEB?fallo";
+			return "redirect:/admin/SupplierWEB?CargaFallida";
 			
 		}
 	}

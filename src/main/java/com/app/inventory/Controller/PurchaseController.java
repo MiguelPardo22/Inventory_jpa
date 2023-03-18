@@ -55,10 +55,14 @@ public class PurchaseController {
 	
 	@PostMapping({"/PurchaseCrear/save"})
 	public String create(PurchaseDTO purchasedto) {
-		
+		try {
 		purdao.guardar(purchasedto);
 		
-		return "redirect:/admin/PurchaseWEB";
+		return "redirect:/admin/PurchaseWEB?exito";
+		
+		} catch (Exception e) {
+			return "redirect:/admin/PurchaseWEB?exito";
+		}
 	}
 	
 	@RequestMapping(value="/PurchaseUpdate", method = {RequestMethod.PUT, RequestMethod.GET})

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.app.inventory.Dto.OrderDTO;
 import com.app.inventory.Repository.EstadoPedidosRepository;
 import com.app.inventory.facadeimp.OrderDao;
 import com.app.inventory.facadeimp.ProductDao;
@@ -63,14 +62,25 @@ public class OrderController {
 	
 	@PostMapping({"/OrderCrear/save"})
 	public String create(Order order) {	
+		try {
+			
 		ordao.detalles(order);
-		return "redirect:/mesero/OrderWEB";
+		return "redirect:/mesero/OrderWEB?exito";
+		
+		} catch (Exception e) {
+			return "redirect:/mesero/OrderWEB?fallo";
+		}	
 	}
 	
 	@RequestMapping(value="/OrderUpdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Order order) {
+		try {
 		ordao.update(order);
-		return "redirect:/mesero/OrderWEB";
+		return "redirect:/mesero/OrderWEB?exitoUp";
+		
+		} catch (Exception e) {
+			return "redirect:/mesero/OrderWEB?falloUp";
+		}
 	}
 	
 	

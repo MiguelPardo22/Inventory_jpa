@@ -24,32 +24,32 @@ import com.app.inventory.model.Measure;
 import com.app.inventory.model.Product;
 
 @Controller
-@RequestMapping({"/admin"})
+@RequestMapping({ "/admin" })
 public class ProductController {
 
 	@Autowired
 	ProductDao prodao;
-	
+
 	@Autowired
 	MeasureDao meadao;
-	
+
 	@Autowired
 	CategoryDao catdao;
-	
-	@RequestMapping({"/ProdWEB"})
-	public String ListUser(Model modelo){
-		
+
+	@RequestMapping({ "/ProdWEB" })
+	public String ListUser(Model modelo) {
+
 		modelo.addAttribute("Product", prodao.EncontrarProduct());
-		
+
 		List<Category> lstcat = catdao.EncontrarCategory();
-		modelo.addAttribute("Category", lstcat); 
-		
+		modelo.addAttribute("Category", lstcat);
+
 		List<Measure> lstmed = meadao.EncontrarMeasure();
 		modelo.addAttribute("Measure", lstmed);
-		
+
 		return "ProdWEB";
 	}
-	
+
 	@GetMapping("/jsonProd")
 	public ResponseEntity<Map<String, Object>> allState() {
 		List<Product> lstprod = prodao.EncontrarProduct();
@@ -57,35 +57,47 @@ public class ProductController {
 		respon.put("data", lstprod);
 		return new ResponseEntity<>(respon, HttpStatus.OK);
 	}
-	
-	@RequestMapping({"/getOneProduct"})
+
+	@RequestMapping({ "/getOneProduct" })
 	@ResponseBody
-	public Optional<Product> getOne(Long id_prod){
+	public Optional<Product> getOne(Long id_prod) {
 		return prodao.getOne(id_prod);
 	}
-	
-	@PostMapping({"/Productcrear"})
-	public String create(Product product){
-		
-		this.prodao.create(product);
-		return "redirect:/admin/ProdWEB";
+
+	@PostMapping({ "/Productcrear" })
+	public String create(Product product) {
+		try {
+			this.prodao.create(product);
+			return "redirect:/admin/ProdWEB?exito";
+		} catch (Exception e) {
+			return "redirect:/admin/ProdWEB?fallo";
+		}
 	}
-	
-	@RequestMapping(value="/Productupdate", method = {RequestMethod.PUT, RequestMethod.GET})
-	public String update(Product product){
+
+	@RequestMapping(value = "/Productupdate", method = { RequestMethod.PUT, RequestMethod.GET })
+	public String update(Product product) {
+		try {
 		this.prodao.update(product);
-		return "redirect:/admin/ProdWEB";
-	}
-	
-	@RequestMapping(value="/Productdelete", method = {RequestMethod.PUT, RequestMethod.GET})
-	public String delete(Long id_prod) {
+		return "redirect:/admin/ProdWEB?exitoUp";
 		
+		} catch (Exception e) {
+			return "redirect:/admin/ProdWEB?falloUp";
+		}
+	}
+
+	@RequestMapping(value = "/Productdelete", method = { RequestMethod.PUT, RequestMethod.GET })
+	public String delete(Long id_prod) {
+
+		try {
 		Product prod = prodao.finById(id_prod);
 		prod.setEst("Inactivo");
-		
-		this.prodao.delete(prod);
-		return "redirect:/admin/ProdWEB";
-	}
-	
-}
 
+		this.prodao.delete(prod);
+		return "redirect:/admin/ProdWEB?exitoDe";
+		
+		} catch (Exception e) {
+			return "redirect:/admin/ProdWEB?falloDe";
+		}
+	}
+
+}

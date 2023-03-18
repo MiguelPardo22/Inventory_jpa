@@ -35,25 +35,44 @@ public class CategoryController {
 	
 	@PostMapping({"/CategoryCrear"})
 	public String create(Category category) {
-		catdao.create(category);
-		return "redirect:/admin/category";
+		
+		try {
+			catdao.create(category);
+			return "redirect:/admin/category?exito";
+		} catch (Exception e) {
+			return "redirect:/admin/category?fallo";
+		}
+	
 	}
 	
 	@RequestMapping(value="/CategoryUpdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Category category) {
-		catdao.update(category);
-		return "redirect:/admin/category";
+		
+		try {
+			
+			catdao.update(category);
+			return "redirect:/admin/category?exitoUp";
+			
+		} catch (Exception e) {
+			return "redirect:/admin/category?falloUp";
+		}
+	
 	}
 	
 	@RequestMapping(value="/CategoryDelete", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String delete(Long id_cat) {
 		
+		try {
+
 		Category cat = catdao.finById(id_cat);
 		cat.setEst("Inactivo");
 		
 		this.catdao.delete(cat);
-		return "redirect:/admin/category";
+		return "redirect:/admin/category?exitoDe";
 		
+		} catch (Exception e) {
+			return "redirect:/admin/category?falloDe";
+		}
 	}
 	
 }

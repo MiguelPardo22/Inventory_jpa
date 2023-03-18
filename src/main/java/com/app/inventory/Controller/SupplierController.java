@@ -34,24 +34,42 @@ public class SupplierController {
 	
 	@PostMapping({"/SupplierCrear"})
 	public String create(Supplier supplier) {
+		
+		try {
 		supplierdao.create(supplier);
-		return "redirect:/admin/SupplierWEB";
+		return "redirect:/admin/SupplierWEB?exito";
+		} catch (Exception e) {
+			return "redirect:/admin/SupplierWEB?fallo";
+		}
 	}
 	
 	@RequestMapping(value="/SupplierUpdate", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Supplier supplier) {
+		try {
+		
 		supplierdao.update(supplier);
-		return "redirect:/admin/SupplierWEB";
+		return "redirect:/admin/SupplierWEB?exitoUp";
+		
+		} catch (Exception e) {
+			return "redirect:/admin/SupplierWEB?falloUp";
+		}
+		
 	}
 	
 	@RequestMapping(value="/SupplierDelete", method = {RequestMethod.PUT, RequestMethod.GET})
 	public String delete(Long id_Proveedor) {
 		
+		try {
+		
 		Supplier sup = supplierdao.finById(id_Proveedor);
 		sup.setEst("Inactivo");
 		
 		this.supplierdao.delete(sup);
-		return "redirect:/admin/SupplierWEB";
+		return "redirect:/admin/SupplierWEB?exitoDe";
+		
+		} catch (Exception e) {
+			return "redirect:/admin/SupplierWEB?exitoDe";
+		}
 		
 	}
 	
