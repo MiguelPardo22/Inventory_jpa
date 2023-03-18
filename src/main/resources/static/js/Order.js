@@ -1,3 +1,59 @@
+let id_prod = [];
+let nom = [];
+
+url = "http://localhost:8090/admin/jsonProd";
+
+$(document).ready(function() {
+	
+	var contadorDetalles = 0;
+	
+	Product = {
+		
+		"data": [{
+			
+			"id_prod": id_prod,
+			
+			"nom": nom
+			
+		}]
+		
+	}
+	$("#agregar").click(function() {
+		// Crea un nuevo input
+		contadorDetalles++;
+		
+		var newInput = $("<input>").attr({
+			type: "number",
+			name: 'detalles[' + contadorDetalles + '].cant',
+			placeholder: "Ingrese la cantidad",
+			max: "9",
+			min: "1",
+			class: "cantidad"
+		});
+
+		var newProd = $("<select>").attr({
+			name: 'detalles[' + contadorDetalles + '].id_prod_fk',
+			class: "form-select input",
+			id: "prod"
+		});
+
+		$.ajax({
+		
+		url: url,
+		type: 'GET',
+		success: function(Product) {
+			
+			$.each($(Product.data), function(index, product) {
+            newProd.append($("<option>").attr({value: product.id_prod}).text(product.nom));
+        });
+			
+		}
+	});
+		// Agrega el input al final de un contenedor (por ejemplo, un div)
+		$("#contenedor-inputs").append(newInput);
+		$("#contenedor-selects").append(newProd);
+	});
+});
 
 $('document').ready(function() {
 
