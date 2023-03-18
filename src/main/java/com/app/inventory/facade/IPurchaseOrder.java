@@ -14,6 +14,6 @@ public interface IPurchaseOrder {
 	public void create(Purchaseorder purchaseorder);
 	public void update(Purchaseorder purchaseorder);
 	public void delete(Purchaseorder purchaseorder);
-	public Purchaseorder guardar(PurchaseOrderDTO purchaseOrderDTO);
+	public Purchaseorder guardar(PurchaseOrderDTO purchaseOrderDTO, String from, String to, String subject, String body);
 	
 }
