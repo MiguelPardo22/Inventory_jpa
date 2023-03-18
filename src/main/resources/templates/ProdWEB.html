@@ -72,9 +72,6 @@
 					<td th:text="${prod.pre_vent}"></td>
 					<td th:text="${prod.imp}"></td>
 
-			
-					
-
 					<td th:text="${prod.est}"></td>
 
 					<td><a th:href="@{/admin/getOneProduct/(id_prod=${prod.id_prod})}" onclick="Ocultar()"
@@ -84,6 +81,45 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<br>
+
+<!-- Excepciones -->
+
+		<!-- Crear -->
+
+		<div th:if=${param.exito}>
+			<div class="alert alert-success">Se creo exitosamente el
+				registro</div>
+		</div>
+
+		<div th:if=${param.fallo}>
+			<div class="alert alert-danger">No se pudo crear el registro</div>
+		</div>
+		
+		<!-- Actualizar -->
+		
+		<div th:if=${param.exitoUp}>
+			<div class="alert alert-success">Se actualizo exitosamente el
+				registro</div>
+		</div>
+
+		<div th:if=${param.falloUp}>
+			<div class="alert alert-danger">No se pudo actualizar el registro</div>
+		</div>
+
+        <!-- Borrar -->
+
+        <div th:if=${param.exitoDe}>
+			<div class="alert alert-success">Se elimino exitosamente el
+				registro</div>
+		</div>
+
+		<div th:if=${param.falloDe}>
+			<div class="alert alert-danger">No se pudo eliminar el registro</div>
+		</div>
+
+        <!-- -------- -->
 
 		<a><button  class="ov-btn-grow-box" id="crear"
 				onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>

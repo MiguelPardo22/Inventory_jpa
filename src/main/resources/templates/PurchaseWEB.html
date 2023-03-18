@@ -85,6 +85,21 @@
 				</tr>
 			</tbody>
 		</table>
+		<br>
+		<!-- Excepciones -->
+
+		<!-- Crear -->
+
+		<div th:if=${param.exito}>
+			<div class="alert alert-success">Se creo exitosamente el
+				registro</div>
+		</div>
+
+		<div th:if=${param.fallo}>
+			<div class="alert alert-danger">No se pudo crear el registro</div>
+		</div>
+
+		<!-- ----- -->
 
 	</div>
 
@@ -115,9 +130,10 @@
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Numero de la Factura:</label><br> <input class="nomcat"
-											type="text" placeholder="Ingrese Num de Factura"
-											name="Num_fac" id="Num_fac"><br>
+										<label>Numero de la Factura:</label><br> <input
+											class="nomcat" type="text"
+											placeholder="Ingrese Num de Factura" name="Num_fac"
+											id="Num_fac"><br>
 									</div>
 								</div>
 
@@ -135,8 +151,8 @@
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Cantidad:</label><br> <input  class="nomcat" type="number"
-											name="Can"><br>
+										<label>Cantidad:</label><br> <input class="nomcat"
+											type="number" name="Can"><br>
 									</div>
 								</div>
 

@@ -12,10 +12,9 @@
 <!-- DataTables con BootStrap -->
 <link rel="stylesheet" type="text/css"
 	href="/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css" />
-	
-	<link rel="stylesheet" type="text/css"
-	href="/datatables/datatables.css"/>
-	
+
+<link rel="stylesheet" type="text/css" href="/datatables/datatables.css" />
+
 
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
@@ -30,8 +29,8 @@
 </head>
 <body>
 	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
-	<a sec:authorize="isAuthenticated()" class="cerrar"
-		th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
+	<a sec:authorize="isAuthenticated()" class="cerrar" th:href="@{/}"><h3
+			class="regresar">Regresar</h3></a>
 	<hr class="linea">
 	<div class="container">
 
@@ -44,50 +43,89 @@
 					<th class="titulotb" scope="col">#</th>
 					<th class="titulotb" scope="col">Nombre</th>
 					<th class="titulotb" scope="col">Estado</th>
-					<th class="titulotb" style="width: 333.94399999999996px;" scope="col">Acciones</th>
+					<th class="titulotb" style="width: 333.94399999999996px;"
+						scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
 
-				<tr th:each="cat : ${Category}" >
+				<tr th:each="cat : ${Category}">
 					<th th:text="${cat.id_cat}" scope="row"></th>
 					<td th:text="${cat.nom}"></td>
 					<td th:text="${cat.est}">
-					<td><a th:href="@{/admin/getOneCategory/(id_cat=${cat.id_cat})}" 
-						class="btn btn-warning" id="update"onclick="Ocultar()">Editar</a> <a
-						th:href="@{/admin/CategoryDelete/(id_cat=${cat.id_cat})}"
-						class="btn btn-warning" id="updateButton"onclick="Ocultar()">Eliminar</a></td>
-						
+					<td><a
+						th:href="@{/admin/getOneCategory/(id_cat=${cat.id_cat})}"
+						class="btn btn-warning" id="update" onclick="Ocultar()">Editar</a>
+						<a th:href="@{/admin/CategoryDelete/(id_cat=${cat.id_cat})}"
+						class="btn btn-warning" id="updateButton" onclick="Ocultar()">Eliminar</a></td>
+
 				</tr>
 			</tbody>
 		</table>
 
+			<br>
 
+       <!-- Excepciones -->
+
+		<!-- Crear -->
+
+		<div th:if=${param.exito}>
+			<div class="alert alert-success">Se creo exitosamente el
+				registro</div>
+		</div>
+
+		<div th:if=${param.fallo}>
+			<div class="alert alert-danger">No se pudo crear el registro</div>
+		</div>
 		
+		<!-- Actualizar -->
+		
+		<div th:if=${param.exitoUp}>
+			<div class="alert alert-success">Se actualizo exitosamente el
+				registro</div>
+		</div>
+
+		<div th:if=${param.falloUp}>
+			<div class="alert alert-danger">No se pudo actualizar el registro</div>
+		</div>
+
+        <!-- Borrar -->
+
+        <div th:if=${param.exitoDe}>
+			<div class="alert alert-success">Se elimino exitosamente el
+				registro</div>
+		</div>
+
+		<div th:if=${param.falloDe}>
+			<div class="alert alert-danger">No se pudo eliminar el registro</div>
+		</div>
+
+        <!-- -------- -->
 
 		<form th:action="@{/files/uploadCat}" method="POST"
 			enctype="multipart/form-data">
 			<div class="row my-4">
 				<div th:if=${param.CargaExitosa}>
-					<div class="alert alert-success">Datos Llenados Correctactemente</div>
+					<div class="alert alert-success">Datos Llenados
+						Correctactemente</div>
 				</div>
 
 				<div th:if=${param.CargaFallida}>
 					<div class="alert alert-danger">Ocurrio algo en la carga</div>
 				</div>
 				<div class="col-md-4">
-					<span>¿Quiere llenar Datos desde un excel?</span> <input type="file"
-						name="files" accept=".xlsx" onchange="" id="file" class="file form-control"
-						required="required">
+					<span>¿Quiere llenar Datos desde un excel?</span> <input
+						type="file" name="files" accept=".xlsx" onchange="" id="file"
+						class="file form-control" required="required">
 				</div>
 				<div class="col-md-4">
 					<button id="subir" class="ov-btn-slide-close">Subir</button>
 				</div>
 			</div>
 		</form>
-		
-		
-		
+
+
+
 		<a><button class="ov-btn-grow-box" id="crear"
 				onclick="document.getElementById('id01').style.display='block',Ocultar()">Crear</button></a>
 
@@ -98,7 +136,7 @@
 			<div class="container">
 				<div class="row">
 					<div>
-					
+
 						<center>
 							<h1 class="tituloh1">Registro de Categorias</h1>
 						</center>
@@ -111,8 +149,8 @@
 
 
 									<div class="form-group">
-										<label>Nombre</label><br> <input type="text" class="nomcat"
-											placeholder="Ingrese una categoria" name="nom"><br>
+										<label>Nombre</label><br> <input type="text"
+											class="nomcat" placeholder="Ingrese una categoria" name="nom"><br>
 									</div>
 
 									<div class="form-group6">
@@ -126,12 +164,14 @@
 									</div>
 
 
+
 									<div class="container1">
-										<button   type="submit" class="ov-btn-slide-left" onclick="Mostrar()">Guardar</button>
+										<button type="submit" class="ov-btn-slide-left"
+											onclick="Mostrar()">Guardar</button>
 										<br> <br>
 
 
-										<button type="button" 
+										<button type="button"
 											onclick="document.getElementById('id01').style.display='none',Mostrar()"
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
@@ -152,7 +192,7 @@
 			<div class="container">
 				<div class="row">
 					<div>
-						
+
 						<center>
 							<h1 class="tituloh1">Actualizacion de Categorias</h1>
 						</center>
@@ -167,8 +207,9 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Nombre:</label><br> <input type="text" class="nomcat"
-												placeholder="Ingrese nombre" id="nomEdit" name="nom"><br>
+											<label>Nombre:</label><br> <input type="text"
+												class="nomcat" placeholder="Ingrese nombre" id="nomEdit"
+												name="nom"><br>
 										</div>
 									</div>
 
@@ -185,11 +226,13 @@
 
 
 									<div class="container1">
-										<button type="submit" onclick="Mostrar()"class="ov-btn-slide-left">Guardar</button>
+										<button type="submit" onclick="Mostrar()"
+											class="ov-btn-slide-left">Guardar</button>
 										<br> <br>
 
 
-										<button type="button" class="o-btn-slide-left" data-dismiss="modal" data-backdrop="false" 
+										<button type="button" class="o-btn-slide-left"
+											data-dismiss="modal" data-backdrop="false"
 											onclick="document.getElementById('editModal').style.display='none',Mostrar()">Cancelar</button>
 									</div>
 								</div>
@@ -209,10 +252,8 @@
 			<div class="container">
 				<div class="row">
 					<div>
-					
-						<center>
-							
-						</center>
+
+						<center></center>
 
 						<div class="rd-body">
 
@@ -222,11 +263,11 @@
 									<h3 class="tituloh3">¿Esta seguro de borrar este dato?</h3>
 
 									<div class="container2">
-										<a  class="p-btn-slide-left" onclick="Mostrar()"
-							                 id="delRef">Si, Seguro</a> <br>
-										<br>
+										<a class="p-btn-slide-left" onclick="Mostrar()" id="delRef">Si,
+											Seguro</a> <br> <br>
 
-										<button type="button" data-dismiss="modal" data-backdrop="false" 
+										<button type="button" data-dismiss="modal"
+											data-backdrop="false"
 											onclick="document.getElementById('updateEstModal').style.display='none',Mostrar()"
 											class="btn-slide-left">Cancelar</button>
 									</div>
@@ -255,8 +296,7 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 	<!-- Java script -->
-	<script type="text/javascript"
-		th:src="@{/js/UpdateCategory.js}"></script>
+	<script type="text/javascript" th:src="@{/js/UpdateCategory.js}"></script>
 	<!-- DataTables -->
 	<script type="text/javascript"
 		th:src="@{/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js}"></script>
