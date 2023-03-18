@@ -1,11 +1,11 @@
 package com.app.inventory.facadeimp;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.app.inventory.Dto.PurchaseOrderDTO;
@@ -24,6 +24,9 @@ public class PurchaseOrderDao implements IPurchaseOrder {
 	@Autowired
 	Detalle_OrderCompraRepository detorcomrepo;
 
+	@Autowired
+	JavaMailSender javamail;
+	
 	@Override
 	public List<Purchaseorder> EncontrarPurchaseOrder() {
 		return purorderrepo.findAll();
@@ -58,7 +61,7 @@ public class PurchaseOrderDao implements IPurchaseOrder {
 	}
 
 	@Override
-	public Purchaseorder guardar(PurchaseOrderDTO purchaseOrderDTO) {
+	public Purchaseorder guardar(PurchaseOrderDTO purchaseOrderDTO, String from, String to, String subject, String body) {
   
 		//Map<String, String> salida = new HashMap<>();
 		
@@ -71,8 +74,19 @@ public class PurchaseOrderDao implements IPurchaseOrder {
 		detordercom.setSubTot(purchaseOrderDTO.getSubTot());
 		detordercom.setId_prod_fk(purchaseOrderDTO.getId_prod_fk());
 		
+        SimpleMailMessage mailMessage = new SimpleMailMessage();		
 		
+		mailMessage.setFrom(from);
+		mailMessage.setTo(purchaseOrderDTO.getId_Supplier_fk().getMail());
+		mailMessage.setSubject("Orden de compra");
+		mailMessage.setText("Buen dia, se envia la orden de compra"
+				+ "\nProductos: " + purchaseOrderDTO.getId_prod_fk().getNom()
+				+ "\nCantidad: " + purchaseOrderDTO.getCan());
+		
+		javamail.send(mailMessage);
 		this.detorcomrepo.save(detordercom);
 		return purorderrepo.save(purorder);
 	}
+	
+	
 }
