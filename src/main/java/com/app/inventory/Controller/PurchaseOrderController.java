@@ -3,8 +3,6 @@ package com.app.inventory.Controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +18,6 @@ import com.app.inventory.facadeimp.SupplierDao;
 import com.app.inventory.model.Product;
 import com.app.inventory.model.Purchaseorder;
 import com.app.inventory.model.Supplier;
-import com.app.inventory.model.User;
 
 @Controller
 @RequestMapping("/admin")
@@ -56,10 +53,10 @@ public class PurchaseOrderController {
 	}
 	
     @PostMapping({"/PurchaseOrderCrear/save"})
-	public String create(PurchaseOrderDTO purchaseOrderDTO, Model modelo, HttpSession session) {
-		purchaseorderdao.guardar(purchaseOrderDTO);
-		User us = (User) session.getAttribute("usuario");
-		modelo.addAttribute("usuario",us);
+	public String create(PurchaseOrderDTO purchaseOrderDTO,/* Model modelo, HttpSession session*/ String from, String to, String subject, String body) {
+		purchaseorderdao.guardar(purchaseOrderDTO, "s", "s", "s", "s");
+		//User us = (User) session.getAttribute("usuario");
+		//modelo.addAttribute("usuario",us);
 		return "redirect:/admin/PurchaseOrderWEB";
 	}
     
