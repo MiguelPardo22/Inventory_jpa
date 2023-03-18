@@ -15,7 +15,7 @@ $('document').ready(function() {
 			 $('#MailEdit').val(user.mail);
 			 $('#ConEdit').val(user.con);
 			 $('#EstEdit').val(user.est);
-			 $('#idroleEdit').val(user.roles);
+			 $('#idroleEdit').val(user.roles.id_rol.nom);
 			 
 		 });
 		 
