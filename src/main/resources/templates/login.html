@@ -23,7 +23,8 @@
 					<div class="alert alert-info">Ha cerrado sesion exitosamente</div>
 				</div>
 
-				<form th:action="@{/login}" method="post">
+				<form th:action="@{/login}" method="post" novalidate
+					class="needs-validation">
 
 					<div th:if="${param.error}">
 						<div class="alert alert-danger">Usuario o contraseña
@@ -35,12 +36,23 @@
 						<label for="username">Nombre de usuario : </label> <input
 							id="username" name="username" type="text" class="form-control"
 							required autofocus="autofocus" placeholder="Digite su email ID">
+
+						<div class="valid-feedback"></div>
+
+						<div class="invalid-feedback">Hace falta el Nombre de
+							Usuario</div>
 					</div>
 
 					<div class="form-group">
-						<label for="password">Password : </label> <input id="password"
+						<label for="password">Contraseña : </label> <input id="password"
 							type="password" name="password" class="form-control" required
 							autofocus="autofocus" placeholder="Digite su password">
+							
+							<div class="valid-feedback"></div>
+
+							<div class="invalid-feedback">Hace falta la Contraseña
+
+							</div>
 					</div>
 
 
@@ -55,10 +67,9 @@
 					</div>
 				</form>
 				<br> <span class="frase">Si eres nuevo usuario <a
-					th:href="@{/registro}"> regístrate aqui</a></span><br>
-					<span class="frase1">
-					<a th:href="@{/forgot_password}"><br>
-					¿Olvidaste tu contraseña?</a>
+					th:href="@{/registro}"> regístrate aqui</a></span><br> <span
+					class="frase1"> <a th:href="@{/forgot_password}"><br>
+						¿Olvidaste tu contraseña?</a>
 				</span>
 
 			</div>
@@ -72,6 +83,8 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
+			<!-- Js -->
+  <script type="text/javascript" th:src="@{/js/login.js}"></script>
 
 </body>
 </html>

@@ -5,6 +5,11 @@
 <title>Registro de Usuarios</title>
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/css/Styles.css}" />
+
+<!-- FontAwesome -->
+<link href="./css/demo1.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/e19784fdd4.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -18,37 +23,73 @@
 					<br>
 					<h1>Registrate</h1>
 
-					<form th:action="@{/registro}" method="post" th:object="${usuario}">
+					<form th:action="@{/registro}" method="post" th:object="${usuario}"
+						novalidate class="needs-validation">
 
 						<div class="form-group">
-							<label class="control-label" for="iden">Identificacion: </label>
-							<input id="iden" type="number" class="form-control"
-								th:field="*{iden}" required>
+							<label class="control-label" for="iden">Identificacion:
+							</label> <input id="iden" type="number" class="form-control"
+								placeholder="identificacion" value="" th:field="*{iden}">
+
+							<div class="valid-feedback"></div>
+
+							<div class="invalid-feedback">Hace falta la identificacion
+
+							</div>
+
 						</div>
+
+
 
 						<div class="form-group">
 							<label class="control-label" for="nom">Nombre Completo: </label>
 							<input id="nom" type="text" class="form-control"
 								th:field="*{nom}" required>
+
+							<div class="valid-feedback"></div>
+
+							<div class="invalid-feedback">Hace falta el nombre</div>
 						</div>
+
+
 
 						<div class="form-group">
 							<label class="control-label" for="tel">Telefono: </label> <input
 								id="tel" type="number" class="form-control" th:field="*{tel}"
 								required>
+
+							<div class="valid-feedback"></div>
+
+							<div class="invalid-feedback">Hace falta el telefono</div>
+
 						</div>
+
+
 
 						<div class="form-group">
 							<label class="control-label" for="mail">Mail: </label> <input
 								id="mail" type="email" class="form-control" th:field="*{mail}"
 								required>
+
+							<div class="valid-feedback"></div>
+
+							<div class="invalid-feedback">Hace falta el Mail</div>
+
 						</div>
 
+
+
 						<div class="form-group">
-							<label class="control-label" for="con">Password: </label> <input
+							<label class="control-label" for="con">Contraseña: </label> <input
 								type="password" id="con" class="form-control" th:field="*{con}"
 								required>
+										<div class="valid-feedback"></div>
+
+						<div class="invalid-feedback">Hace falta la Contraseña</div>
+
 						</div>
+
+				
 
 						<div class="control-label">
 							<button class="ov-btn-grow-box" type="submit">
@@ -73,6 +114,8 @@
 
 			</div>
 		</div>
+
+		<script type="text/javascript" th:src="@{/js/Registro.js}"></script>
 
 		<img th:src="@{/css/logohorizontalconslogan.png}" />
 		<script
