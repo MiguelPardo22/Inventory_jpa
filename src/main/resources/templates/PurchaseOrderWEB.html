@@ -79,21 +79,6 @@
 				</tbody>
 			</table>
 
-			<!-- Excepciones -->
-
-		<!-- Crear -->
-
-		<div th:if=${param.exito}>
-			<div class="alert alert-success">Se creo exitosamente el
-				registro y se envio la orden de compra al proveedor</div>
-		</div>
-
-		<div th:if=${param.fallo}>
-			<div class="alert alert-danger">No se pudo crear el registro</div>
-		</div>
-		
-		<!-- ----- -->
-			
 		</div>
 		<a><button button class="ov-btn-grow-box"
 				onclick="document.getElementById('id01').style.display='block'">Crear</button></a>
