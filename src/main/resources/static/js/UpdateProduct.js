@@ -73,8 +73,11 @@ $(document).ready( function () {
 			{
 				extend:    'pdfHtml5',
 				text:      '<i class="fas fa-file-pdf"></i> ',
+				exportOptions: {
+					columns: [0, 1, 2, 3, 4, 5, 6, 7, 8] //Columnas a exportar
+				},
 				titleAttr: 'Exportar a PDF',
-				className: 'btn btn-danger'
+				className: 'btn btn-danger',
 			},
 		]	    
     });

@@ -67,9 +67,22 @@ $(document).ready( function () {
 			},
 			{
 				extend:    'pdfHtml5',
+				exportOptions: {
+					columns: [0, 1, 2] //Columnas a exportar
+				},
 				text:      '<i class="fas fa-file-pdf"></i> ',
 				titleAttr: 'Exportar a PDF',
-				className: 'btn btn-danger'
+				className: 'btn btn-danger',
+				customize: function(doc) {
+					
+					doc.styles.tableHeader = { fillColor: '#ffff00', textColor: '#000', fontSize: 10, bold: true };
+					doc.styles.tableBodyEven = { fillColor: '#f5f5f5', textColor: '#000', fontSize: 10 };
+					doc.styles.tableBodyOdd = { fillColor: '#fff', textColor: '#000', fontSize: 10 };
+					doc.content[1].margin = [0, 0, 0, 0];
+					doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+					doc.content[1].table.widths[0] = 25;
+					doc.content[1].table.headerRows = 1;
+				}
 			},
 		]	    
     });
