@@ -112,6 +112,49 @@ $(document).ready( function () {
     });
 } );
 	  
+ function ValidarCampos(){
+
+	if($("#Cant").val() == ''){
+	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UNA CANTIDAD!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+	} 
+	 
+	$("#GuardarOri").trigger('click');
+}
 	  
+	  
+	  
+function validarRango(elemento){
+  var numero = parseInt(elemento.value,10);
+  //Validamos que se haya ingresado solo numeros
+  if(isNaN(numero)){
+    alert('Ingrese solo números.');
+    elemento.focus();
+    elemento.select();
+    return false;
+  }
+  //Validamos que se cumpla el rango
+  if(numero<1 || numero>9){
+   	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR DENTRO DEL RANGO 1-9!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+  }
+ 
+}
 	  
 	  

@@ -81,6 +81,42 @@ $(document).ready( function () {
     });
 } );
 	  
+$('form').submit(function(e){
+    // si la cantidad de checkboxes "chequeados" es cero,
+    // entonces se evita que se envíe el formulario y se
+    // muestra una alerta al usuario
+    if ($('input[type=checkbox]:checked').length === 0) {
+        e.preventDefault();
+       Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'Debe seleccionar al menos uno!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+})
+    }
+}); 
+	
+	
 	  
-	  
-	  
+ 
+$("#bot").onclick(function(event){
+        event.preventDefault();
+        let form = event.target;
+
+        swal.fire({
+            title: '¿Seguro que desea eliminar el registro?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: '¡Si, eliminar!'
+        }).then((result) => {
+        if (result.value) {
+            form.submit();
+        }
+    });
+});

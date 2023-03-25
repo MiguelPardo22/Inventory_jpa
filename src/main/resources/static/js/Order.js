@@ -123,4 +123,83 @@ $(document).ready(function() {
 });
 
 
+  function ValidarCampos(){
+
+	if($("#Name_cli").val() == ''){
+	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UN NOMBRE!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+	}
+	if($("#cant").val() == ''){
+	  	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UNA CANTIDAD!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+  
+
+});
+ return 0;
+	}
+	
+	
+	 
+	$("#GuardarOri").trigger('click');
+}
+
+
+
+
+
+	  
+function validarRango(elemento){
+  var numero = parseInt(elemento.value,10);
+  //Validamos que se haya ingresado solo numeros
+  if(isNaN(numero)){
+    alert('Ingrese solo números.');
+    elemento.focus();
+    elemento.select();
+    return false;
+  }
+  //Validamos que se cumpla el rango
+  if(numero<1 || numero>9){
+   	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR DENTRO DEL RANGO 1-9!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+  }
+ 
+}
+
+
+
+function LETRAS(e){
+
+                tecla = (document.all) ? e.keyCode : e.which;
+                //Tecla de retroceso para borrar, siempre la permite
+                if (tecla==8){
+                  return true;
+                }
+                  
+                // Patron de entrada, en este caso solo acepta numeros
+                patron =/[a-z-A-Z. ]/;
+                tecla_final = String.fromCharCode(tecla);
+                return patron.test(tecla_final);
+            }
+
 

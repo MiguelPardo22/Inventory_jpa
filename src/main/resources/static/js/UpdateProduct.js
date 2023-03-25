@@ -83,6 +83,90 @@ $(document).ready( function () {
     });
 } );
 	  
-	  
-	  
+
+  function ValidarCampos(){
+
+	if($("#ref").val() == ''){
+	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UNA REFERENCIA!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	if($("#nom").val() == ''){
+	  	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UN NOMBRE!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+  
+
+});
+ return 0;
+	}
+	if($("#Pre_comp").val() == ''){
+		
+	 	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UN PRECIO DE COMPRA!',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});
+ return 0;
+	}
+	if($("#Pre_vent").val() == ''){
+	 	 	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UN PRECIO DE VENTA',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+	}
+	
+
+	
+
+	 
+	$("#GuardarOri").trigger('click');
+}
+
+
+
+
+
+
+ function LETRAS(e){
+
+                tecla = (document.all) ? e.keyCode : e.which;
+                //Tecla de retroceso para borrar, siempre la permite
+                if (tecla==8){
+                  return true;
+                }
+                  
+                // Patron de entrada, en este caso solo acepta numeros
+                patron =/[a-z-A-Z. ]/;
+                tecla_final = String.fromCharCode(tecla);
+                return patron.test(tecla_final);
+            }
 	  

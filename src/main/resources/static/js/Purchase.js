@@ -43,3 +43,43 @@ $(document).ready( function () {
 	  
 	  
 	  
+ function ValidarCampos(){	  
+	  
+	  if($("#Num_fac").val() == ''){
+	 	 	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UN NUMERO DE FACTURA',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+	}
+
+	if($("#cant").val() == ''){
+	 	 	  Swal.fire({
+  icon: 'warning',
+  title: 'Oops...',
+  text: 'DEBE DIGITAR UNA CANTIDAD',
+  background:'#191919',
+  confirmButtonColor:'#ecab0f',
+  color:'white'
+
+});/*sucesss*/
+	  return 0;
+	}
+	$("#GuardarOri").trigger('click');
+	
+}	  
+
+
+
+
+
+
+
+
+
+	  
