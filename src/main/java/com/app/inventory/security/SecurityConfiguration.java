@@ -59,9 +59,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/forgot_password",
 				"/reset_password")
 		.permitAll()
-		.antMatchers("/").hasAnyAuthority("Invitado", "Mesero", "Administrador")
+		.antMatchers("/").hasAnyAuthority("Invitado", "Mesero", "Bodeguero", "Administrador")
 		.antMatchers("/mesero/**").hasAnyAuthority("Mesero", "Administrador")
-		.antMatchers("/admin/ProdWEB").hasAnyAuthority("Mesero", "Administrador")
+		.antMatchers("/admin/ProdWEB").hasAnyAuthority("Mesero", "Bodeguero", "Administrador")
+		.antMatchers("/Bodeguero/**").hasAnyAuthority("Bodeguero", "Administrador")
 		.antMatchers("/admin/**").hasAuthority("Administrador")
 		.anyRequest().authenticated()
 		.and()
