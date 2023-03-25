@@ -156,20 +156,20 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Nit:</label><br> <input type="number"
+											<label>Nit:</label><br> <input type="number" id="Nit"
 												placeholder="Ingrese NIT" name="nit"><br>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Nombre del Proveedor:</label><br> <input
+											<label>Nombre del Proveedor:</label><br> <input id="nom" onkeypress="return LETRAS(event);"
 												type="text" placeholder="Ingrese Nombre" name="nom"><br>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 
-											<label>Telefono:</label><br> <input type="number"
+											<label>Telefono:</label><br> <input type="number" id="Tel"
 												placeholder="Ingrese Telefono" name="tel"><br>
 
 										</div>
@@ -177,14 +177,14 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Direccion:</label><br> <input type="text"
+											<label>Direccion:</label><br> <input type="text" id="Dir"
 												placeholder="Ingrese Direecion" name="dir"><br>
 										</div>
 									</div>
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Mail:</label><br> <input type="text"
+											<label>Mail:</label><br> <input type="text" id="Mail"
 												placeholder="Ingrese Mail" name="mail"><br>
 										</div>
 									</div>
@@ -202,9 +202,14 @@
 									</div>
 
 									<div class="container">
-										<button type="submit" class="ov-btn-slide-left"
-											onclick="Mostrar()">Guardar</button>
-										<br> <br>
+									
+
+									<div class="container1">
+										<input type="button" class="ov-btn-slide-left"
+											onclick="ValidarCampos();" value="Guardar">
+
+										<button type="submit" id="GuardarOri"
+											class="btn btn-outline-secondary" style="display: none;">Guardar</button>
 
 
 										<button type="button"
@@ -212,7 +217,7 @@
 											class="o-btn-slide-left">Cancelar</button>
 									</div>
 								</div>
-					</center>
+					
 					</form>
 				</div>
 			</div>
@@ -230,8 +235,8 @@
 
 				<center>
 					<h1 class="titulo">Actualizacion de Proveedores</h1>
-
-
+</center>
+                      <center>
 					<div class="ard-body">
 
 						<form th:action="@{/admin/SupplierUpdate}" method="put">
@@ -289,9 +294,9 @@
 								</div>
 
 								<div class="container">
-									<button type="submit" onclick="Mostrar()"
-										class="ov-btn-slide-left">Guardar</button>
-									<br> <br>
+									<div class="container1">
+										<button type="submit" class="ov-btn-slide-left" >Guardar</button>
+									
 
 
 									<button type="button" data-dismiss="modal"
@@ -300,7 +305,7 @@
 										class="o-btn-slide-left">Cancelar</button>
 								</div>
 							</div>
-				</center>
+			
 				</form>
 			</div>
 		</div>
@@ -395,6 +400,7 @@ jQuery(document).ready(function($){
 		crossorigin="anonymous"></script>
 	<!-- Java script -->
 	<script type="text/javascript" th:src="@{/js/UpdateSupplier.js}"></script>
+		<script type="text/javascript" th:src="@{/js/Validaciones.js}"></script>
 	<!-- DataTables -->
 	<script type="text/javascript"
 		th:src="@{/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js}"></script>
@@ -410,7 +416,7 @@ jQuery(document).ready(function($){
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

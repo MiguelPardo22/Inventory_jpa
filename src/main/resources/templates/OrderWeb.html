@@ -147,8 +147,8 @@
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Nombre del Cliente:</label><br> <input type="text" class="nomcat"
-											placeholder="Ingrese el subtotal de la orden" name="Name_cli"
+										<label>Nombre del Cliente:</label><br> <input type="text" class="nomcat"onkeypress="return LETRAS(event);"
+											placeholder="Ingrese un nombre" name="Name_cli"
 											id="Name_cli"><br>
 									</div>
 								</div>
@@ -166,14 +166,14 @@
 
 							    
 									<div class="form-group">
-										<label>Agregar detalles:</label><br>
-										 <input type="button" id="agregar" value="+">
+										<br>
+										 <input type="button" id="agregar" value="+"   class="">
 									</div>
 								
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Cantidad:</label><br> <input placeholder="Ingrese la Cantidad"
+										<label>Cantidad:</label><br> <input placeholder="Ingrese la Cantidad" id="cant"   onblur="return validarRango(this);"
 										 class="cantidad" type="number" max="9"
 											min="1" name="detalles[0].cant"><br>
 
@@ -261,8 +261,11 @@
 
 								<div class="container1">
 
-									<button type="submit" class="ov-btn-slide-left">Guardar</button>
-									<br> <br>
+									<input type="button" class="ov-btn-slide-left"
+											onclick="ValidarCampos();" value="Guardar">
+
+										<button type="submit" id="GuardarOri"
+											class="btn btn-outline-secondary" style="display: none;">Guardar</button>
 
 
 									<button type="button"
@@ -284,13 +287,13 @@
 
 		<div class="container">
 			<div class="row">
-				<div
-					class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<div>
+					
 					<center>
-						<h1>Actualizacion de Medidas</h1>
+						<h1 class="titulo"> Actualizacion de Medidas</h1>
 					</center>
 
-					<div class="ard-body">
+					<div class="rd-body">
 
 						<form th:action="@{/mesero/OrderUpdate}" method="PUT">
 
@@ -315,14 +318,14 @@
 									</div>
 								</div>
 
-								<div class="container">
+								<div class="container2">
 									<button type="submit" class="ov-btn-slide-left">Guardar</button>
 									<br> <br>
 
 
-									<button type="button"
+									<button type="button" data-dismiss="modal" data-backdrop="false"
 										onclick="document.getElementById('editModal').style.display='none'"
-										class="o-btn-slide-left">Cancelar</button>
+										class="o-btn-slide-lef">Cancelar</button>
 								</div>
 							</div>
 
@@ -365,6 +368,8 @@
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 	<footer class="footer">

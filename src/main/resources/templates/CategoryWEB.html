@@ -149,8 +149,8 @@
 
 
 									<div class="form-group">
-										<label>Nombre</label><br> <input type="text"
-											class="nomcat" placeholder="Ingrese una categoria" name="nom"><br>
+										<label>Nombre</label><br> <input type="text"  onkeypress="return LETRAS(event);"
+											class="nomcat" placeholder="Ingrese una categoria" name="nom" id="Cat"><br>
 									</div>
 
 									<div class="form-group6">
@@ -166,8 +166,12 @@
 
 
 									<div class="container1">
-										<button type="submit" class="ov-btn-slide-left"
-											onclick="Mostrar()">Guardar</button>
+										<input type="button" class="ov-btn-slide-left"
+											onclick="ValidarCampos();" value="Guardar">
+
+										<button type="submit" id="GuardarOri"
+											class="btn btn-outline-secondary" style="display: none;">Guardar</button>
+										
 										<br> <br>
 
 
@@ -311,6 +315,8 @@
 	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<footer class="footer">
 		<small>&copy; 2022 <b>1NV3NT0RY</b> - Todos los derechos

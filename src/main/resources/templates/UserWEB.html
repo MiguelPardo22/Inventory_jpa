@@ -16,6 +16,7 @@
 
 <link rel="stylesheet" type="text/css" href="/datatables/DataTables.css" />
 
+
 <!-- FontAwesome -->
 <link rel="stylesheet" type="text/css"
 	href="/fontawesome-free-6.3.0-web/css/fontawesome.min.css" />
@@ -86,8 +87,7 @@
 		</div>
 
 		<div th:if=${param.falloUp}>
-			<div class="alert alert-danger">No se pudo el rol del
-				Usuario</div>
+			<div class="alert alert-danger">No se pudo el rol del Usuario</div>
 		</div>
 
 		<!-- Borrar -->
@@ -216,7 +216,7 @@
 
 						<div class="ard-body">
 
-							<form th:action="@{/admin/Userupdate}" method="put">
+							<form th:action="@{/admin/Userupdate}" method="put"  id="form"   >
 
 								<div class="form-row row">
 
@@ -232,24 +232,26 @@
 
 									<input type="hidden" id="ConEdit" name="con"><br>
 
-                                    <input type="hidden" id="EstEdit" name="est">
+									<input type="hidden" id="EstEdit" name="est">
 
-									
+
 
 									<div class="col-md-6">
 										<div class="orm-group">
 											<label class="lable">Nombre Rol</label>
 											<th:block th:each="roles : ${Rol}">
 												<div class="lis">
-													<input type="checkbox" id="idroleEdit" name="roles"
+													<input type="checkbox" id="idroleEdit" name="roles" 
 														th:text="${roles.nom}" th:value="${roles.id_rol}"></input>
+
+												
 												</div>
 											</th:block>
 										</div>
 									</div>
 
 									<div class="container1">
-										<button type="submit" class="ov-btn-slide-left">Guardar</button>
+										<button type="submit" class="ov-btn-slide-left" id="bot">Guardar</button>
 										<br> <br>
 
 
@@ -285,7 +287,7 @@
 									<h3 class="tituloh3">¿Esta seguro de borrar este dato?</h3>
 									<br> <br>
 
-									<div class="container1">
+									<div class="container2">
 										<a class="p-btn-slide-left" id="delRef">Si, Seguro</a> <br>
 										<br>
 
@@ -344,6 +346,10 @@
 	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
+	
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 

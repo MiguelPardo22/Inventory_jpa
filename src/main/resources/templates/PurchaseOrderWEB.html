@@ -130,7 +130,7 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Cantidad:</label><br> <input type="number"
+											<label>Cantidad:</label><br> <input type="number"  id="Cant"  class="nomcat" onblur="return validarRango(this);"
 												placeholder="Ingrese la cantidad"
 												name="Can"><br>
 										</div>
@@ -147,8 +147,11 @@
 									</div>
 
 									<div class="container1">
-										<button type="submit" class="ov-btn-slide-left">Guardar</button>
-										<br> <br>
+										<input type="button" class="ov-btn-slide-left"
+											onclick="ValidarCampos();" value="Guardar">
+
+										<button type="submit" id="GuardarOri"
+											class="btn btn-outline-secondary" style="display: none;">Guardar</button>
 
 
 										<button type="button"
@@ -194,6 +197,9 @@
 	<script th:src="@{/datatables/JSZip-2.5.0/jszip.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/pdfmake.min.js}"></script>
 	<script th:src="@{/datatables/pdfmake-0.1.36/vfs_fonts.js}"></script>
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<script type="text/javascript">
 		

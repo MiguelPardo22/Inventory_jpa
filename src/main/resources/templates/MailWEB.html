@@ -12,8 +12,8 @@
 <body>
 
 	<img class="imagen" th:src="@{/css/logohorizontalconslogan.png}" />
-	<a sec:authorize="isAuthenticated()" class="cerrar"
-		th:href="@{/}"><h3 class="regresar">Regresar</h3></a>
+	<a sec:authorize="isAuthenticated()" class="cerrar" th:href="@{/}"><h3
+			class="regresar">Regresar</h3></a>
 	<hr>
 
 
@@ -21,25 +21,25 @@
 	<div class="container">
 		<div class="card">
 			<div class="jumbotron">
-				<h1  style="text-align: center;">Enviar e-mail</h1>
+				<h1 style="text-align: center;">Enviar e-mail</h1>
 			</div>
 			<form method="POST" th:action="@{/admin/sendMail}" id="emailForm"
 				class="container">
 				<div class="form-group1">
-					<h4 class="titulo"> Nombre:</h4>
+					<h4 class="titulo">Nombre:</h4>
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 						<div class="input-group-addon">
 							<i class="fa fa-fw fa-user" aria-hidden="true"></i>
 						</div>
-						<input type="text" class="form-control" name="name"
+						<input type="text" class="form-control" name="name" id="nom"
 							placeholder="Nombre" />
 					</div>
 				</div>
 				<div class="form-group2">
-					<h4 class="titulo"> Correo:</h4>
+					<h4 class="titulo">Correo:</h4>
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 						<div class="input-group-addon">@</div>
-						<input type="text" class="form-control" name="mail"
+						<input type="text" class="form-control" name="mail" id="Mail"
 							placeholder="Correo electónico" />
 					</div>
 				</div>
@@ -49,7 +49,7 @@
 				<div class="form-group1">
 					<h2 class="titulo3">Correos:</h2>
 					<div class="admin">
-                             
+
 						<h4 class="titulo">Administrador</h4>
 
 
@@ -68,15 +68,17 @@
 									<td th:text="${admin.nom}"></td>
 
 									<td><input type="checkbox" name="emails"
-										th:text="${admin.mail}" th:value="${admin.mail}" class="BtnAdmin" /></td>
+										th:text="${admin.mail}" th:value="${admin.mail}"
+										class="BtnAdmin" /></td>
 
 								</tr>
 							</tbody>
 						</table>
 
-                          <input type="checkbox" id="selectAdmin">Seleccionar Todos los Administradores
-                          </div>
-                         <div class="bodeguero">
+						<input type="checkbox" id="selectAdmin">Seleccionar Todos
+						los Administradores
+					</div>
+					<div class="bodeguero">
 						<h4 class="titulo">Bodeguero</h4>
 
 
@@ -95,15 +97,17 @@
 									<td th:text="${bod.nom}"></td>
 
 									<td><input type="checkbox" name="emails"
-										th:text="${bod.mail}" th:value="${bod.mail}" class="BtnBodegueros" /></td>
-                               
+										th:text="${bod.mail}" th:value="${bod.mail}"
+										class="BtnBodegueros" /></td>
+
 								</tr>
 							</tbody>
 						</table>
-						<input type="checkbox" id="selectBodegueros">Seleccionar Todos los Bodegueros
-                         </div>
-                          
-                <div class="meseros">
+						<input type="checkbox" id="selectBodegueros">Seleccionar
+						Todos los Bodegueros
+					</div>
+
+					<div class="meseros">
 						<h4 class="titulo">Meseros</h4>
 
 
@@ -127,39 +131,45 @@
 								</tr>
 							</tbody>
 						</table>
-						  <input type="checkbox" id="selectMeseros">Seleccionar Todos los meseros
-						</div>
-						<div class="todes">
-						<input type="checkbox" id="selectAll"  class="cuadrito"><h4>Seleccionar Todos</h4>
-						</div>
+						<input type="checkbox" id="selectMeseros">Seleccionar
+						Todos los meseros
+					</div>
+					<div class="todes">
+						<input type="checkbox" id="selectAll" class="cuadrito">
+						<h4>Seleccionar Todos</h4>
 					</div>
 				</div>
-
-				<div class="form-group3">
-					<h4 class="titulo">Asunto</h4>
-					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<div class="input-group-addon">
-							<i class="fa fa-fw fa-envelope-open" aria-hidden="true"></i>
-						</div>
-						<input type="text" class="form-control" name="subject"
-							placeholder="Asunto" />
-					</div>
-				</div>
-				<div class="form-group7">
-			
-					<h4 class="titulo4">Mensaje</h4>
-					<textarea class="form-control" rows="10" name="body"></textarea>
-					
-				</div>
-				<div style="margin-bottom: 10px">
-					<button type="submit" class="ov-btn-slide-left">Enviar</button>
-					
-				</div>
-			</form>
 		</div>
+
+		<div class="form-group3">
+			<h4 class="titulo">Asunto</h4>
+			<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+				<div class="input-group-addon">
+					<i class="fa fa-fw fa-envelope-open" aria-hidden="true"></i>
+				</div>
+				<input type="text" class="form-control" name="subject" id="Asu"
+					placeholder="Asunto" />
+			</div>
+		</div>
+		<div class="form-group7">
+
+			<h4 class="titulo4">Mensaje</h4>
+			<textarea class="form-control" rows="10" name="body" id="Mens"></textarea>
+
+		</div>
+		<div style="margin-bottom: 10px">
+			<input type="button" class="ov-btn-slide-left"
+				onclick="ValidarCampos();" value="Guardar">
+
+			<button type="submit" id="GuardarOri"
+				class="btn btn-outline-secondary" style="display: none;">Enviar</button>
+
+		</div>
+		</form>
 	</div>
-	
-	
+	</div>
+
+
 	<footer class="footer">
 		<small>&copy; 2022 <b>1NV3NT0RY</b> - Todos los derechos
 			reservados-
@@ -186,4 +196,6 @@
 	<!-- Java Script -->
 	<script type="text/javascript" src="../static/js/Mail.js"
 		th:src="@{/js/Mail.js}"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

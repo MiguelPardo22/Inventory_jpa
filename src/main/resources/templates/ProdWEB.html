@@ -144,21 +144,21 @@
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Referencia:</label><br> <input type="number"
+											<label>Referencia:</label><br> <input type="number" min="0" id="ref"
 												placeholder="Ingrese referencia" name="ref"><br>
 										</div>
 									</div>
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Nombre Producto:</label><br> <input type="text"
-												placeholder="Ingrese nombre " name="nom"><br>
+											<label>Nombre Producto:</label><br> <input type="text" id="nom" onkeypress="return LETRAS(event);"
+												placeholder="Ingrese nombre " name="nom"><br> 
 										</div>
 									</div>
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Precio Compra:</label><br> <input type="number"
+											<label>Precio Compra:</label><br> <input type="number" min="0" id="Pre_comp"
 												placeholder="Ingrese precio compra" name="Pre_comp"><br>
 										</div>
 									</div>
@@ -166,7 +166,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 
-											<label>Precio Venta:</label><br> <input type="number"
+											<label>Precio Venta:</label><br> <input type="number" min="0" id="Pre_vent"
 												placeholder="Ingrese precio venta" name="Pre_vent"><br>
 
 										</div>
@@ -216,9 +216,11 @@
 									</div>
 
 									<div class="container1">
-										<button  type="submit" class="ov-btn-slide-left" onclick="Mostrar()" >Guardar</button>
-										<br> <br>
+										<input type="button" class="ov-btn-slide-left"
+											onclick="ValidarCampos();" value="Guardar">
 
+										<button type="submit" id="GuardarOri"
+											class="btn btn-outline-secondary" style="display: none;">Guardar</button>
 
 										<button type="button" 
 											onclick="document.getElementById('id01').style.display='none',Mostrar()"
@@ -427,6 +429,7 @@
     <script src="datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
 
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
