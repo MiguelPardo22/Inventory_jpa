@@ -75,8 +75,8 @@
   padding: 10px 53px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
-  left: 349px;
-  top:-33px;
+     left: 348px;
+    top: -29px;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
