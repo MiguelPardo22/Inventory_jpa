@@ -20,7 +20,7 @@ import com.app.inventory.model.Purchase;
 import com.app.inventory.model.Supplier;
 
 @Controller
-@RequestMapping({"/admin"})
+@RequestMapping({"/Bodeguero"})
 public class PurchaseController {
 
 	@Autowired
@@ -58,10 +58,10 @@ public class PurchaseController {
 		try {
 		purdao.guardar(purchasedto);
 		
-		return "redirect:/admin/PurchaseWEB?exito";
+		return "redirect://Bodeguero/PurchaseWEB?exito";
 		
 		} catch (Exception e) {
-			return "redirect:/admin/PurchaseWEB?exito";
+			return "redirect://Bodeguero/PurchaseWEB?fallo";
 		}
 	}
 	
