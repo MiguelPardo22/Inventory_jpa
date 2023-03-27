@@ -43,11 +43,11 @@ form-group{
 }
 
 
-/*** ESTILOS BOTÓN SLIDE LEFT ***/
+/*** ESTILOS BOTÃ“N SLIDE LEFT ***/
 .ov-btn-slide-left {
   background:#ecab0f; /* color de fondo */
   color: black; /* color de fuente */
-  border: 2px solid ; /* tamaño y color de borde */
+  border: 2px solid ; /* tamaÃ±o y color de borde */
   padding: 10px 53px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
@@ -95,7 +95,7 @@ form-group{
 .o-btn-slide-left {
   background: #e00000; /* color de fondo */
   color:  white; /* color de fuente */
- /* tamaño y color de borde */
+ /* tamaÃ±o y color de borde */
   padding: 10px 53px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
@@ -201,7 +201,7 @@ background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Fi
 .btn-slide-left {
   background: #e00000; /* color de fondo */
   color:  white; /* color de fuente */
- /* tamaño y color de borde */
+ /* tamaÃ±o y color de borde */
   padding: 10px 53px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
@@ -241,7 +241,7 @@ background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Fi
 .p-btn-slide-left {
   background:#ecab0f; /* color de fondo */
   color: black; /* color de fuente */
-  border: 2px solid ; /* tamaño y color de borde */
+  border: 2px solid ; /* tamaÃ±o y color de borde */
   padding: 10px 53px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
@@ -278,11 +278,11 @@ background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Fi
   transition: all 0.35s;
 }
 
-/*** ESTILOS BOTÓN SLIDE CLOSE ***/
+/*** ESTILOS BOTÃ“N SLIDE CLOSE ***/
 .ov-btn-slide-close {
   background:#ecab0f; /* color de fondo */
   color: black; /* color de fuente */
-  border: 2px solid #191919; /* tamaño y color de borde */
+  border: 2px solid #191919; /* tamaÃ±o y color de borde */
   padding: 12px 55px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
@@ -321,11 +321,11 @@ background: linear-gradient(to left,  #101010,#434343); /* W3C, IE 10+/ Edge, Fi
 
 
 
-/*** ESTILOS BOTÓN GROW BOX ***/
+/*** ESTILOS BOTÃ“N GROW BOX ***/
 .ov-btn-grow-box {
   background:#ecab0f; /* color de fondo */
   color: black;
-  border: 2px solid #191919; /* tamaño y color de borde */
+  border: 2px solid #191919; /* tamaÃ±o y color de borde */
   padding: 12px 55px;
   border-radius: 3px; /* redondear bordes */
   position: relative;
@@ -365,7 +365,7 @@ footer{
   color:white;
     padding: 2em 0;
     text-align: center;
-  position:absolute;
+  position:relative;
       bottom: -233px;
     width: 100%;
     height: 20px;
