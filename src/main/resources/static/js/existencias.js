@@ -10,7 +10,7 @@ $(document).ready(function() {
                 data: "exis",
                 render: function(data) {
                     if (data <= 100) {
-                        return '<span class="" style="color: red;">'+data+'&nbsp;&nbsp;&nbsp; <a href="/admin/PurchaseWEB" style="color: red" target="_blank">Por favor es necesario comprar aqui</a> </span>';
+                        return '<span class="" style="color: red;">'+data+'&nbsp;&nbsp;&nbsp; <a href="/admin/PurchaseOrderWEB" style="color: red" target="_blank">Por favor es necesario comprar aqui</a> </span>';
                     } else {
                         return '<span class="" style="color: green;">'+data+'</span>';
                     }
