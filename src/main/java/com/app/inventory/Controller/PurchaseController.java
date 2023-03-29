@@ -58,10 +58,10 @@ public class PurchaseController {
 		try {
 		purdao.guardar(purchasedto);
 		
-		return "redirect://Bodeguero/PurchaseWEB?exito";
+		return "redirect:/Bodeguero/PurchaseWEB?exito";
 		
 		} catch (Exception e) {
-			return "redirect://Bodeguero/PurchaseWEB?fallo";
+			return "redirect:/Bodeguero/PurchaseWEB?fallo";
 		}
 	}
 	
